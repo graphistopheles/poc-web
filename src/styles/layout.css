@@ -160,6 +160,12 @@
   .hd__nav, .hd__country, .hd__cta { display: none; }
   .hd__burger { display: block; }
 }
+/* Móvil: la cápsula empieza a 8px del borde y el contenido a 24px, de modo
+   que logo y menú tienen 16px de aire interior, igual que en tablet y desktop. */
+@media (max-width: 40rem) {
+  .hd__bar { padding-inline: var(--s-3); }
+  .hd__bar::before { inset-inline: var(--s-1); }
+}
 
 .mnav {
   position: fixed; inset: 0; z-index: calc(var(--z-header) - 1);
