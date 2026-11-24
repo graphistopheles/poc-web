@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto · Medismart Empresas</title>
+  <meta name="description" content="Agenda una demo de 30 minutos o escríbenos por correo, WhatsApp o línea corporativa." />
+  <meta name="theme-color" content="#030c43" />
+  <link rel="icon" href="/assets/brand/iso.svg" type="image/svg+xml" />
+</head>
+<body data-page="contacto">
+  <!-- @include header -->
+
+  <main id="main">
+    <section class="phero theme-dark grain" id="demo" data-theme="dark" data-cata-say="Completa el formulario y te confirmamos la demo al instante. ¡Yo te espero allí!">
+      <div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+      <div class="dots" aria-hidden="true"></div>
+      <div class="container contact" style="position: relative; z-index: 2">
+        <div class="stack-3">
+          <nav class="crumbs" aria-label="Ruta" data-hero-in><a href="/">Inicio</a><span aria-hidden="true">/</span><span>Contacto</span></nav>
+          <h1 class="t-h1" data-split>Conversemos sobre la salud de tu <span class="grad-text">equipo.</span></h1>
+          <p class="t-lead" data-hero-in>Agenda una demo de 30 minutos o escríbenos por el canal que prefieras. Te respondemos en menos de un día hábil.</p>
+          <div class="channels" data-hero-in>
+            <a class="channel" href="mailto:contacto.empresas@medismart.live"><span class="ico ico--soft ico--sm"><i data-lucide="mail"></i></span><span><b>Correo</b><small>contacto.empresas@medismart.live</small></span><i data-lucide="arrow-up-right"></i></a>
+            <a class="channel" href="https://wa.me/56948042543" target="_blank" rel="noopener"><span class="ico ico--soft ico--sm"><i data-lucide="message-circle"></i></span><span><b>WhatsApp</b><small>+56 9 4804 2543</small></span><i data-lucide="arrow-up-right"></i></a>
+            <a class="channel" href="tel:+56948042543"><span class="ico ico--soft ico--sm"><i data-lucide="phone"></i></span><span><b>Línea corporativa</b><small>+56 9 4804 2543</small></span><i data-lucide="arrow-up-right"></i></a>
+            <div class="channel"><span class="ico ico--soft ico--sm"><i data-lucide="clock"></i></span><span><b>Horario de atención</b><small>Lunes a viernes, de 8:00 a 20:00 h</small></span></div>
+          </div>
+        </div>
+
+        <div data-hero-stage>
+          <form class="dform" data-demo-form novalidate data-hero-card>
+            <div class="dform__head">
+              <img src="/assets/agentes/catalina.svg" width="56" height="56" alt="" />
+              <span><b>Agenda tu demo de 30 minutos</b><small>Sin compromiso · confirmación inmediata</small></span>
+            </div>
+            <div class="dform__grid">
+              <div class="field"><label for="f-name">Nombre y apellido</label><input class="input" id="f-name" name="name" autocomplete="name" required /></div>
+              <div class="field"><label for="f-mail">Correo corporativo</label><input class="input" id="f-mail" name="email" type="email" autocomplete="email" placeholder="nombre@tuempresa.com" required /></div>
+              <div class="field"><label for="f-company">Empresa</label><input class="input" id="f-company" name="company" autocomplete="organization" required /></div>
+              <div class="field"><label for="f-size">Colaboradores</label>
+                <select class="select" id="f-size" name="size" required>
+                  <option value="" selected disabled>Selecciona un rango</option>
+                  <option>1 a 50</option><option>51 a 200</option><option>201 a 500</option><option>501 a 1.000</option><option>Más de 1.000</option>
+                </select>
+              </div>
+              <div class="field is-full"><label for="f-msg">¿Qué te gustaría resolver? <span style="color:var(--tx-3); font-weight: var(--w-body)">(opcional)</span></label><textarea class="textarea" id="f-msg" name="msg" rows="3" placeholder="Ej: reducir ausentismo, sumar salud mental, beneficio para turnos…"></textarea></div>
+              <label class="check is-full"><input type="checkbox" name="privacy" required /><span>Acepto la política de privacidad y el tratamiento de mis datos de contacto.</span></label>
+            </div>
+            <p class="dform__error" data-form-error role="alert" aria-live="polite"></p>
+            <button class="btn btn--primary btn--lg btn--block" type="submit">Agendar mi demo <i data-lucide="arrow-right" class="i-arrow"></i></button>
+            <p class="dform__micro">Recibirás la invitación en tu calendario de trabajo.</p>
+          </form>
+          <div class="dform dform__done" data-form-done hidden>
+            <img src="/assets/agentes/catalina.svg" width="128" height="128" alt="" />
+            <h2 class="t-h3">¡Listo! Tu demo está en camino.</h2>
+            <p class="t-body" style="color: var(--tx-2)">Te enviamos la invitación a tu correo. Mientras tanto, puedes conocer a la familia de agentes IA.</p>
+            <a class="btn btn--dark" href="/agentes-ia.html">Conocer agentes IA <i data-lucide="arrow-right" class="i-arrow"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" data-theme="light" data-cata-say="¿Prefieres resolver una duda rápida? Escríbeme y te respondo al tiro.">
+      <div class="container">
+        <div class="sec-head sec-head--center">
+          <p class="eyebrow" data-reveal>Qué pasa después</p>
+          <h2 class="t-h1" data-split>De la demo al lanzamiento en semanas.</h2>
+        </div>
+        <ol class="steps" style="grid-template-columns: repeat(4, minmax(0, 1fr))" data-reveal-stagger>
+          <li><b>Demo de 30 minutos</b><p>Conoces la plataforma y el dashboard de RR.HH.</p></li>
+          <li><b>Propuesta a medida</b><p>Elegimos juntos los pilares para tu dotación.</p></li>
+          <li><b>Implementación</b><p>Entre 2 y 4 semanas, con un equipo dedicado.</p></li>
+          <li><b>Lanzamiento</b><p>Comunicación interna y tu equipo atendiéndose 24/7.</p></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include footer -->
+  <!-- @include catalina -->
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

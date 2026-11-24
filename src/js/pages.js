@@ -7,6 +7,61 @@ export function initPages({ gsap, ScrollTrigger, reduce }) {
   wikidocFilter(gsap, ScrollTrigger);
   forms(gsap);
   agentTabs(gsap);
+  subnav(ScrollTrigger);
+  search(gsap);
+  lineup(gsap, reduce);
+}
+
+/* Sub-navegación: resalta la sección visible */
+function subnav(ScrollTrigger) {
+  const nav = document.querySelector('[data-subnav]');
+  if (!nav) return;
+  const links = [...nav.querySelectorAll('a')];
+  const list = nav.querySelector('.subnav__list');
+  links.forEach((a) => {
+    const sec = document.querySelector(a.getAttribute('href'));
+    if (!sec) return;
+    ScrollTrigger.create({
+      trigger: sec, start: 'top 40%', end: 'bottom 40%',
+      onToggle: (self) => {
+        a.classList.toggle('is-active', self.isActive);
+        if (self.isActive) list.scrollTo({ left: a.offsetLeft - 16, behavior: 'smooth' });
+      },
+    });
+  });
+}
+
+/* Búsqueda en WikiDoc */
+function search(gsap) {
+  const input = document.querySelector('[data-search]');
+  if (!input) return;
+  const cards = [...document.querySelectorAll('[data-cat]')];
+  const empty = document.querySelector('[data-empty]');
+  const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  let t;
+  input.addEventListener('input', () => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      const q = norm(input.value.trim());
+      let n = 0;
+      cards.forEach((c) => {
+        const ok = !q || norm(c.textContent).includes(q);
+        c.hidden = !ok;
+        if (ok) n++;
+      });
+      empty.hidden = n > 0;
+      if (q) document.querySelector('[data-filter]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      gsap.fromTo(cards.filter((c) => !c.hidden), { opacity: 0, y: 16 }, { opacity: 1, y: 0, stagger: 0.05, duration: 0.5, ease: 'expo.out' });
+    }, 200);
+  });
+}
+
+/* Agentes IA: la familia entra saltando, uno por uno */
+function lineup(gsap, reduce) {
+  const items = document.querySelectorAll('[data-lineup] img');
+  if (!items.length || reduce) return;
+  gsap.from(items, { y: 64, scale: 0.4, opacity: 0, duration: 1.2, ease: 'elastic.out(1, 0.6)', stagger: { each: 0.08, from: 'center' }, delay: 0.6 });
+  items.forEach((img, i) => gsap.to(img, { y: -8, duration: 1.6 + (i % 3) * 0.3, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 2.8 + i * 0.1 }));
 }
 
 function accordions(gsap) {
