@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La familia de avatares IA de Medismart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#ffffff; --bg2:#F5F6FD; --ink:#2B2F4A; --muted:#5A5F7D; --tint:#E8EAFB; --line:#D9DCF2;
+  --purple:#6A4BD1; --indigo:#2F3FAE; --blue:#0E9BDB; --teal:#12B5C9; --mint:#4FD6C2;
+  --side1:#2B3AA8; --side2:#1A8BDC;
+  --grad-title:linear-gradient(90deg,#3F4FC2 0%,#0FA9C9 100%);
+  --card:#ffffff; --shadow:0 10px 30px rgba(47,63,174,.12);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1226; --bg2:#151935; --ink:#EEF0FF; --muted:#A9AFD2; --tint:#1E2347; --line:#2B3160;
+    --card:#171B3A; --shadow:0 10px 30px rgba(0,0,0,.4);
+    --grad-title:linear-gradient(90deg,#8E9BFF 0%,#3FD3E8 100%);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1226; --bg2:#151935; --ink:#EEF0FF; --muted:#A9AFD2; --tint:#1E2347; --line:#2B3160;
+  --card:#171B3A; --shadow:0 10px 30px rgba(0,0,0,.4);
+  --grad-title:linear-gradient(90deg,#8E9BFF 0%,#3FD3E8 100%);
+}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Mulish',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--side1)}
+.gt{background:var(--grad-title);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:linear-gradient(90deg,var(--side1),var(--side2));color:#fff}
+nav .wrap{display:flex;align-items:center;gap:18px;height:60px;overflow-x:auto;white-space:nowrap}
+nav b{font-weight:900;letter-spacing:.3px;margin-right:6px}
+nav a{color:#fff;text-decoration:none;font-weight:700;font-size:13.5px;opacity:.85;padding:6px 12px;border-radius:999px}
+nav a:hover{opacity:1;background:rgba(255,255,255,.18)}
+
+/* hero */
+.hero{padding:72px 0 56px;background:radial-gradient(900px 400px at 85% -10%,rgba(106,75,209,.14),transparent 60%),radial-gradient(700px 400px at 0% 100%,rgba(18,181,201,.14),transparent 60%),var(--bg)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--blue)}
+.ia{display:inline-block;border:1.5px solid var(--indigo);color:var(--indigo);border-radius:999px;font-size:11px;font-weight:800;padding:1px 9px;letter-spacing:.5px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ia{color:#9FB0FF;border-color:#9FB0FF}}
+h1{font-size:clamp(34px,5.4vw,60px);line-height:1.05;margin:14px 0 18px;font-weight:900;letter-spacing:-.5px}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:720px;margin:0}
+.pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.pill{background:var(--tint);color:var(--ink);padding:9px 16px;border-radius:12px;font-weight:700;font-size:14px}
+
+/* family cloud */
+.family{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.fam{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 14px 16px;text-align:center;text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:transform .2s}
+.fam:hover{transform:translateY(-4px)}
+.fam svg{width:92px;height:92px}
+.fam h3{margin:6px 0 2px;font-size:19px;font-weight:900}
+.fam p{margin:0;font-size:12.5px;color:var(--muted);font-weight:600}
+.fam.pending{border-style:dashed}
+
+/* story */
+section.block{padding:64px 0}
+section.alt{background:var(--bg2)}
+h2{font-size:clamp(26px,3.4vw,38px);font-weight:900;margin:8px 0 14px;letter-spacing:-.3px}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+.card h4{margin:10px 0 6px;font-size:17px;font-weight:800;color:var(--blue)}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.ico{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--teal));display:grid;place-items:center;color:#fff;font-weight:900}
+.rule{margin-top:26px;background:var(--tint);border-radius:14px;padding:16px 20px;font-weight:600}
+
+/* avatar sections */
+.av{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:center}
+.av.rev .stage{order:2}
+.stage{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin:0 auto}
+.ring{position:absolute;inset:0;border-radius:50%;padding:7px;background:conic-gradient(from 200deg,#6A4BD1,#5E7FD6 40%,#3FB4CE 75%,#6A4BD1)}
+.ring::after{content:"";display:block;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 50% 40%,#fff,#F1F2F8);}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ring::after{background:radial-gradient(circle at 50% 40%,#242A55,#171B3A)}}
+:root[data-theme="dark"] .ring::after{background:radial-gradient(circle at 50% 40%,#242A55,#171B3A)}
+.stage .shape{position:absolute;inset:14%;display:grid;place-items:center;animation:float 6s ease-in-out infinite}
+.stage .shape svg{width:100%;height:100%;filter:drop-shadow(0 22px 24px rgba(80,70,200,.28))}
+.chip{position:absolute;width:21%;aspect-ratio:1;border-radius:50%;background:var(--card);box-shadow:0 8px 22px rgba(47,63,174,.2);display:grid;place-items:center;border:5px solid rgba(255,255,255,.55)}
+.chip svg{width:52%;height:52%}
+.chip.a{left:2%;top:11%}.chip.b{right:8%;bottom:6%}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media (prefers-reduced-motion:reduce){.stage .shape{animation:none}}
+.num{font-weight:900;font-size:13px;letter-spacing:1.6px;color:var(--blue);text-transform:uppercase}
+.av h2{font-size:clamp(34px,4.6vw,52px);margin:6px 0 4px;line-height:1.05}
+.role{font-size:18px;font-weight:700;color:var(--muted);margin:0 0 18px}
+.persona{background:var(--tint);border-radius:14px;padding:14px 18px;font-weight:600;margin-bottom:22px}
+.facts{display:grid;gap:14px}
+.fact{display:grid;grid-template-columns:36px 1fr;gap:12px}
+.fact .i{width:36px;height:36px;border-radius:10px;background:var(--tint);display:grid;place-items:center}
+.fact .i svg{width:20px;height:20px}
+.fact b{display:block;color:var(--blue);font-size:15px;font-weight:800}
+.fact span{color:var(--muted);font-size:15px}
+.quotes{margin-top:22px;display:flex;flex-direction:column;gap:8px}
+.q{align-self:flex-start;background:linear-gradient(135deg,var(--purple),var(--teal));color:#fff;border-radius:18px 18px 18px 4px;padding:10px 16px;font-weight:600;font-size:14.5px;max-width:92%}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{border:1.5px solid var(--line);border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:800;color:var(--muted)}
+.tag.on{border-color:var(--blue);color:var(--blue)}
+.draft{border:1.5px dashed var(--purple);border-radius:14px;padding:12px 16px;margin-top:18px;font-size:14px;color:var(--muted)}
+.draft b{color:var(--purple)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .draft b{color:#B7A6FF}}
+
+/* table */
+.tablewrap{overflow-x:auto;margin-top:26px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:14.5px}
+th,td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:linear-gradient(90deg,var(--side1),var(--side2));color:#fff;font-weight:800;font-size:13px;letter-spacing:.5px}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:900}
+
+footer{background:linear-gradient(90deg,var(--side1),var(--side2));color:#fff;padding:36px 0;margin-top:0}
+footer p{margin:0;opacity:.9}
+
+@media (max-width:860px){
+  .family{grid-template-columns:repeat(2,1fr)}
+  .cols3{grid-template-columns:1fr}
+  .av{grid-template-columns:1fr;gap:28px}
+  .av.rev .stage{order:0}
+  section.block{padding:48px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- Definiciones compartidas de degradado y sonrisa -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9A5CE6"/><stop offset=".45" stop-color="#7B84E8"/><stop offset="1" stop-color="#3FD6C8"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C7B5FF"/><stop offset="1" stop-color="#4FD6C2"/>
+    </linearGradient>
+    <linearGradient id="gi" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5B4FC8"/><stop offset="1" stop-color="#12B5C9"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+</svg>
+
+<nav>
+  <div class="wrap">
+    <b>medismart · familia IA</b>
+    <a href="#familia">La familia</a>
+    <a href="#catalina">Catalina</a>
+    <a href="#peritaje">Teleperitaje</a>
+    <a href="#sara">Sara</a>
+    <a href="#alma">Alma</a>
+    <a href="#noelia">Noelia</a>
+    <a href="#dalia">Dalia</a>
+    <a href="#lia">Lia</a>
+    <a href="#examenes">Exámenes</a>
+  </div>
+</nav>
+
+<header class="hero" id="familia">
+  <div class="wrap">
+    <span class="eyebrow">Medismart <span class="ia">IA</span> Guía de personajes</span>
+    <h1>Ocho asistentes. <span class="gt">Una sola sonrisa.</span></h1>
+    <p class="lead">Cada plataforma de Medismart tiene a alguien que acompaña. No son un chatbot genérico repetido ocho veces: son una familia, con una personalidad distinta según su función y un mismo cuidado de fondo.</p>
+    <div class="pillrow">
+      <span class="pill">8 asistentes</span>
+      <span class="pill">5 de cara al paciente o usuario final</span>
+      <span class="pill">3 para equipos y administradores</span>
+      <span class="pill">Web, apps y WhatsApp</span>
+    </div>
+
+    <div class="family">
+      <a class="fam" href="#catalina"><svg viewBox="0 0 200 200"><g transform="translate(10 8) scale(.9)"><rect x="30" y="35" width="66" height="66" rx="18" fill="url(#g2)" opacity=".85"/><rect x="104" y="30" width="66" height="66" rx="18" fill="url(#g)"/><rect x="30" y="108" width="66" height="66" rx="18" fill="url(#g)"/><rect x="104" y="104" width="66" height="70" rx="18" fill="url(#g2)"/></g><path d="M80 112Q100 132 120 112" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg><h3>Catalina</h3><p>Concierge del paciente</p></a>
+      <a class="fam" href="#peritaje"><svg viewBox="0 0 200 200"><polygon points="100,22 160,58 168,128 112,180 52,150 36,80" fill="url(#g)" stroke="#fff" stroke-opacity=".7" stroke-width="3" stroke-linejoin="round"/><path d="M100 22 112 180M36 80 168 128M160 58 52 150" stroke="#fff" stroke-opacity=".3" stroke-width="2" fill="none"/><path d="M78 108Q100 128 122 108" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg><h3>Teo</h3><p>Teleperitaje</p></a>
+      <a class="fam" href="#sara"><svg viewBox="0 0 200 200"><path d="M80 30h40a8 8 0 0 1 8 8v34h34a8 8 0 0 1 8 8v40a8 8 0 0 1-8 8h-34v34a8 8 0 0 1-8 8H80a8 8 0 0 1-8-8v-34H38a8 8 0 0 1-8-8V80a8 8 0 0 1 8-8h34V38a8 8 0 0 1 8-8z" fill="url(#g)" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linejoin="round"/><path d="M78 108Q100 128 122 108" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg><h3>Sara</h3><p>SaaS de centros médicos</p></a>
+      <a class="fam" href="#alma"><svg viewBox="0 0 200 200"><path d="M40 105C32 62 85 28 130 42c42 14 46 62 28 96-20 38-70 44-96 20-14-12-20-30-22-53z" fill="url(#g)" stroke="#fff" stroke-opacity=".6" stroke-width="3"/><path d="M78 108Q100 128 122 108" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg><h3>Alma</h3><p>Salud mental</p></a>
+      <a class="fam" href="#noelia"><svg viewBox="0 0 200 200"><path d="M100 18C108 68 132 92 182 100 132 108 108 132 100 182 92 132 68 108 18 100 68 92 92 68 100 18z" fill="url(#g)" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linejoin="round"/><path d="M80 106Q100 124 120 106" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg><h3>Noelia</h3><p>Paciente crónico</p></a>
+      <a class="fam" href="#dalia"><svg viewBox="0 0 200 200"><polygon points="100,24 166,62 166,138 100,176 34,138 34,62" fill="url(#g)" stroke="#fff" stroke-opacity=".7" stroke-width="4" stroke-linejoin="round"/><path d="M78 106Q100 126 122 106" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg><h3>Dalia</h3><p>Plataforma de cargas</p></a>
+      <a class="fam pending" href="#lia"><svg viewBox="0 0 200 200"><path d="M48 40h104a22 22 0 0 1 22 22v64a22 22 0 0 1-22 22H98l-34 30v-30H48a22 22 0 0 1-22-22V62a22 22 0 0 1 22-22z" fill="url(#g)" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linejoin="round"/><path d="M78 92Q100 112 122 92" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg><h3>Lia</h3><p>WhatsApp · icono en concepto</p></a>
+      <a class="fam pending" href="#examenes"><svg viewBox="0 0 200 200"><path d="M56 26h62l38 38v100a12 12 0 0 1-12 12H56a12 12 0 0 1-12-12V38a12 12 0 0 1 12-12z" fill="url(#g)" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linejoin="round"/><path d="M118 26v38h38" fill="#fff" fill-opacity=".35"/><path d="M78 112Q100 132 122 112" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg><h3>Clara</h3><p>Lectura de exámenes</p></a>
+    </div>
+  </div>
+</header>
+
+<section class="block alt">
+  <div class="wrap">
+    <span class="eyebrow">Lo que comparten</span>
+    <h2>El ADN de la familia</h2>
+    <p class="lead">Para que se reconozcan como parientes aunque tengan funciones y tonos muy distintos, todas comparten los mismos rasgos.</p>
+    <div class="cols3">
+      <div class="card"><div class="ico">1</div><h4>Una forma de cristal, una sonrisa</h4><p>Cada una tiene su propia forma 3D translúcida (cubos, cruz, gota, estrella, hexágono, gema), pero todas llevan la misma sonrisa luminosa en el centro. Eso las hace familia.</p></div>
+      <div class="card"><div class="ico">2</div><h4>Una estructura de mensaje fija</h4><p>Todas se presentan igual: saludo, frase corta de propósito, y tres bloques: <b>Qué hace</b>, <b>Seguimiento</b> y <b>Confianza y límites</b>. Cambia el tono, no el orden.</p></div>
+      <div class="card"><div class="ico">3</div><h4>Siempre dicen que son IA</h4><p>La etiqueta <span class="ia">IA</span> acompaña a cada nombre. Ninguna se hace pasar por una persona ni por un profesional de salud.</p></div>
+    </div>
+    <div class="rule"><b>Regla de oro de la familia:</b> orientan, ordenan y acompañan, pero nunca diagnostican ni reemplazan a un profesional. Cada una lo dice a su manera en su bloque de “Confianza y límites”.</div>
+  </div>
+</section>
+
+<!-- 1 AIDA -->
+<section class="block" id="catalina">
+  <div class="wrap av">
+    <div class="stage">
+      <div class="ring"></div>
+      <div class="chip a"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M9 12h6M9 16h6"/></svg></div>
+      <div class="shape"><svg viewBox="0 0 200 200"><g filter="url(#glow)"><rect x="26" y="30" width="72" height="72" rx="20" fill="url(#g2)" opacity=".9" stroke="#fff" stroke-opacity=".7" stroke-width="3"/><rect x="104" y="24" width="72" height="72" rx="20" fill="url(#g)" stroke="#fff" stroke-opacity=".7" stroke-width="3"/><rect x="26" y="108" width="72" height="72" rx="20" fill="url(#g)" stroke="#fff" stroke-opacity=".7" stroke-width="3"/><rect x="104" y="102" width="72" height="78" rx="20" fill="url(#g2)" stroke="#fff" stroke-opacity=".7" stroke-width="3"/><path d="M78 118Q100 140 122 118" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></g></svg></div>
+      <div class="chip b"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linecap="round"><path d="M5 5h14v14H5z" rx="3"/><path d="M12 8v8M8 12h8"/></svg></div>
+    </div>
+    <div>
+      <span class="num">01 · Concierge de plataforma</span>
+      <h2><span class="gt">Catalina</span> <span class="ia">IA</span></h2>
+      <p class="role">Concierge de la plataforma · reemplaza a Aida</p>
+      <div class="persona">La mamá de la familia: cuida, escucha y junta todo lo que el paciente necesita en un solo lugar.</div>
+      <div class="facts">
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div><div><b>Qué hace</b><span>Ayuda de forma transversal: orienta al paciente sobre sus especialistas, su agenda y su información, y conecta con las otras asistentes cuando hace falta.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg></div><div><b>Dónde vive</b><span>En la plataforma del paciente y en el sitio web de Medismart.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/></svg></div><div><b>Confianza y límites</b><span>Orienta, pero el diagnóstico es del médico. Si algo es urgente, deriva de inmediato.</span></div></div>
+      </div>
+      <div class="quotes"><div class="q">“Cuéntame qué necesitas, yo me encargo de ordenarlo.”</div><div class="q">“Tranquilo, aquí tienes tus recetas, tus horas y tus resultados en un solo lugar.”</div></div>
+      <div class="tags"><span class="tag on">Cálida</span><span class="tag on">Protectora</span><span class="tag on">Unificadora</span><span class="tag">Paciente</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 TELEPERITAJE -->
+<section class="block alt" id="peritaje">
+  <div class="wrap av rev">
+    <div class="stage">
+      <div class="ring"></div>
+      <div class="chip a"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg></div>
+      <div class="shape"><svg viewBox="0 0 200 200"><g filter="url(#glow)"><polygon points="100,18 162,56 172,128 114,184 50,152 32,80" fill="url(#g)" stroke="#fff" stroke-opacity=".8" stroke-width="3" stroke-linejoin="round"/><path d="M100 18 114 184M32 80 172 128M162 56 50 152M100 18 32 80M100 18 162 56" stroke="#fff" stroke-opacity=".35" stroke-width="2" fill="none"/><path d="M78 106Q100 126 122 106" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></g></svg></div>
+      <div class="chip b"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8"><path d="M5 5h14v14H5z"/><path d="M12 8v8M8 12h8"/></svg></div>
+    </div>
+    <div>
+      <span class="num">02 · Plataforma de teleperitaje</span>
+      <h2><span class="gt">Teo</span> <span class="ia">IA</span></h2>
+      <p class="role">Nombre provisorio · masculino</p>
+      <div class="persona">El ejecutivo de la familia: serio, preciso y directo. Respeta el tiempo de quien trabaja con él.</div>
+      <div class="facts">
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div><b>Qué hace</b><span>Revisa que la documentación esté completa, prepara cada caso para la videoconsulta y muestra en qué etapa está y cuáles son los próximos plazos.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg></div><div><b>Dónde vive</b><span>Solo dentro de la plataforma de teleperitaje. Trabaja con dos públicos: los peritos y los administradores de las isapres.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/></svg></div><div><b>Confianza y límites</b><span>Orienta el proceso. La evaluación y el informe los emite siempre un perito médico.</span></div></div>
+      </div>
+      <div class="quotes"><div class="q">“Caso completo. Falta un documento: certificado de alta.”</div><div class="q">“Videoconsulta en 15 minutos. Todo está listo.”</div></div>
+      <div class="tags"><span class="tag on">Ejecutivo</span><span class="tag on">Preciso</span><span class="tag on">Sin rodeos</span><span class="tag">Peritos e isapres</span></div>
+      <div class="draft"><b>Nombre provisorio.</b> Teo queda por ahora (viene de “teleperitaje”, es corto y firme). Opciones en reserva: Rafael, Max y Leo.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 SARA -->
+<section class="block" id="sara">
+  <div class="wrap av">
+    <div class="stage">
+      <div class="ring"></div>
+      <div class="chip a"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M12 7v6M9 10h6"/></svg></div>
+      <div class="shape"><svg viewBox="0 0 200 200"><g filter="url(#glow)"><path d="M80 24h40a10 10 0 0 1 10 10v34h36a10 10 0 0 1 10 10v44a10 10 0 0 1-10 10h-36v34a10 10 0 0 1-10 10H80a10 10 0 0 1-10-10v-34H34a10 10 0 0 1-10-10V78a10 10 0 0 1 10-10h36V34a10 10 0 0 1 10-10z" fill="url(#g)" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><path d="M78 110Q100 130 122 110" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></g></svg></div>
+      <div class="chip b"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h16v11H10l-4 4v-4H4z"/><path d="M12 8v5M9.5 10.5h5"/></svg></div>
+    </div>
+    <div>
+      <span class="num">03 · SaaS de centros médicos</span>
+      <h2><span class="gt">Sara</span> <span class="ia">IA</span></h2>
+      <p class="role">La secretaria médica del centro</p>
+      <div class="persona">Formal, organizada y confiable. Sabe de medicina lo justo y de orden todo.</div>
+      <div class="facts">
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div><b>Qué hace</b><span>Agenda y reagenda citas, busca pacientes, avisa de conflictos de horario y muestra pendientes del día, pagos por cobrar y convenios por vencer.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg></div><div><b>Dónde vive</b><span>Dentro del SaaS de centros médicos, para el equipo administrativo y clínico del centro.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/></svg></div><div><b>Confianza y límites</b><span>Trabaja solo con datos administrativos. Nunca accede a información clínica.</span></div></div>
+      </div>
+      <div class="quotes"><div class="q">“Buenos días. Tiene 3 conflictos de horario y 2 convenios por vencer.”</div><div class="q">“Cita reagendada y paciente notificado.”</div></div>
+      <div class="tags"><span class="tag on">Formal</span><span class="tag on">Organizada</span><span class="tag on">Administrativa</span><span class="tag">Centros médicos</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 ALMA -->
+<section class="block alt" id="alma">
+  <div class="wrap av rev">
+    <div class="stage">
+      <div class="ring"></div>
+      <div class="chip a"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linejoin="round"><path d="M9 4a4 4 0 0 0-4 4c-1.5 1-1.5 4 .5 5 0 2.5 2 4 4 4h1V4zM15 4a4 4 0 0 1 4 4c1.5 1 1.5 4-.5 5 0 2.5-2 4-4 4h-1V4z"/></svg></div>
+      <div class="shape"><svg viewBox="0 0 200 200"><g filter="url(#glow)"><path d="M36 104C28 58 84 24 132 38c44 14 50 64 30 100-22 40-74 46-100 22-15-13-22-32-26-56z" fill="url(#g)" stroke="#fff" stroke-opacity=".75" stroke-width="3"/><path d="M76 108Q100 130 124 108" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></g></svg></div>
+      <div class="chip b"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linejoin="round"><path d="M5 5h14v14H5z"/><path d="M12 8v8M8 12h8"/></svg></div>
+    </div>
+    <div>
+      <span class="num">04 · Módulo de salud mental</span>
+      <h2><span class="gt">Alma</span> <span class="ia">IA</span></h2>
+      <p class="role">La que escucha sin apuro</p>
+      <div class="persona">Cercana, empática y dulce. Habla suave, no juzga y deja que cada persona vaya a su ritmo.</div>
+      <div class="facts">
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div><b>Qué hace</b><span>Acompaña con ejercicios de respiración, registro de ánimo y recursos para el día a día.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg></div><div><b>Dónde vive</b><span>De cara al paciente, dentro del módulo de salud mental.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/></svg></div><div><b>Confianza y límites</b><span>No reemplaza una terapia. Si la persona está en crisis, la conecta con ayuda profesional ahora.</span></div></div>
+      </div>
+      <div class="quotes"><div class="q">“Aquí puedes contar cómo te sientes, a tu ritmo.”</div><div class="q">“Respiremos juntos un momento. Sin apuro.”</div></div>
+      <div class="tags"><span class="tag on">Empática</span><span class="tag on">Dulce</span><span class="tag on">Paciente</span><span class="tag">Paciente final</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 NOELIA -->
+<section class="block" id="noelia">
+  <div class="wrap av">
+    <div class="stage">
+      <div class="ring"></div>
+      <div class="chip a"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linejoin="round"><path d="M9 4a4 4 0 0 0-4 4c-1.5 1-1.5 4 .5 5 0 2.5 2 4 4 4h1V4zM15 4a4 4 0 0 1 4 4c1.5 1 1.5 4-.5 5 0 2.5-2 4-4 4h-1V4z"/></svg></div>
+      <div class="shape"><svg viewBox="0 0 200 200"><g filter="url(#glow)"><path d="M100 14C108 66 134 92 186 100 134 108 108 134 100 186 92 134 66 108 14 100 66 92 92 66 100 14z" fill="url(#g)" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><path d="M80 106Q100 126 120 106" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></g></svg></div>
+      <div class="chip b"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linejoin="round"><path d="M5 5h14v14H5z"/><path d="M12 8v8M8 12h8"/></svg></div>
+    </div>
+    <div>
+      <span class="num">05 · Bienestar continuo · paciente crónico</span>
+      <h2><span class="gt">Noelia</span> <span class="ia">IA</span></h2>
+      <p class="role">La enfermera de los recordatorios</p>
+      <div class="persona">Constante, atenta y práctica. No se le pasa nada, pero lo recuerda con cariño y celebra cada avance.</div>
+      <div class="facts">
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div><b>Qué hace</b><span>Recuerda medicamentos y controles, y ayuda a registrar presión, glicemia o peso. Muestra la evolución con gráficos simples.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg></div><div><b>Dónde vive</b><span>Dentro del módulo de paciente crónico.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/></svg></div><div><b>Confianza y límites</b><span>Acompaña, pero cualquier cambio en el tratamiento lo decide el médico.</span></div></div>
+      </div>
+      <div class="quotes"><div class="q">“Son las 8: toca tu pastilla de la presión.”</div><div class="q">“¡Llevas 7 días seguidos con tus controles al día!”</div></div>
+      <div class="tags"><span class="tag on">Recordatorio</span><span class="tag on">Constante</span><span class="tag on">Motivadora</span><span class="tag">Paciente crónico</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 DALIA -->
+<section class="block alt" id="dalia">
+  <div class="wrap av rev">
+    <div class="stage">
+      <div class="ring"></div>
+      <div class="chip a"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg></div>
+      <div class="shape"><svg viewBox="0 0 200 200"><g filter="url(#glow)"><polygon points="100,22 168,60 168,140 100,178 32,140 32,60" fill="url(#g)" stroke="#fff" stroke-opacity=".85" stroke-width="4" stroke-linejoin="round"/><polygon points="100,38 154,68 154,132 100,162 46,132 46,68" fill="none" stroke="#2F5BFF" stroke-opacity=".5" stroke-width="2.5" stroke-linejoin="round"/><path d="M78 106Q100 128 122 106" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></g></svg></div>
+      <div class="chip b"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linejoin="round"><path d="M5 5h14v14H5z"/><path d="M12 8v8M8 12h8"/></svg></div>
+    </div>
+    <div>
+      <span class="num">06 · Plataforma de cargas y enrolamiento</span>
+      <h2><span class="gt">Dalia</span> <span class="ia">IA</span></h2>
+      <p class="role">La ayudante que siempre dice que sí</p>
+      <div class="persona">Servicial, tierna y con muy buena disposición. Hace simple lo engorroso y no se cansa de explicar.</div>
+      <div class="facts">
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div><b>Qué hace</b><span>Guía a los administradores en cada carga de datos y proceso de enrolamiento, avisa de errores antes de enviar y explica cómo corregirlos.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg></div><div><b>Dónde vive</b><span>En la plataforma de cargas y enrolamiento. Su público son los administradores de la plataforma.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/></svg></div><div><b>Confianza y límites</b><span>Ayuda con el proceso, pero no modifica datos sin confirmación del administrador.</span></div></div>
+      </div>
+      <div class="quotes"><div class="q">“¡Listo! Revisé tu archivo y encontré 2 filas por corregir.”</div><div class="q">“Vamos paso a paso, yo te acompaño.”</div></div>
+      <div class="tags"><span class="tag on">Servicial</span><span class="tag on">Tierna</span><span class="tag on">Paciente</span><span class="tag">Administradores</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 LIA -->
+<section class="block" id="lia">
+  <div class="wrap av">
+    <div class="stage">
+      <div class="ring"></div>
+      <div class="chip a"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4M9 15l2 2 4-4"/></svg></div>
+      <div class="shape"><svg viewBox="0 0 200 200"><g filter="url(#glow)"><path d="M48 32h104a24 24 0 0 1 24 24v68a24 24 0 0 1-24 24H100l-36 30v-30H48a24 24 0 0 1-24-24V56a24 24 0 0 1 24-24z" fill="url(#g)" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><path d="M76 86Q100 108 124 86" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></g></svg></div>
+      <div class="chip b"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h16v11H10l-4 4v-4H4z"/></svg></div>
+    </div>
+    <div>
+      <span class="num">07 · Recordatorio de citas · WhatsApp</span>
+      <h2><span class="gt">Lia</span> <span class="ia">IA</span></h2>
+      <p class="role">La amiga que te avisa a tiempo</p>
+      <div class="persona">Cercana y simpática. Escribe como un mensaje de alguien que te quiere ver llegar a tu hora.</div>
+      <div class="facts">
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div><b>Qué hace</b><span>Recuerda al paciente sus citas por mensaje y le deja confirmar o reagendar con una respuesta simple.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg></div><div><b>Dónde vive</b><span>En WhatsApp, de cara al paciente. No necesita abrir ninguna plataforma.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/></svg></div><div><b>Confianza y límites</b><span>Solo gestiona citas. No da orientación clínica; si preguntan por síntomas, deriva a Catalina o al médico.</span></div></div>
+      </div>
+      <div class="quotes"><div class="q">“¡Hola! Te recuerdo tu cita de mañana a las 10:30. ¿La confirmamos?”</div><div class="q">“Perfecto, quedó confirmada. ¡Nos vemos!”</div></div>
+      <div class="tags"><span class="tag on">Simpática</span><span class="tag on">Cercana</span><span class="tag on">Breve</span><span class="tag">WhatsApp</span></div>
+      <div class="draft"><b>Icono en concepto.</b> Propongo una burbuja de chat de cristal con la misma sonrisa, que conecta con WhatsApp sin copiar su logo. Para la ficha de la plataforma, un ícono de calendario con check.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 EXAMENES -->
+<section class="block alt" id="examenes">
+  <div class="wrap av rev">
+    <div class="stage">
+      <div class="ring"></div>
+      <div class="chip a"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg></div>
+      <div class="shape"><svg viewBox="0 0 200 200"><g filter="url(#glow)"><path d="M54 22h68l42 42v108a12 12 0 0 1-12 12H54a12 12 0 0 1-12-12V34a12 12 0 0 1 12-12z" fill="url(#g)" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><path d="M122 22v42h42" fill="#fff" fill-opacity=".35" stroke="#fff" stroke-opacity=".7" stroke-width="3" stroke-linejoin="round"/><path d="M70 150h40" stroke="#fff" stroke-opacity=".6" stroke-width="5" stroke-linecap="round"/><path d="M78 108Q100 130 122 108" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/></g></svg></div>
+      <div class="chip b"><svg viewBox="0 0 24 24" fill="none" stroke="url(#gi)" stroke-width="1.8" stroke-linejoin="round"><path d="M5 5h14v14H5z"/><path d="M12 8v8M8 12h8"/></svg></div>
+    </div>
+    <div>
+      <span class="num">08 · Lectura de exámenes</span>
+      <h2><span class="gt">Clara</span> <span class="ia">IA</span></h2>
+      <p class="role">Asistente de lectura de exámenes</p>
+      <div class="persona">La más médica de la familia: rigurosa y ordenada, pero traduce lo técnico a palabras simples.</div>
+      <div class="facts">
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div><b>Qué hace</b><span>Lee exámenes de sangre, orina e imágenes en segundos, marca qué valores están dentro del rango normal y cuáles requieren atención, y sugiere qué preguntarle al médico.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg></div><div><b>Seguimiento</b><span>Compara resultados en el tiempo con tablas y gráficos para llegar mejor preparado al próximo control.</span></div></div>
+        <div class="fact"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="#0E9BDB" stroke-width="1.8"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/></svg></div><div><b>Confianza y límites</b><span>La información está protegida y solo el paciente decide con quién compartirla. Interpreta para orientar, no reemplaza la evaluación de un profesional de salud.</span></div></div>
+      </div>
+      <div class="quotes"><div class="q">“Tu colesterol LDL está sobre el rango de referencia. Te sugiero comentarlo con tu médico.”</div><div class="q">“Tus otros 18 valores están dentro del rango normal.”</div></div>
+      <div class="tags"><span class="tag on">Médica</span><span class="tag on">Rigurosa</span><span class="tag on">Clara</span><span class="tag">Paciente</span></div>
+      <div class="draft"><b>Icono en concepto.</b> Propongo una hoja de examen de cristal con la sonrisa, y un lente de aumento como chip.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Resumen -->
+<section class="block">
+  <div class="wrap">
+    <span class="eyebrow">Vista general</span>
+    <h2>La familia de un vistazo</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Avatar</th><th>Función</th><th>Personalidad</th><th>Dónde se despliega</th><th>Público</th></tr></thead>
+        <tbody>
+          <tr><td>Catalina</td><td>Concierge transversal</td><td>Maternal, unifica</td><td>Plataforma paciente y web</td><td>Paciente</td></tr>
+          <tr><td>Teo</td><td>Asistencia en teleperitaje</td><td>Serio, ejecutivo</td><td>Plataforma de teleperitaje</td><td>Peritos y admin de isapres</td></tr>
+          <tr><td>Sara</td><td>Agenda, cobros, convenios</td><td>Médica, formal, secretaria</td><td>SaaS de centros médicos</td><td>Equipo del centro</td></tr>
+          <tr><td>Alma</td><td>Salud mental</td><td>Cercana, empática, dulce</td><td>Módulo de salud mental</td><td>Paciente</td></tr>
+          <tr><td>Noelia</td><td>Bienestar continuo</td><td>Enfermera, recordatorio</td><td>Módulo de paciente crónico</td><td>Paciente crónico</td></tr>
+          <tr><td>Dalia</td><td>Cargas y enrolamiento</td><td>Servicial, tierna</td><td>Plataforma de cargas</td><td>Administradores</td></tr>
+          <tr><td>Lia</td><td>Recordatorio de citas</td><td>Cercana, simpática</td><td>WhatsApp</td><td>Paciente</td></tr>
+          <tr><td>Clara</td><td>Lectura de exámenes</td><td>Muy médica, clara</td><td>Por definir</td><td>Paciente</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p><b>Medismart</b> · Familia de asistentes IA. Orientan, ordenan y acompañan; nunca reemplazan a un profesional de salud.</p></div>
+</footer>
+
+</body>
+</html>

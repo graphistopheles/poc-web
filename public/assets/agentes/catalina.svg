@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="115 120 1690 1690">
+  
+  <defs>
+    <filter id="catalina-blurBig" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="38"/></filter>
+    <filter id="catalina-blurMid" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="catalina-blurSm" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="catalina-innerShadow" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="16"/></filter>
+    <filter id="catalina-smileGlow" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Grano de cristal esmerilado (opcional: borrar el grupo #grain si el destino no soporta filtros) -->
+    <filter id="catalina-frost" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 -.12"/>
+    </filter>
+    <radialGradient id="catalina-shadowG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#4A4FA8" stop-opacity=".55"/><stop offset="1" stop-color="#4A4FA8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="catalina-reflG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#7FD8F8" stop-opacity=".85"/><stop offset="1" stop-color="#7FD8F8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="catalina-causticG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#9BE8FF" stop-opacity="0"/>
+    </radialGradient>
+<linearGradient id="catalina-cBRSide" x1="902" y1="845" x2="1253.2" y2="1165.0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#B8E9EE" stop-opacity="1"/><stop offset="1" stop-color="#5CCBD6" stop-opacity="1"/></linearGradient>
+<linearGradient id="catalina-cBRFront" x1="1052" y1="905" x2="1555" y2="1555" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2FB8C8" stop-opacity="1"/><stop offset="0.5" stop-color="#2CCFC4" stop-opacity="1"/><stop offset="1" stop-color="#5EE0D6" stop-opacity="1"/></linearGradient>
+<radialGradient id="catalina-cBRGlow" cx="1202.9" cy="1067.5" r="377.25" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1FA7B8" stop-opacity="0.8"/><stop offset="1" stop-color="#1FA7B8" stop-opacity="0"/></radialGradient>
+<clipPath id="catalina-cBRClip"><rect x="1052" y="905" width="503" height="650" rx="95"/></clipPath>
+<linearGradient id="catalina-cBLSide" x1="375" y1="958" x2="744.0" y2="1250.0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#D9D0F6" stop-opacity="1"/><stop offset="0.6" stop-color="#9F8EE6" stop-opacity="1"/><stop offset="1" stop-color="#6FB6EC" stop-opacity="1"/></linearGradient>
+<linearGradient id="catalina-cBLFront" x1="540" y1="1020" x2="1050" y2="1595" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6050D2" stop-opacity="1"/><stop offset="0.45" stop-color="#5A8FE0" stop-opacity="1"/><stop offset="1" stop-color="#86DDF4" stop-opacity="1"/></linearGradient>
+<radialGradient id="catalina-cBLGlow" cx="667.5" cy="1135.0" r="382.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7B5BE0" stop-opacity="0.8"/><stop offset="1" stop-color="#7B5BE0" stop-opacity="0"/></radialGradient>
+<clipPath id="catalina-cBLClip"><rect x="540" y="1020" width="510" height="575" rx="95"/></clipPath>
+<linearGradient id="catalina-cTRSide" x1="915" y1="333" x2="1261.0" y2="607.0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#E4DDF8" stop-opacity="1"/><stop offset="0.6" stop-color="#B9A8EC" stop-opacity="1"/><stop offset="1" stop-color="#8F7BE0" stop-opacity="1"/></linearGradient>
+<linearGradient id="catalina-cTRFront" x1="1065" y1="385" x2="1555" y2="940" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8A5BE0" stop-opacity="1"/><stop offset="0.5" stop-color="#6C78E0" stop-opacity="1"/><stop offset="1" stop-color="#6CD3F0" stop-opacity="1"/></linearGradient>
+<radialGradient id="catalina-cTRGlow" cx="1212.0" cy="523.75" r="367.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9A62E8" stop-opacity="0.8"/><stop offset="1" stop-color="#9A62E8" stop-opacity="0"/></radialGradient>
+<clipPath id="catalina-cTRClip"><rect x="1065" y="385" width="490" height="555" rx="95"/></clipPath>
+<linearGradient id="catalina-cTLSide" x1="370" y1="360" x2="747.0" y2="675.0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#E4DDF8" stop-opacity="1"/><stop offset="0.6" stop-color="#B9A8EC" stop-opacity="1"/><stop offset="1" stop-color="#8F7BE0" stop-opacity="1"/></linearGradient>
+<linearGradient id="catalina-cTLFront" x1="545" y1="455" x2="1050" y2="1005" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#CDB8F4" stop-opacity="1"/><stop offset="0.5" stop-color="#A982EA" stop-opacity="1"/><stop offset="1" stop-color="#AFC8F4" stop-opacity="1"/></linearGradient>
+<radialGradient id="catalina-cTLGlow" cx="772.25" cy="730.0" r="378.75" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9A6BE6" stop-opacity="0.8"/><stop offset="1" stop-color="#9A6BE6" stop-opacity="0"/></radialGradient>
+<clipPath id="catalina-cTLClip"><rect x="545" y="455" width="505" height="550" rx="95"/></clipPath>
+<clipPath id="catalina-body"><rect x="360" y="320" width="1200" height="1290" rx="90"/></clipPath>
+  </defs>
+  <g id="catalina-shadow">
+    <ellipse cx="1150" cy="1610" rx="520" ry="80" fill="url(#catalina-shadowG)" filter="url(#catalina-blurMid)"/>
+    <ellipse cx="1150" cy="1635" rx="338" ry="28" fill="#3A3F9A" opacity=".18" filter="url(#catalina-blurBig)"/>
+    <ellipse cx="960" cy="1600" rx="330" ry="55" fill="url(#catalina-reflG)" filter="url(#catalina-blurMid)"/>
+    <ellipse cx="930" cy="1596" rx="158" ry="23" fill="url(#catalina-causticG)" filter="url(#catalina-blurSm)"/>
+  </g>
+  <g id="catalina-catalina">
+  <g id="catalina-cBR">
+    <g opacity=".93"><polygon points="997,940 1310,940 1460,1000 1460,1460 1147,1460 997,1400" fill="url(#catalina-cBRSide)" stroke="url(#catalina-cBRSide)" stroke-width="190" stroke-linejoin="round"/></g>
+    <polyline points="930.5,873.5 1329.0,849.75" fill="none" stroke="#FFFFFF" stroke-opacity=".75" stroke-width="10" stroke-linecap="round" filter="url(#catalina-blurSm)"/>
+    <polyline points="906.75,1400 906.75,968.5" fill="none" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="8" stroke-linecap="round" filter="url(#catalina-blurSm)"/>
+    <rect x="1052" y="905" width="503" height="650" rx="95" fill="url(#catalina-cBRFront)"/>
+    <g clip-path="url(#catalina-cBRClip)">
+      <rect x="1052" y="905" width="503" height="650" fill="url(#catalina-cBRGlow)"/>
+      <rect x="1052" y="905" width="503" height="650" rx="95" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="70" filter="url(#catalina-blurMid)"/>
+      <rect x="1052" y="905" width="503" height="650" rx="95" fill="none" stroke="#3A2F9E" stroke-opacity=".22" stroke-width="40" filter="url(#catalina-innerShadow)"/>
+      <path d="M1531 1262.5 Q1537 1537 1328.65 1533" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="12" stroke-linecap="round" filter="url(#catalina-blurMid)"/>
+      <ellipse cx="1202.9" cy="1009.0" rx="150.9" ry="39.0" fill="#FFFFFF" opacity=".18" filter="url(#catalina-blurMid)"/>
+    </g>
+    <rect x="1064" y="917" width="479" height="626" rx="85" fill="none" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="3"/>
+    <rect x="1052" y="905" width="503" height="650" rx="95" fill="none" stroke="#5A4FC4" stroke-opacity=".35" stroke-width="3"/>
+  </g>
+  <g id="catalina-cBL">
+    <g opacity=".93"><polygon points="470,1053 790,1053 955,1115 955,1500 635,1500 470,1438" fill="url(#catalina-cBLSide)" stroke="url(#catalina-cBLSide)" stroke-width="190" stroke-linejoin="round"/></g>
+    <polyline points="403.5,986.5 809.0,962.75" fill="none" stroke="#FFFFFF" stroke-opacity=".75" stroke-width="10" stroke-linecap="round" filter="url(#catalina-blurSm)"/>
+    <polyline points="379.75,1438 379.75,1081.5" fill="none" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="8" stroke-linecap="round" filter="url(#catalina-blurSm)"/>
+    <rect x="540" y="1020" width="510" height="575" rx="95" fill="url(#catalina-cBLFront)"/>
+    <g clip-path="url(#catalina-cBLClip)">
+      <rect x="540" y="1020" width="510" height="575" fill="url(#catalina-cBLGlow)"/>
+      <rect x="540" y="1020" width="510" height="575" rx="95" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="70" filter="url(#catalina-blurMid)"/>
+      <rect x="540" y="1020" width="510" height="575" rx="95" fill="none" stroke="#3A2F9E" stroke-opacity=".22" stroke-width="40" filter="url(#catalina-innerShadow)"/>
+      <path d="M1026 1336.25 Q1032 1577 820.5 1573" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="12" stroke-linecap="round" filter="url(#catalina-blurMid)"/>
+      <ellipse cx="693.0" cy="1112.0" rx="153.0" ry="34.5" fill="#FFFFFF" opacity=".18" filter="url(#catalina-blurMid)"/>
+    </g>
+    <rect x="552" y="1032" width="486" height="551" rx="85" fill="none" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="3"/>
+    <rect x="540" y="1020" width="510" height="575" rx="95" fill="none" stroke="#5A4FC4" stroke-opacity=".35" stroke-width="3"/>
+  </g>
+  <g id="catalina-cTR">
+    <g opacity=".93"><polygon points="1010,428 1310,428 1460,480 1460,845 1160,845 1010,793" fill="url(#catalina-cTRSide)" stroke="url(#catalina-cTRSide)" stroke-width="190" stroke-linejoin="round"/></g>
+    <polyline points="943.5,361.5 1329.0,337.75" fill="none" stroke="#FFFFFF" stroke-opacity=".75" stroke-width="10" stroke-linecap="round" filter="url(#catalina-blurSm)"/>
+    <polyline points="919.75,793 919.75,456.5" fill="none" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="8" stroke-linecap="round" filter="url(#catalina-blurSm)"/>
+    <rect x="1065" y="385" width="490" height="555" rx="95" fill="url(#catalina-cTRFront)"/>
+    <g clip-path="url(#catalina-cTRClip)">
+      <rect x="1065" y="385" width="490" height="555" fill="url(#catalina-cTRGlow)"/>
+      <rect x="1065" y="385" width="490" height="555" rx="95" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="70" filter="url(#catalina-blurMid)"/>
+      <rect x="1065" y="385" width="490" height="555" rx="95" fill="none" stroke="#3A2F9E" stroke-opacity=".22" stroke-width="40" filter="url(#catalina-innerShadow)"/>
+      <path d="M1531 690.25 Q1537 922 1334.5 918" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="12" stroke-linecap="round" filter="url(#catalina-blurMid)"/>
+      <ellipse cx="1212.0" cy="473.8" rx="147.0" ry="33.3" fill="#FFFFFF" opacity=".18" filter="url(#catalina-blurMid)"/>
+    </g>
+    <rect x="1077" y="397" width="466" height="531" rx="85" fill="none" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="3"/>
+    <rect x="1065" y="385" width="490" height="555" rx="95" fill="none" stroke="#5A4FC4" stroke-opacity=".35" stroke-width="3"/>
+  </g>
+  <g id="catalina-cTL">
+    <g opacity=".93"><polygon points="465,455 780,455 955,550 955,910 640,910 465,815" fill="url(#catalina-cTLSide)" stroke="url(#catalina-cTLSide)" stroke-width="190" stroke-linejoin="round"/></g>
+    <polyline points="398.5,388.5 799.0,364.75" fill="none" stroke="#FFFFFF" stroke-opacity=".75" stroke-width="10" stroke-linecap="round" filter="url(#catalina-blurSm)"/>
+    <polyline points="374.75,815 374.75,483.5" fill="none" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="8" stroke-linecap="round" filter="url(#catalina-blurSm)"/>
+    <rect x="545" y="455" width="505" height="550" rx="95" fill="url(#catalina-cTLFront)"/>
+    <g clip-path="url(#catalina-cTLClip)">
+      <rect x="545" y="455" width="505" height="550" fill="url(#catalina-cTLGlow)"/>
+      <rect x="545" y="455" width="505" height="550" rx="95" fill="none" stroke="#FFFFFF" stroke-opacity=".38" stroke-width="70" filter="url(#catalina-blurMid)"/>
+      <rect x="545" y="455" width="505" height="550" rx="95" fill="none" stroke="#3A2F9E" stroke-opacity=".22" stroke-width="40" filter="url(#catalina-innerShadow)"/>
+      <path d="M1026 757.5 Q1032 987 822.75 983" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="12" stroke-linecap="round" filter="url(#catalina-blurMid)"/>
+      <ellipse cx="696.5" cy="543.0" rx="151.5" ry="33.0" fill="#FFFFFF" opacity=".18" filter="url(#catalina-blurMid)"/>
+    </g>
+    <rect x="557" y="467" width="481" height="526" rx="85" fill="none" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="3"/>
+    <rect x="545" y="455" width="505" height="550" rx="95" fill="none" stroke="#5A4FC4" stroke-opacity=".35" stroke-width="3"/>
+  </g>
+  <g id="catalina-grain" clip-path="url(#catalina-body)" opacity="0.4">
+    <rect x="360" y="320" width="1200" height="1290" filter="url(#catalina-frost)"/>
+  </g>
+  <g id="catalina-smile" fill="none" stroke-linecap="round">
+    <path d="M912 1258 C 955 1352 1150 1370 1220 1218" stroke="#38C6F0" stroke-width="31" opacity=".9" filter="url(#catalina-smileGlow)"/>
+    <path d="M912 1258 C 955 1352 1150 1370 1220 1218" stroke="#BDF2FF" stroke-width="24"/>
+    <path d="M912 1258 C 955 1352 1150 1370 1220 1218" stroke="#FFFFFF" stroke-width="11"/>
+    <path d="M935 1272 C 985 1335 1130 1345 1195 1240" stroke="#FFFFFF" stroke-width="4" opacity=".9"/>
+  </g>
+  </g>
+</svg>

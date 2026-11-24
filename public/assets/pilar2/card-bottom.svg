@@ -1,0 +1,21 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="360" height="48" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Group">
+<path id="Vector" d="M346 0H14C6.26801 0 0 6.26801 0 14V34C0 41.732 6.26801 48 14 48H346C353.732 48 360 41.732 360 34V14C360 6.26801 353.732 0 346 0Z" fill="#0F1738"/>
+<g id="Group_2">
+<g id="Vector_2">
+<use xlink:href="#stroke0_0_4" fill="#6366F1" fill-opacity="0.16"/>
+<use xlink:href="#stroke0_0_4" fill="#0F1738"/>
+<path d="M21 14H31C32.1046 14 33 14.8954 33 16V30C33 31.1046 32.1046 32 31 32H21C19.8954 32 19 31.1046 19 30V16C19 14.8954 19.8954 14 21 14Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#2F6BFF"/>
+</g>
+<path id="Vector_3" d="M22 19H30M22.5 27.5L24.5 29.5L29 25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#FF7A8A"/>
+</g>
+<path id="Vector_4" d="M165 24H175L179 15L185 33L189 24H203" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="url(#paint0_linear_0_4)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_4" x1="70.6264" y1="24" x2="279.418" y2="24" gradientUnits="userSpaceOnUse">
+<stop stop-color="#529DE8"/>
+<stop offset="1" stop-color="#7E42D3"/>
+</linearGradient>
+<path id="stroke0_0_4" d="M31 14H21C19.8954 14 19 14.8954 19 16V30C19 31.1046 19.8954 32 21 32H31C32.1046 32 33 31.1046 33 30V16C33 14.8954 32.1046 14 31 14Z"/>
+</defs>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="196 170 1544 1544">
+  
+  <defs>
+    <filter id="lia-blurBig" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="38"/></filter>
+    <filter id="lia-blurMid" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="lia-blurSm" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="lia-innerShadow" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="16"/></filter>
+    <filter id="lia-smileGlow" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Grano de cristal esmerilado (opcional: borrar el grupo #grain si el destino no soporta filtros) -->
+    <filter id="lia-frost" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 -.12"/>
+    </filter>
+    <radialGradient id="lia-shadowG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#4A4FA8" stop-opacity=".55"/><stop offset="1" stop-color="#4A4FA8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lia-reflG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#7FD8F8" stop-opacity=".85"/><stop offset="1" stop-color="#7FD8F8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lia-causticG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#9BE8FF" stop-opacity="0"/>
+    </radialGradient>
+<linearGradient id="lia-lSide" x1="500" y1="420" x2="1550" y2="1300" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#C8C0F4" stop-opacity="1"/><stop offset="0.5" stop-color="#D6E0F6" stop-opacity="1"/><stop offset="1" stop-color="#86DCEA" stop-opacity="1"/></linearGradient>
+<linearGradient id="lia-lFront" x1="400" y1="480" x2="1440" y2="1330" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A06AF0" stop-opacity="1"/><stop offset="0.35" stop-color="#8E6CE6" stop-opacity="1"/><stop offset="0.65" stop-color="#5FA2E4" stop-opacity="1"/><stop offset="1" stop-color="#3FD3DE" stop-opacity="1"/></linearGradient>
+<radialGradient id="lia-lPurple" cx="640" cy="760" r="380" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9C5CF4" stop-opacity="0.9"/><stop offset="1" stop-color="#9C5CF4" stop-opacity="0"/></radialGradient>
+<radialGradient id="lia-lCyan" cx="1250" cy="1170" r="360" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3FE2E0" stop-opacity="0.85"/><stop offset="1" stop-color="#3FE2E0" stop-opacity="0"/></radialGradient>
+<radialGradient id="lia-lFrost" cx="1330" cy="640" r="380" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F1F3FB" stop-opacity="0.8"/><stop offset="1" stop-color="#F1F3FB" stop-opacity="0"/></radialGradient>
+<clipPath id="lia-lClip"><path d="M534.8 487.5 L1318.2 532.5 Q1448 540 1445.4 670.0 L1434.3 1227.0 Q1432 1342 1317.4 1332.8 L841.9 1294.7 Q808 1292 777.9 1307.8 L620.6 1390.1 Q594 1404 586.8 1374.9 L562.2 1275.2 Q556 1250 530.1 1248.1 L474.0 1244.0 Q392 1238 394.4 1098.0 L402.8 610.0 Q405 480 534.8 487.5 Z"/></clipPath>
+  </defs>
+  <g id="lia-shadow">
+    <ellipse cx="1110" cy="1600" rx="470" ry="62" fill="url(#lia-shadowG)" filter="url(#lia-blurMid)"/>
+    <ellipse cx="1110" cy="1625" rx="305" ry="21" fill="#3A3F9A" opacity=".18" filter="url(#lia-blurBig)"/>
+    <ellipse cx="960" cy="1585" rx="340" ry="50" fill="url(#lia-reflG)" filter="url(#lia-blurMid)"/>
+    <ellipse cx="930" cy="1581" rx="163" ry="21" fill="url(#lia-causticG)" filter="url(#lia-blurSm)"/>
+  </g>
+  <g id="lia-lia">
+    <g id="lia-depth" fill="url(#lia-lSide)" opacity=".95"><path d="M629.8 449.5 L1413.2 494.5 Q1543.0 502.0 1540.4 632.0 L1529.3 1189.0 Q1527.0 1304.0 1412.4 1294.8 L936.9 1256.7 Q903.0 1254.0 872.9 1269.8 L715.6 1352.1 Q689.0 1366.0 681.8 1336.9 L657.2 1237.2 Q651.0 1212.0 625.1 1210.1 L569.0 1206.0 Q487.0 1200.0 489.4 1060.0 L497.8 572.0 Q500.0 442.0 629.8 449.5 Z"/><path d="M620.3 453.3 L1403.7 498.3 Q1533.5 505.8 1530.9 635.8 L1519.8 1192.8 Q1517.5 1307.8 1402.9 1298.6 L927.4 1260.5 Q893.5 1257.8 863.4 1273.6 L706.1 1355.9 Q679.5 1369.8 672.3 1340.7 L647.7 1241.0 Q641.5 1215.8 615.6 1213.9 L559.5 1209.8 Q477.5 1203.8 479.9 1063.8 L488.3 575.8 Q490.5 445.8 620.3 453.3 Z"/><path d="M610.8 457.1 L1394.2 502.1 Q1524.0 509.6 1521.4 639.6 L1510.3 1196.6 Q1508.0 1311.6 1393.4 1302.4 L917.9 1264.3 Q884.0 1261.6 853.9 1277.4 L696.6 1359.7 Q670.0 1373.6 662.8 1344.5 L638.2 1244.8 Q632.0 1219.6 606.1 1217.7 L550.0 1213.6 Q468.0 1207.6 470.4 1067.6 L478.8 579.6 Q481.0 449.6 610.8 457.1 Z"/><path d="M601.3 460.9 L1384.7 505.9 Q1514.5 513.4 1511.9 643.4 L1500.8 1200.4 Q1498.5 1315.4 1383.9 1306.2 L908.4 1268.1 Q874.5 1265.4 844.4 1281.2 L687.1 1363.5 Q660.5 1377.4 653.3 1348.3 L628.7 1248.6 Q622.5 1223.4 596.6 1221.5 L540.5 1217.4 Q458.5 1211.4 460.9 1071.4 L469.3 583.4 Q471.5 453.4 601.3 460.9 Z"/><path d="M591.8 464.7 L1375.2 509.7 Q1505.0 517.2 1502.4 647.2 L1491.3 1204.2 Q1489.0 1319.2 1374.4 1310.0 L898.9 1271.9 Q865.0 1269.2 834.9 1285.0 L677.6 1367.3 Q651.0 1381.2 643.8 1352.1 L619.2 1252.4 Q613.0 1227.2 587.1 1225.3 L531.0 1221.2 Q449.0 1215.2 451.4 1075.2 L459.8 587.2 Q462.0 457.2 591.8 464.7 Z"/><path d="M582.3 468.5 L1365.7 513.5 Q1495.5 521.0 1492.9 651.0 L1481.8 1208.0 Q1479.5 1323.0 1364.9 1313.8 L889.4 1275.7 Q855.5 1273.0 825.4 1288.8 L668.1 1371.1 Q641.5 1385.0 634.3 1355.9 L609.7 1256.2 Q603.5 1231.0 577.6 1229.1 L521.5 1225.0 Q439.5 1219.0 441.9 1079.0 L450.3 591.0 Q452.5 461.0 582.3 468.5 Z"/><path d="M572.8 472.3 L1356.2 517.3 Q1486.0 524.8 1483.4 654.8 L1472.3 1211.8 Q1470.0 1326.8 1355.4 1317.6 L879.9 1279.5 Q846.0 1276.8 815.9 1292.6 L658.6 1374.9 Q632.0 1388.8 624.8 1359.7 L600.2 1260.0 Q594.0 1234.8 568.1 1232.9 L512.0 1228.8 Q430.0 1222.8 432.4 1082.8 L440.8 594.8 Q443.0 464.8 572.8 472.3 Z"/><path d="M563.3 476.1 L1346.7 521.1 Q1476.5 528.6 1473.9 658.6 L1462.8 1215.6 Q1460.5 1330.6 1345.9 1321.4 L870.4 1283.3 Q836.5 1280.6 806.4 1296.4 L649.1 1378.7 Q622.5 1392.6 615.3 1363.5 L590.7 1263.8 Q584.5 1238.6 558.6 1236.7 L502.5 1232.6 Q420.5 1226.6 422.9 1086.6 L431.3 598.6 Q433.5 468.6 563.3 476.1 Z"/><path d="M553.8 479.9 L1337.2 524.9 Q1467.0 532.4 1464.4 662.4 L1453.3 1219.4 Q1451.0 1334.4 1336.4 1325.2 L860.9 1287.1 Q827.0 1284.4 796.9 1300.2 L639.6 1382.5 Q613.0 1396.4 605.8 1367.3 L581.2 1267.6 Q575.0 1242.4 549.1 1240.5 L493.0 1236.4 Q411.0 1230.4 413.4 1090.4 L421.8 602.4 Q424.0 472.4 553.8 479.9 Z"/><path d="M544.3 483.7 L1327.7 528.7 Q1457.5 536.2 1454.9 666.2 L1443.8 1223.2 Q1441.5 1338.2 1326.9 1329.0 L851.4 1290.9 Q817.5 1288.2 787.4 1304.0 L630.1 1386.3 Q603.5 1400.2 596.3 1371.1 L571.7 1271.4 Q565.5 1246.2 539.6 1244.3 L483.5 1240.2 Q401.5 1234.2 403.9 1094.2 L412.3 606.2 Q414.5 476.2 544.3 483.7 Z"/></g>
+    <path d="M560 438 L1450 505" fill="none" stroke="#FFFFFF" stroke-opacity=".8" stroke-width="8" stroke-linecap="round" filter="url(#lia-blurSm)"/>
+    <path d="M1540 640 L1525 1240" fill="none" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="9" stroke-linecap="round" filter="url(#lia-blurSm)"/>
+    <path d="M1508 1080 L1498 1240" fill="none" stroke="#5FE8F0" stroke-opacity=".8" stroke-width="12" stroke-linecap="round" filter="url(#lia-blurSm)"/>
+    <!-- Cara frontal -->
+    <path d="M534.8 487.5 L1318.2 532.5 Q1448 540 1445.4 670.0 L1434.3 1227.0 Q1432 1342 1317.4 1332.8 L841.9 1294.7 Q808 1292 777.9 1307.8 L620.6 1390.1 Q594 1404 586.8 1374.9 L562.2 1275.2 Q556 1250 530.1 1248.1 L474.0 1244.0 Q392 1238 394.4 1098.0 L402.8 610.0 Q405 480 534.8 487.5 Z" fill="url(#lia-lFront)"/>
+    <g clip-path="url(#lia-lClip)">
+      <rect x="380" y="440" width="1080" height="990" fill="url(#lia-lPurple)"/>
+      <rect x="380" y="440" width="1080" height="990" fill="url(#lia-lCyan)"/>
+      <rect x="380" y="440" width="1080" height="990" fill="url(#lia-lFrost)"/>
+      <path d="M534.8 487.5 L1318.2 532.5 Q1448 540 1445.4 670.0 L1434.3 1227.0 Q1432 1342 1317.4 1332.8 L841.9 1294.7 Q808 1292 777.9 1307.8 L620.6 1390.1 Q594 1404 586.8 1374.9 L562.2 1275.2 Q556 1250 530.1 1248.1 L474.0 1244.0 Q392 1238 394.4 1098.0 L402.8 610.0 Q405 480 534.8 487.5 Z" fill="none" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="90" filter="url(#lia-blurMid)"/>
+      <path d="M534.8 487.5 L1318.2 532.5 Q1448 540 1445.4 670.0 L1434.3 1227.0 Q1432 1342 1317.4 1332.8 L841.9 1294.7 Q808 1292 777.9 1307.8 L620.6 1390.1 Q594 1404 586.8 1374.9 L562.2 1275.2 Q556 1250 530.1 1248.1 L474.0 1244.0 Q392 1238 394.4 1098.0 L402.8 610.0 Q405 480 534.8 487.5 Z" fill="none" stroke="#3A2F9E" stroke-opacity=".15" stroke-width="36" filter="url(#lia-innerShadow)"/>
+      <path d="M575 1270 C 585 1320 590 1360 592 1390" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="20" filter="url(#lia-blurMid)"/>
+      <ellipse cx="760" cy="520" rx="230" ry="34" fill="#FFFFFF" opacity=".4" filter="url(#lia-blurMid)" transform="rotate(4 760 520)"/>
+      <ellipse cx="1150" cy="1290" rx="200" ry="30" fill="#CFFBFF" opacity=".55" filter="url(#lia-blurMid)" transform="rotate(4 1150 1290)"/>
+    </g>
+    <path d="M534.8 487.5 L1318.2 532.5 Q1448 540 1445.4 670.0 L1434.3 1227.0 Q1432 1342 1317.4 1332.8 L841.9 1294.7 Q808 1292 777.9 1307.8 L620.6 1390.1 Q594 1404 586.8 1374.9 L562.2 1275.2 Q556 1250 530.1 1248.1 L474.0 1244.0 Q392 1238 394.4 1098.0 L402.8 610.0 Q405 480 534.8 487.5 Z" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="3"/>
+  <g id="lia-grain" clip-path="url(#lia-lClip)" opacity="0.45">
+    <rect x="380" y="440" width="1080" height="990" filter="url(#lia-frost)"/>
+  </g>
+  <g id="lia-smile" fill="none" stroke-linecap="round">
+    <path d="M712 848 C 762 1002 1060 1022 1122 882" stroke="#86C4FF" stroke-width="52" opacity=".9" filter="url(#lia-smileGlow)"/>
+    <path d="M712 848 C 762 1002 1060 1022 1122 882" stroke="#E6F0FF" stroke-width="40"/>
+    <path d="M712 848 C 762 1002 1060 1022 1122 882" stroke="#FFFFFF" stroke-width="18"/>
+    <path d="M738 872 C 790 985 1040 1000 1098 900" stroke="#FFFFFF" stroke-width="6" opacity=".9"/>
+  </g>
+  </g>
+</svg>

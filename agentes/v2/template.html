@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Una sola sonrisa · Medismart</title>
+<style>
+@font-face{font-family:"MulishR";src:local("Mulish Black"),local("Mulish-Black");font-weight:900}
+@font-face{font-family:"MulishR";src:local("Mulish ExtraBold"),local("Mulish-ExtraBold");font-weight:800}
+@font-face{font-family:"MulishR";src:local("Mulish Bold"),local("Mulish-Bold");font-weight:700}
+@font-face{font-family:"MulishR";src:local("Mulish SemiBold"),local("Mulish-SemiBold"),local("Mulish Bold");font-weight:600}
+:root{--ink:#030C43;--purple:#7556D7;--blue:#529DE8;--teal:#3FD3DE;--muted:#5A5F7D}
+html,body{margin:0;height:100%;background:#0B0E24;overflow:hidden}
+body{display:grid;place-items:center;font-family:"MulishR","Mulish",system-ui,sans-serif}
+#viewport{position:relative}
+#stage{position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;background:#F7F7FE;contain:strict}
+.layer{position:absolute;left:0;top:0}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);will-change:transform}
+#b1{background:#7556D7}#b2{background:#529DE8}#b3{background:#3FD3DE}
+.dot{position:absolute;border-radius:50%;background:#fff;box-shadow:0 0 12px 3px rgba(117,86,215,.45)}
+#ring{position:absolute;overflow:visible;width:1px;height:1px}
+#cam{transform-origin:0 0}
+#isoWrap{position:absolute;left:0;top:0}
+#iso{width:100%;height:100%;display:block}
+.spark{position:absolute;left:0;top:0;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;
+  background:radial-gradient(circle,#fff 0 18%,#CFF4FF 28%,rgba(82,157,232,.85) 44%,rgba(117,86,215,.35) 60%,transparent 72%);box-shadow:0 0 34px 10px rgba(117,86,215,.28)}
+.trail{position:absolute;left:0;top:0;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;
+  background:radial-gradient(circle,#fff 0 20%,rgba(120,200,255,.75) 45%,transparent 70%)}
+.av{position:absolute;left:0;top:0;width:600px;height:600px;margin:-300px 0 0 -300px;will-change:transform}
+.av svg{position:absolute;inset:0;width:100%;height:100%}
+.av .shine{display:none}
+#card{position:absolute;left:0;top:0;width:740px}
+#card .num{font-weight:900;font-size:30px;letter-spacing:3px;text-transform:uppercase;color:#0E9BDB}
+#card .name{display:flex;align-items:center;gap:18px;margin:6px 0 2px}
+#card .fn{font-size:40px;font-weight:800;color:var(--ink);line-height:1.22;margin:0 0 26px;letter-spacing:-.3px}
+#card.center{text-align:center}#card.center .name{justify-content:center}#card.center .q{transform-origin:50% 100%}
+#card .name b{font-size:112px;font-weight:900;line-height:1.05;letter-spacing:-2px;padding-bottom:6px}
+.ia{display:inline-block;border:3px solid #2F3FAE;color:#2F3FAE;border-radius:999px;font-size:26px;font-weight:900;padding:2px 16px;letter-spacing:1px}
+#card .role{font-size:34px;font-weight:700;color:var(--muted);margin:0 0 14px}
+#card .q{display:inline-block;background:linear-gradient(135deg,#7556D7,#3FB4CE);color:#fff;border-radius:30px 30px 30px 8px;padding:18px 30px;font-weight:700;font-size:38px;box-shadow:0 16px 40px rgba(80,70,200,.25);transform-origin:0 100%}
+.word{display:inline-block;will-change:transform,opacity}
+.headline{position:absolute;left:0;top:0;width:100%;text-align:center;font-weight:900;color:var(--ink);letter-spacing:-1.5px;line-height:1.05}
+.gt{background:linear-gradient(90deg,#7556D7 0%,#529DE8 55%,#2FC7D6 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+#polaroid{position:absolute;left:0;top:0;border:22px solid #fff;border-bottom-width:110px;border-radius:10px;box-shadow:0 30px 80px rgba(3,12,67,.25);background:transparent}
+#polaroid span{position:absolute;left:0;right:0;bottom:-82px;text-align:center;font-weight:900;font-size:40px;color:var(--ink)}
+#flash{position:absolute;inset:0;background:#fff;pointer-events:none}
+.smileFly{position:absolute;left:0;top:0;width:120px;height:60px;margin:-30px 0 0 -60px;overflow:visible}
+#logoWrap{position:absolute;left:0;top:0}
+#logo{width:100%;height:auto;display:block;overflow:visible}
+#tagline,#sub{position:absolute;left:0;width:100%;text-align:center;font-weight:800;color:var(--ink)}
+#sub{font-weight:700;color:var(--muted);letter-spacing:4px;text-transform:uppercase}
+#ui{position:fixed;inset:0;display:grid;place-items:center;z-index:10;background:rgba(11,14,36,.55);cursor:pointer;color:#fff;font:800 22px "MulishR",system-ui;flex-direction:column;gap:14px}
+#ui .btn{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#7556D7,#3FB4CE);display:grid;place-items:center;box-shadow:0 20px 60px rgba(117,86,215,.6)}
+#ui .btn i{display:block;width:0;height:0;border-left:38px solid #fff;border-top:24px solid transparent;border-bottom:24px solid transparent;margin-left:10px}
+#ui .fmt{display:flex;gap:10px}
+#ui .fmt a{color:#fff;text-decoration:none;border:2px solid rgba(255,255,255,.5);border-radius:999px;padding:6px 16px;font-size:16px}
+#ui .fmt a.on{background:#fff;color:#0B0E24}
+body.capture #ui{display:none}
+body.capture{background:#F7F7FE}
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+  <div class="layer" id="bg"><div class="blob" id="b1"></div><div class="blob" id="b2"></div><div class="blob" id="b3"></div><div id="dots"></div></div>
+  <div id="cam" class="layer">
+  <svg id="ring" class="layer" overflow="visible"><defs>
+    <linearGradient id="ringG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7556D7"/><stop offset=".55" stop-color="#529DE8"/><stop offset="1" stop-color="#3FD3DE"/></linearGradient>
+    <radialGradient id="ringFill"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#EEF0FA"/></radialGradient></defs>
+    <circle id="ringDisc" fill="url(#ringFill)"/>
+    <circle id="ringArc" fill="none" stroke="url(#ringG)" stroke-linecap="round"/>
+    <circle id="ringArc2" fill="none" stroke="url(#ringG)" stroke-linecap="round" opacity=".55"/>
+  </svg>
+  <div id="pulses" class="layer"></div>
+  <div id="isoWrap"><!--ISO--></div>
+  <div id="family" class="layer"><!--AVATARS--></div>
+  <div id="sparks" class="layer"></div>
+  <div id="smiles" class="layer"></div>
+  <div id="card"><div class="num"></div><div class="name"><b></b><span class="ia">IA</span></div><p class="role"></p><p class="fn"></p><div class="q"></div></div>
+  <div class="headline" id="h1"></div>
+  <div class="headline" id="h2"></div>
+  <div id="polaroid"><span>La familia IA de Medismart</span></div>
+  <div id="logoWrap"><!--LOGO--><div id="tagline"></div><div id="sub">Familia de asistentes IA</div></div>
+  </div>
+  <div id="flash"></div>
+</div></div>
+<div id="ui"><div class="btn"><i></i></div><div>Una sola sonrisa · Medismart</div><div class="fmt"><a href="?f=h" id="fh">16:9</a><a href="?f=v" id="fv">9:16</a></div></div>
+<script>
+/*MUSIC_JS*/
+/*REEL_JS*/
+</script>
+</body>
+</html>

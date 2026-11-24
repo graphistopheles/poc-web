@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="150 165 1650 1650">
+  
+  <defs>
+    <filter id="dalia-blurBig" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="38"/></filter>
+    <filter id="dalia-blurMid" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="dalia-blurSm" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="dalia-innerShadow" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="16"/></filter>
+    <filter id="dalia-smileGlow" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Grano de cristal esmerilado (opcional: borrar el grupo #grain si el destino no soporta filtros) -->
+    <filter id="dalia-frost" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 -.12"/>
+    </filter>
+    <radialGradient id="dalia-shadowG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#4A4FA8" stop-opacity=".55"/><stop offset="1" stop-color="#4A4FA8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dalia-reflG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#7FD8F8" stop-opacity=".85"/><stop offset="1" stop-color="#7FD8F8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dalia-causticG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#9BE8FF" stop-opacity="0"/>
+    </radialGradient>
+<linearGradient id="dalia-dSide" x1="1000" y1="700" x2="1520" y2="1610" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#E6E4F7" stop-opacity="1"/><stop offset="0.5" stop-color="#C2CDF2" stop-opacity="1"/><stop offset="1" stop-color="#9FB2EC" stop-opacity="1"/></linearGradient>
+<linearGradient id="dalia-dFront" x1="470" y1="400" x2="1420" y2="1540" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#EEEBFA" stop-opacity="1"/><stop offset="0.5" stop-color="#DCDDF5" stop-opacity="1"/><stop offset="1" stop-color="#CFE2F6" stop-opacity="1"/></linearGradient>
+<linearGradient id="dalia-dCore" x1="650" y1="600" x2="1250" y2="1350" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A865EC" stop-opacity="1"/><stop offset="0.4" stop-color="#6A63DE" stop-opacity="1"/><stop offset="0.7" stop-color="#4C9BE2" stop-opacity="1"/><stop offset="1" stop-color="#30D2DA" stop-opacity="1"/></linearGradient>
+<radialGradient id="dalia-dCyan" cx="1200" cy="1180" r="330" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3FE0E0" stop-opacity="0.75"/><stop offset="1" stop-color="#3FE0E0" stop-opacity="0"/></radialGradient>
+<linearGradient id="dalia-dRim" x1="470" y1="400" x2="1420" y2="1540" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9FB0F8" stop-opacity="1"/><stop offset="0.45" stop-color="#3F58E6" stop-opacity="1"/><stop offset="1" stop-color="#2E86EA" stop-opacity="1"/></linearGradient>
+<clipPath id="dalia-dClip"><path d="M1097.1 436.0 L1297.9 544.0 Q1430 615 1426.7 765.0 L1418.3 1150.0 Q1415 1300 1284.1 1373.2 L1080.9 1486.8 Q950 1560 820.6 1484.1 L559.4 1330.9 Q430 1255 439.6 1105.3 L460.4 779.7 Q470 630 602.2 559.2 L832.8 435.8 Q965 365 1097.1 436.0 Z"/></clipPath>
+<clipPath id="dalia-body"><path d="M1127.5 340.5 L1361.7 466.7 Q1520.2 552.1 1516.5 732.1 L1507.4 1185.0 Q1503.7 1365.0 1346.1 1452.0 L1108.8 1583.0 Q951.2 1670.0 795.7 1579.3 L490.6 1401.3 Q335.1 1310.6 345.8 1130.9 L368.5 747.5 Q379.2 567.8 538.2 483.5 L810.0 339.4 Q969.0 255.1 1127.5 340.5 Z"/></clipPath>
+  </defs>
+  <g id="dalia-shadow">
+    <ellipse cx="1190" cy="1660" rx="430" ry="70" fill="url(#dalia-shadowG)" filter="url(#dalia-blurMid)"/>
+    <ellipse cx="1190" cy="1685" rx="279" ry="24" fill="#3A3F9A" opacity=".18" filter="url(#dalia-blurBig)"/>
+    <ellipse cx="1010" cy="1640" rx="300" ry="55" fill="url(#dalia-reflG)" filter="url(#dalia-blurMid)"/>
+    <ellipse cx="980" cy="1636" rx="144" ry="23" fill="url(#dalia-causticG)" filter="url(#dalia-blurSm)"/>
+  </g>
+  <g id="dalia-dalia">
+    <path id="dalia-slab" d="M1012.5 392.5 L1012.5 392.5 Q1060 420 1192.1 491.0 L1392.9 599.0 Q1525 670 1521.7 820.0 L1513.3 1205.0 Q1510 1355 1379.1 1428.2 L1175.9 1541.8 Q1045 1615 915.5 1539.2 L559.5 1330.8 Q430 1255 439.6 1105.3 L460.4 779.7 Q470 630 602.2 559.2 L832.8 435.8 Q965 365 1012.5 392.5 Z" fill="url(#dalia-dSide)" opacity=".95"/>
+    <!-- Brillos de vidrio en el canto -->
+    <g id="dalia-edgeGlints" fill="none" stroke-linecap="round" filter="url(#dalia-blurSm)">
+      <path d="M1492 800 L1500 1250" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="9"/>
+      <path d="M1380 1420 L1110 1580" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="9"/>
+      <path d="M1470 1330 Q1460 1370 1430 1390" stroke="#6FE2F5" stroke-opacity=".9" stroke-width="14"/>
+    </g>
+    <!-- Cara frontal esmerilada -->
+    <path d="M1097.1 436.0 L1297.9 544.0 Q1430 615 1426.7 765.0 L1418.3 1150.0 Q1415 1300 1284.1 1373.2 L1080.9 1486.8 Q950 1560 820.6 1484.1 L559.4 1330.9 Q430 1255 439.6 1105.3 L460.4 779.7 Q470 630 602.2 559.2 L832.8 435.8 Q965 365 1097.1 436.0 Z" fill="url(#dalia-dFront)"/>
+    <g clip-path="url(#dalia-dClip)">
+      <path d="M1064.6 591.5 L1184.7 655.6 Q1290.5 712.2 1287.4 832.2 L1281.0 1079.5 Q1277.9 1199.5 1174.0 1259.5 L1052.0 1330.0 Q948.1 1390.0 845.0 1328.6 L679.8 1230.4 Q576.7 1169.0 585.8 1049.3 L601.2 845.8 Q610.3 726.1 715.5 668.4 L853.6 592.6 Q958.8 534.9 1064.6 591.5 Z" fill="url(#dalia-dCore)" filter="url(#dalia-blurBig)"/>
+      <rect x="430" y="365" width="1000" height="1200" fill="url(#dalia-dCyan)"/>
+      <path d="M1097.1 436.0 L1297.9 544.0 Q1430 615 1426.7 765.0 L1418.3 1150.0 Q1415 1300 1284.1 1373.2 L1080.9 1486.8 Q950 1560 820.6 1484.1 L559.4 1330.9 Q430 1255 439.6 1105.3 L460.4 779.7 Q470 630 602.2 559.2 L832.8 435.8 Q965 365 1097.1 436.0 Z" fill="none" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="150" filter="url(#dalia-blurMid)"/>
+      <path d="M1097.1 436.0 L1297.9 544.0 Q1430 615 1426.7 765.0 L1418.3 1150.0 Q1415 1300 1284.1 1373.2 L1080.9 1486.8 Q950 1560 820.6 1484.1 L559.4 1330.9 Q430 1255 439.6 1105.3 L460.4 779.7 Q470 630 602.2 559.2 L832.8 435.8 Q965 365 1097.1 436.0 Z" fill="none" stroke="#3A2F9E" stroke-opacity=".18" stroke-width="40" filter="url(#dalia-innerShadow)"/>
+      <ellipse cx="760" cy="560" rx="200" ry="40" fill="#FFFFFF" opacity=".4" filter="url(#dalia-blurMid)" transform="rotate(-28 760 560)"/>
+    </g>
+    <!-- Filo azul luminoso -->
+    <path d="M1083.1 450.9 L1293.1 563.7 Q1412.0 627.6 1409.0 762.6 L1400.3 1152.0 Q1397.3 1287.0 1279.6 1353.0 L1067.5 1472.0 Q949.8 1538.0 833.4 1469.6 L565.4 1312.3 Q449.0 1243.9 457.8 1109.2 L479.4 777.1 Q488.2 642.4 607.2 578.6 L845.2 450.8 Q964.2 387.0 1083.1 450.9 Z" fill="none" stroke="#5A7BFF" stroke-width="22" opacity=".35" filter="url(#dalia-blurSm)"/>
+    <path d="M1083.1 450.9 L1293.1 563.7 Q1412.0 627.6 1409.0 762.6 L1400.3 1152.0 Q1397.3 1287.0 1279.6 1353.0 L1067.5 1472.0 Q949.8 1538.0 833.4 1469.6 L565.4 1312.3 Q449.0 1243.9 457.8 1109.2 L479.4 777.1 Q488.2 642.4 607.2 578.6 L845.2 450.8 Q964.2 387.0 1083.1 450.9 Z" fill="none" stroke="url(#dalia-dRim)" stroke-width="10" opacity=".9"/>
+    <path d="M1097.1 436.0 L1297.9 544.0 Q1430 615 1426.7 765.0 L1418.3 1150.0 Q1415 1300 1284.1 1373.2 L1080.9 1486.8 Q950 1560 820.6 1484.1 L559.4 1330.9 Q430 1255 439.6 1105.3 L460.4 779.7 Q470 630 602.2 559.2 L832.8 435.8 Q965 365 1097.1 436.0 Z" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="3"/>
+  <g id="dalia-grain" clip-path="url(#dalia-body)" opacity="0.45">
+    <rect x="400" y="330" width="1150" height="1300" filter="url(#dalia-frost)"/>
+  </g>
+  <g id="dalia-smile" fill="none" stroke-linecap="round">
+    <path d="M770 928 C 800 1052 1075 1052 1102 935" stroke="#6FA8FF" stroke-width="33" opacity=".9" filter="url(#dalia-smileGlow)"/>
+    <path d="M770 928 C 800 1052 1075 1052 1102 935" stroke="#D9E8FF" stroke-width="26"/>
+    <path d="M770 928 C 800 1052 1075 1052 1102 935" stroke="#FFFFFF" stroke-width="11"/>
+    <path d="M792 948 C 830 1025 1050 1025 1080 952" stroke="#FFFFFF" stroke-width="4" opacity=".9"/>
+  </g>
+  </g>
+</svg>

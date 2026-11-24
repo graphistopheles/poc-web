@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="114 109 1703 1703">
+  
+  <defs>
+    <filter id="noelia-blurBig" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="38"/></filter>
+    <filter id="noelia-blurMid" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="noelia-blurSm" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="noelia-innerShadow" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="16"/></filter>
+    <filter id="noelia-smileGlow" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Grano de cristal esmerilado (opcional: borrar el grupo #grain si el destino no soporta filtros) -->
+    <filter id="noelia-frost" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 -.12"/>
+    </filter>
+    <radialGradient id="noelia-shadowG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#4A4FA8" stop-opacity=".55"/><stop offset="1" stop-color="#4A4FA8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="noelia-reflG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#7FD8F8" stop-opacity=".85"/><stop offset="1" stop-color="#7FD8F8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="noelia-causticG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#9BE8FF" stop-opacity="0"/>
+    </radialGradient>
+<linearGradient id="noelia-nBase" x1="330" y1="330" x2="1600" y2="1590" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#E8E2F9" stop-opacity="1"/><stop offset="0.5" stop-color="#DCDDF4" stop-opacity="1"/><stop offset="1" stop-color="#D3EEEE" stop-opacity="1"/></linearGradient>
+<radialGradient id="noelia-nPurple" cx="770" cy="900" r="480" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8B55E6" stop-opacity="1"/><stop offset="0.5" stop-color="#9C78EA" stop-opacity="0.6"/><stop offset="1" stop-color="#B79AF0" stop-opacity="0"/></radialGradient>
+<radialGradient id="noelia-nTeal" cx="1230" cy="1060" r="430" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2FD6B2" stop-opacity="0.95"/><stop offset="0.5" stop-color="#58D2C8" stop-opacity="0.55"/><stop offset="1" stop-color="#8FE0E0" stop-opacity="0"/></radialGradient>
+<radialGradient id="noelia-nBlue" cx="1000" cy="1200" r="380" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6FA4E0" stop-opacity="0.75"/><stop offset="1" stop-color="#6FA4E0" stop-opacity="0"/></radialGradient>
+<linearGradient id="noelia-nRim" x1="330" y1="330" x2="1600" y2="1590" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#B48CF6" stop-opacity="1"/><stop offset="0.5" stop-color="#C9B6F8" stop-opacity="1"/><stop offset="1" stop-color="#6FE6D2" stop-opacity="1"/></linearGradient>
+<clipPath id="noelia-nClip"><path d="M890.4 379.0 A80 80 0 0 1 1039.6 379.0 Q1129.6 744.9 1549.3 859.3 A80 80 0 0 1 1554.7 1008.4 Q1178.8 1135.3 1039.6 1541.0 A80 80 0 0 1 890.4 1541.0 Q751.6 1145.3 374.3 1008.3 A80 80 0 0 1 379.7 859.3 Q769.0 744.9 890.4 379.0 Z"/></clipPath>
+  </defs>
+  <g id="noelia-shadow">
+    <ellipse cx="1130" cy="1680" rx="430" ry="55" fill="url(#noelia-shadowG)" filter="url(#noelia-blurMid)"/>
+    <ellipse cx="1130" cy="1705" rx="279" ry="19" fill="#3A3F9A" opacity=".18" filter="url(#noelia-blurBig)"/>
+    <ellipse cx="960" cy="1665" rx="300" ry="42" fill="url(#noelia-reflG)" filter="url(#noelia-blurMid)"/>
+    <ellipse cx="930" cy="1661" rx="144" ry="17" fill="url(#noelia-causticG)" filter="url(#noelia-blurSm)"/>
+  </g>
+  <g id="noelia-noelia">
+    <path d="M890.4 379.0 A80 80 0 0 1 1039.6 379.0 Q1129.6 744.9 1549.3 859.3 A80 80 0 0 1 1554.7 1008.4 Q1178.8 1135.3 1039.6 1541.0 A80 80 0 0 1 890.4 1541.0 Q751.6 1145.3 374.3 1008.3 A80 80 0 0 1 379.7 859.3 Q769.0 744.9 890.4 379.0 Z" fill="none" stroke="#D4B8FF" stroke-opacity=".45" stroke-width="34" filter="url(#noelia-blurMid)"/>
+    <path d="M895.0 394.4 A80 80 0 0 1 1044.1 395.6 Q1133.8 761.2 1556.2 874.0 A80 80 0 0 1 1557.8 1023.1 Q1185.0 1152.2 1044.2 1556.4 A80 80 0 0 1 895.0 1557.6 Q755.9 1161.7 381.2 1023.1 A80 80 0 0 1 382.8 874.0 Q775.1 761.8 895.0 394.4 Z" fill="url(#noelia-nRim)" opacity=".7" filter="url(#noelia-blurSm)"/>
+    <path d="M890.4 379.0 A80 80 0 0 1 1039.6 379.0 Q1129.6 744.9 1549.3 859.3 A80 80 0 0 1 1554.7 1008.4 Q1178.8 1135.3 1039.6 1541.0 A80 80 0 0 1 890.4 1541.0 Q751.6 1145.3 374.3 1008.3 A80 80 0 0 1 379.7 859.3 Q769.0 744.9 890.4 379.0 Z" fill="url(#noelia-nBase)"/>
+    <g clip-path="url(#noelia-nClip)">
+      <rect x="320" y="320" width="1300" height="1290" fill="url(#noelia-nBlue)"/>
+      <rect x="320" y="320" width="1300" height="1290" fill="url(#noelia-nPurple)"/>
+      <rect x="320" y="320" width="1300" height="1290" fill="url(#noelia-nTeal)"/>
+      <path d="M890.4 379.0 A80 80 0 0 1 1039.6 379.0 Q1129.6 744.9 1549.3 859.3 A80 80 0 0 1 1554.7 1008.4 Q1178.8 1135.3 1039.6 1541.0 A80 80 0 0 1 890.4 1541.0 Q751.6 1145.3 374.3 1008.3 A80 80 0 0 1 379.7 859.3 Q769.0 744.9 890.4 379.0 Z" fill="none" stroke="#F5F2FD" stroke-opacity=".55" stroke-width="150" filter="url(#noelia-blurBig)"/>
+      <path d="M890.4 379.0 A80 80 0 0 1 1039.6 379.0 Q1129.6 744.9 1549.3 859.3 A80 80 0 0 1 1554.7 1008.4 Q1178.8 1135.3 1039.6 1541.0 A80 80 0 0 1 890.4 1541.0 Q751.6 1145.3 374.3 1008.3 A80 80 0 0 1 379.7 859.3 Q769.0 744.9 890.4 379.0 Z" fill="none" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="34" filter="url(#noelia-blurMid)"/>
+      <!-- filo interior iridiscente (lila arriba-izquierda, menta abajo-derecha) -->
+      <path d="M903.5 386.1 A66 66 0 0 1 1026.5 386.1 Q1117.9 758.4 1542.7 872.6 A66 66 0 0 1 1547.2 995.6 Q1165.6 1123.6 1026.5 1533.9 A66 66 0 0 1 903.5 1533.9 Q764.7 1133.4 381.8 995.6 A66 66 0 0 1 386.3 872.6 Q781.3 757.7 903.5 386.1 Z" fill="none" stroke="url(#noelia-nRim)" stroke-opacity=".75" stroke-width="7" filter="url(#noelia-blurSm)"/>
+      <ellipse cx="940" cy="430" rx="70" ry="30" fill="#FFFFFF" opacity=".6" filter="url(#noelia-blurMid)"/>
+      <ellipse cx="470" cy="900" rx="60" ry="22" fill="#FFFFFF" opacity=".5" filter="url(#noelia-blurMid)" transform="rotate(-20 470 900)"/>
+      <ellipse cx="1240" cy="1180" rx="90" ry="40" fill="#BFFFF2" opacity=".55" filter="url(#noelia-blurMid)"/>
+      <ellipse cx="985" cy="1500" rx="60" ry="24" fill="#FFFFFF" opacity=".45" filter="url(#noelia-blurMid)"/>
+    </g>
+    <path d="M890.4 379.0 A80 80 0 0 1 1039.6 379.0 Q1129.6 744.9 1549.3 859.3 A80 80 0 0 1 1554.7 1008.4 Q1178.8 1135.3 1039.6 1541.0 A80 80 0 0 1 890.4 1541.0 Q751.6 1145.3 374.3 1008.3 A80 80 0 0 1 379.7 859.3 Q769.0 744.9 890.4 379.0 Z" fill="none" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="3"/>
+  <g id="noelia-grain" clip-path="url(#noelia-nClip)" opacity="0.5">
+    <rect x="320" y="320" width="1300" height="1290" filter="url(#noelia-frost)"/>
+  </g>
+  <g id="noelia-smile" fill="none" stroke-linecap="round">
+    <path d="M810 905 C 842 1010 1085 1010 1115 905" stroke="#B88BFF" stroke-width="28" opacity=".9" filter="url(#noelia-smileGlow)"/>
+    <path d="M810 905 C 842 1010 1085 1010 1115 905" stroke="#EEE2FF" stroke-width="22"/>
+    <path d="M810 905 C 842 1010 1085 1010 1115 905" stroke="#FFFFFF" stroke-width="10"/>
+    <path d="M830 920 C 870 990 1060 992 1095 922" stroke="#FFFFFF" stroke-width="3" opacity=".9"/>
+  </g>
+  </g>
+</svg>

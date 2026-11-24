@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="229 207 1465 1465">
+  
+  <defs>
+    <filter id="clara-blurBig" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="38"/></filter>
+    <filter id="clara-blurMid" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="clara-blurSm" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="clara-innerShadow" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="16"/></filter>
+    <filter id="clara-smileGlow" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Grano de cristal esmerilado (opcional: borrar el grupo #grain si el destino no soporta filtros) -->
+    <filter id="clara-frost" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 -.12"/>
+    </filter>
+    <radialGradient id="clara-shadowG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#4A4FA8" stop-opacity=".55"/><stop offset="1" stop-color="#4A4FA8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="clara-reflG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#7FD8F8" stop-opacity=".85"/><stop offset="1" stop-color="#7FD8F8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="clara-causticG" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#9BE8FF" stop-opacity="0"/>
+    </radialGradient>
+<linearGradient id="clara-cSide" x1="600" y1="500" x2="1380" y2="1500" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#B9B2F2" stop-opacity="1"/><stop offset="0.5" stop-color="#7FB4F2" stop-opacity="1"/><stop offset="1" stop-color="#5ED6EA" stop-opacity="1"/></linearGradient>
+<linearGradient id="clara-cFront" x1="620" y1="420" x2="1300" y2="1460" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#B184F0" stop-opacity="1"/><stop offset="0.3" stop-color="#9B62EA" stop-opacity="1"/><stop offset="0.6" stop-color="#5C8AE6" stop-opacity="1"/><stop offset="1" stop-color="#3ED0E2" stop-opacity="1"/></linearGradient>
+<radialGradient id="clara-cTeal" cx="1150" cy="1260" r="330" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3FE6E2" stop-opacity="0.8"/><stop offset="1" stop-color="#3FE6E2" stop-opacity="0"/></radialGradient>
+<linearGradient id="clara-cFrost" x1="552" y1="900" x2="900" y2="900" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F1EFFB" stop-opacity="0.75"/><stop offset="1" stop-color="#F1EFFB" stop-opacity="0"/></linearGradient>
+<linearGradient id="clara-cFrostB" x1="900" y1="1460" x2="900" y2="1180" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#EFF6FD" stop-opacity="0.7"/><stop offset="1" stop-color="#EFF6FD" stop-opacity="0"/></linearGradient>
+<linearGradient id="clara-cFlap" x1="1110" y1="450" x2="1360" y2="670" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#E6F1FF" stop-opacity="0.85"/><stop offset="0.5" stop-color="#A9C8F8" stop-opacity="0.75"/><stop offset="1" stop-color="#6FA7F2" stop-opacity="0.8"/></linearGradient>
+<filter id="clara-lineGlow" filterUnits="userSpaceOnUse" x="680" y="1000" width="440" height="190"><feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<clipPath id="clara-cClip"><path d="M714.7 401.6 L1110.1 436.4 Q1128 438 1140.8 450.7 L1347.2 655.3 Q1360 668 1358.6 685.9 L1300.9 1420.2 Q1296 1482 1234.4 1474.8 L613.6 1402.2 Q552 1395 557.4 1333.2 L633.4 469.7 Q640 395 714.7 401.6 Z"/></clipPath>
+  </defs>
+  <g id="clara-shadow">
+    <ellipse cx="1060" cy="1640" rx="450" ry="62" fill="url(#clara-shadowG)" filter="url(#clara-blurMid)"/>
+    <ellipse cx="1060" cy="1665" rx="292" ry="21" fill="#3A3F9A" opacity=".18" filter="url(#clara-blurBig)"/>
+    <ellipse cx="900" cy="1620" rx="320" ry="50" fill="url(#clara-reflG)" filter="url(#clara-blurMid)"/>
+    <ellipse cx="870" cy="1616" rx="153" ry="21" fill="url(#clara-causticG)" filter="url(#clara-blurSm)"/>
+  </g>
+  <g id="clara-clara">
+    <g id="clara-depth" fill="url(#clara-cSide)" opacity=".95"><path d="M730.7 425.6 L1126.1 460.4 Q1144.0 462.0 1156.8 474.7 L1363.2 679.3 Q1376.0 692.0 1374.6 709.9 L1316.9 1444.2 Q1312.0 1506.0 1250.4 1498.8 L629.6 1426.2 Q568.0 1419.0 573.4 1357.2 L649.4 493.7 Q656.0 419.0 730.7 425.6 Z"/><path d="M728.0 421.6 L1123.4 456.4 Q1141.3333333333333 458.0 1154.1 470.7 L1360.6 675.3 Q1373.3333333333333 688.0 1371.9 705.9 L1314.2 1440.2 Q1309.3333333333333 1502.0 1247.8 1494.8 L626.9 1422.2 Q565.3333333333334 1415.0 570.8 1353.2 L646.8 489.7 Q653.3333333333334 415.0 728.0 421.6 Z"/><path d="M725.4 417.6 L1120.7 452.4 Q1138.6666666666667 454.0 1151.4 466.7 L1357.9 671.3 Q1370.6666666666667 684.0 1369.3 701.9 L1311.5 1436.2 Q1306.6666666666667 1498.0 1245.1 1490.8 L624.2 1418.2 Q562.6666666666666 1411.0 568.1 1349.2 L644.1 485.7 Q650.6666666666666 411.0 725.4 417.6 Z"/><path d="M722.7 413.6 L1118.1 448.4 Q1136.0 450.0 1148.8 462.7 L1355.2 667.3 Q1368.0 680.0 1366.6 697.9 L1308.9 1432.2 Q1304.0 1494.0 1242.4 1486.8 L621.6 1414.2 Q560.0 1407.0 565.4 1345.2 L641.4 481.7 Q648.0 407.0 722.7 413.6 Z"/><path d="M720.0 409.6 L1115.4 444.4 Q1133.3333333333333 446.0 1146.1 458.7 L1352.6 663.3 Q1365.3333333333333 676.0 1363.9 693.9 L1306.2 1428.2 Q1301.3333333333333 1490.0 1239.8 1482.8 L618.9 1410.2 Q557.3333333333334 1403.0 562.8 1341.2 L638.8 477.7 Q645.3333333333334 403.0 720.0 409.6 Z"/><path d="M717.4 405.6 L1112.7 440.4 Q1130.6666666666667 442.0 1143.4 454.7 L1349.9 659.3 Q1362.6666666666667 672.0 1361.3 689.9 L1303.5 1424.2 Q1298.6666666666667 1486.0 1237.1 1478.8 L616.2 1406.2 Q554.6666666666666 1399.0 560.1 1337.2 L636.1 473.7 Q642.6666666666666 399.0 717.4 405.6 Z"/></g>
+    <path d="M1372 700 L1312 1480" fill="none" stroke="#9FF4FF" stroke-opacity=".8" stroke-width="8" stroke-linecap="round" filter="url(#clara-blurSm)"/>
+    <path d="M600 1415 L1250 1500" fill="none" stroke="#B9E6FF" stroke-opacity=".7" stroke-width="7" stroke-linecap="round" filter="url(#clara-blurSm)"/>
+    <!-- Cara frontal -->
+    <path d="M714.7 401.6 L1110.1 436.4 Q1128 438 1140.8 450.7 L1347.2 655.3 Q1360 668 1358.6 685.9 L1300.9 1420.2 Q1296 1482 1234.4 1474.8 L613.6 1402.2 Q552 1395 557.4 1333.2 L633.4 469.7 Q640 395 714.7 401.6 Z" fill="url(#clara-cFront)"/>
+    <g clip-path="url(#clara-cClip)">
+      <rect x="540" y="380" width="840" height="1120" fill="url(#clara-cTeal)"/>
+      <rect x="540" y="380" width="840" height="1120" fill="url(#clara-cFrost)"/>
+      <rect x="540" y="380" width="840" height="1120" fill="url(#clara-cFrostB)"/>
+      <path d="M714.7 401.6 L1110.1 436.4 Q1128 438 1140.8 450.7 L1347.2 655.3 Q1360 668 1358.6 685.9 L1300.9 1420.2 Q1296 1482 1234.4 1474.8 L613.6 1402.2 Q552 1395 557.4 1333.2 L633.4 469.7 Q640 395 714.7 401.6 Z" fill="none" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="70" filter="url(#clara-blurMid)"/>
+      <path d="M714.7 401.6 L1110.1 436.4 Q1128 438 1140.8 450.7 L1347.2 655.3 Q1360 668 1358.6 685.9 L1300.9 1420.2 Q1296 1482 1234.4 1474.8 L613.6 1402.2 Q552 1395 557.4 1333.2 L633.4 469.7 Q640 395 714.7 401.6 Z" fill="none" stroke="#3A2F9E" stroke-opacity=".15" stroke-width="36" filter="url(#clara-innerShadow)"/>
+      <ellipse cx="860" cy="470" rx="190" ry="30" fill="#FFFFFF" opacity=".35" filter="url(#clara-blurMid)" transform="rotate(5 860 470)"/>
+    </g>
+    <path d="M714.7 401.6 L1110.1 436.4 Q1128 438 1140.8 450.7 L1347.2 655.3 Q1360 668 1358.6 685.9 L1300.9 1420.2 Q1296 1482 1234.4 1474.8 L613.6 1402.2 Q552 1395 557.4 1333.2 L633.4 469.7 Q640 395 714.7 401.6 Z" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="3"/>
+    <!-- Esquina doblada: solapa de vidrio que se curva hacia adelante -->
+    <g id="clara-fold">
+      <path d="M1128 438 C 1150 445 1160 470 1148 520 L1118 612 C 1112 640 1128 652 1160 656 L1358 668 Z" fill="#3E58C8" opacity=".25" filter="url(#clara-blurSm)" transform="translate(6 10)"/>
+      <path d="M1128 438 C 1150 445 1160 470 1148 520 L1118 612 C 1112 640 1128 652 1160 656 L1358 668 Z" fill="url(#clara-cFlap)"/>
+      <path d="M1128 438 L1358 668" fill="none" stroke="#FFFFFF" stroke-opacity=".8" stroke-width="10" stroke-linecap="round" filter="url(#clara-blurSm)"/>
+      <path d="M1128 438 C 1150 445 1160 470 1148 520 L1118 612 C 1112 640 1128 652 1160 656 L1358 668" fill="none" stroke="#3F7FF0" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M1128 438 C 1150 445 1160 470 1148 520 L1118 612 C 1112 640 1128 652 1160 656 L1358 668" fill="none" stroke="#BFE8FF" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" transform="translate(-3 -3)"/>
+    </g>
+  <g id="clara-grain" clip-path="url(#clara-cClip)" opacity="0.45">
+    <rect x="540" y="380" width="840" height="1120" filter="url(#clara-frost)"/>
+  </g>
+  <g id="clara-smile" fill="none" stroke-linecap="round">
+    <path d="M805 838 C 842 975 1040 985 1070 868" stroke="#7DB6FF" stroke-width="44" opacity=".9" filter="url(#clara-smileGlow)"/>
+    <path d="M805 838 C 842 975 1040 985 1070 868" stroke="#E2EEFF" stroke-width="34"/>
+    <path d="M805 838 C 842 975 1040 985 1070 868" stroke="#FFFFFF" stroke-width="15"/>
+    <path d="M828 860 C 868 950 1022 958 1048 885" stroke="#FFFFFF" stroke-width="5" opacity=".9"/>
+  </g>
+  <g id="clara-textLine" stroke-linecap="round" fill="none">
+    <path d="M766 1078 L1036 1102" stroke="#7DB6FF" stroke-width="44" opacity=".85" filter="url(#clara-lineGlow)"/>
+    <path d="M766 1078 L1036 1102" stroke="#E2EEFF" stroke-width="32"/>
+    <path d="M766 1078 L1036 1102" stroke="#FFFFFF" stroke-width="16"/>
+  </g>
+  </g>
+</svg>
