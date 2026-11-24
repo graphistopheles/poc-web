@@ -243,8 +243,8 @@ export function initCatalina({ gsap, ScrollTrigger, reduce }) {
     const mobile = innerWidth < 640;
     gsap.to(scrim, { opacity: 1, duration: 0.5, ease: 'power2.out' });
     gsap.fromTo(panel,
-      mobile ? { x: 0, yPercent: 104 } : { x: '104%', yPercent: 0 },
-      { x: 0, yPercent: 0, duration: reduce ? 0 : 0.8, ease: 'expo.out' });
+      mobile ? { x: 0, y: 0, yPercent: 104 } : { x: '104%', y: 0, yPercent: 0 },
+      { x: 0, y: 0, yPercent: 0, duration: reduce ? 0 : 0.8, ease: 'expo.out' });
     gsap.to(btn, { opacity: 0, duration: 0.3 });
     gsap.from(panel.querySelectorAll('.cpanel__head, .cpanel__intro, .cpanel__sug, .cpanel__form'), { opacity: 0, y: 16, stagger: 0.05, duration: 0.6, delay: 0.2, ease: 'power3.out' });
     setTimeout(() => input.focus({ preventScroll: true }), 300);

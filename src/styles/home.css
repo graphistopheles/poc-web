@@ -240,3 +240,7 @@
 .cta .aurora .a1 { left: 10%; top: auto; bottom: -24rem; }
 .cta .aurora .a2 { right: 0; top: -16rem; }
 @media (max-width: 40rem) { .cta__actions { flex-direction: column; align-items: stretch; width: 100%; } }
+@media (max-width: 40rem) {
+  .agent__role { letter-spacing: 0.08em; }
+  .agent__quote { font-size: var(--fs-xs); line-height: var(--lh-xs); }
+}

@@ -19,7 +19,9 @@ const EASE = 'expo.out';
 renderIcons();
 initHeader();
 
-document.fonts.ready.then(() => {
+// Espera la fuente (máx. 1s) para que SplitText mida líneas reales
+const fontsReady = Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 1000))]);
+fontsReady.then(() => {
   intro();
   reveals();
   if (!reduce) motion();
@@ -192,7 +194,7 @@ export function countUp(el, ScrollTriggerRef = ScrollTrigger) {
     onUpdate: () => { el.textContent = o.v.toFixed(dec).replace('.', ','); },
   });
 }
-document.fonts.ready.then(() => {
+fontsReady.then(() => {
   document.querySelectorAll('[data-countup]').forEach((el) => {
     if (reduce) { el.textContent = el.dataset.countup.replace('.', ','); return; }
     countUp(el);

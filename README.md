@@ -1,41 +1,54 @@
-# Medismart Empresas — POC landing progresiva
+# Medismart Empresas · Sitio con Catalina
 
-Landing B2B basada en el diseño de Figma (`base` › sección `landing`, nodo 51:5), con narrativa por capítulos y animaciones con GSAP.
+Sitio multipágina construido sobre el **Diagrama de Contenidos** (`Diagrama Contenidos Sitio Web.png`). Toma de referencia el lenguaje visual de ohmd.com (espaciados, formas, tratamiento fotográfico, escala tipográfica) y el agente flotante de impilohealth.com, adaptado a **Catalina**.
 
 ## Ejecutar
 
 ```bash
 npm install
 npm run dev      # http://localhost:5173
-npm run build    # genera /dist (estático, desplegable en cualquier CDN)
+npm run build    # genera /dist estático (6 páginas)
 ```
 
-## Stack
+## Arquitectura de información
 
-- **Vite** + HTML/CSS/JS sin framework.
-- **GSAP 3.15**: ScrollTrigger, ScrollSmoother, SplitText, ScrambleText y DrawSVG (todos gratuitos desde GSAP 3.13).
-- **@fontsource**: Poppins, Mulish e IBM Plex Mono, servidas localmente.
-- **lucide**: íconos de los pilares 1, 3 y 4.
+| Página | Archivo | Secciones (según diagrama) |
+|---|---|---|
+| Home | `index.html` | 1 Bienvenida + Catalina · 2 Organizaciones que confían · 3 Cifras · 4 Ecosistema (4 pilares) · 5 Innovación y tecnología (agentes IA + SmartCheck) · 6 Las personas detrás · 7 CTA "Agenda una demo" |
+| Sobre nosotros | `sobre-nosotros.html` | ¿Quiénes somos? · Nuestro equipo · Nuestro impacto (cifras + calculadora de ausentismo) · Casos de éxito · Ciberseguridad · Actualidad |
+| Servicios › Soluciones de salud | `servicios.html` | Telemedicina y prevención · Soluciones especializadas · Salud y bienestar animal · Farmacias y complementarios · FAQ |
+| Servicios › Agentes IA | `agentes-ia.html` | Catalina y la familia (selector de agentes) · Conoce sus funciones · SmartCheck · IA responsable |
+| WikiDoc | `wikidoc.html` | Artículo destacado · filtros y búsqueda · newsletter |
+| Contacto | `contacto.html` | Canales (correo, WhatsApp, línea corporativa) · formulario de demo · próximos pasos |
 
-## Estructura narrativa
+Header (con selector de país) y footer (enlaces clave, legal, certificaciones, canales y redes) son parciales compartidos en `partials/`, insertados en build por un plugin de Vite (`<!-- @include header -->`).
 
-| # | Sección | Animación clave |
-|---|---------|-----------------|
-| 0 | Preloader | Contador 00→100 y cortina |
-| 1 | Hero + formulario | Títulos por línea, el brillo sigue al cursor y el copy se desvanece al hacer scroll |
-| 2 | Confianza | Logos escalonados |
-| 3 | Puente "Te mostramos cómo lo hacemos" | Las palabras se iluminan con el scroll y las cifras cuentan hacia arriba |
-| 4–7 | Pilares 1–4 | Sección fijada (pin) mientras la ilustración se arma capa por capa con el scroll |
-| 8 | Innovación (SARA, AIDA, NADIA) | Tarjetas con tilt 3D, brillo y nombres con efecto scramble |
-| 9 | Cierre | Botón magnético que lleva al formulario |
+## Sistema de diseño
 
-Elementos de navegación: barra de progreso bajo el header, navegación lateral de capítulos ("Recorrido"), header que se oculta al bajar y fondo que cambia de oscuro a claro por capítulo.
+- **Grilla de 8 px.** Todos los espaciados, gaps, radios, alturas de control y line-heights son múltiplos de 8 (`src/styles/tokens.css`). Solo los hairlines de 1 px y los círculos (50%) escapan a la regla.
+- **Tipografía:** Plus Jakarta Sans (Brandbook '27): Bold 700 para títulos, Medium 500 para cuerpos. Escala en rem (1rem = 16px) con line-heights en múltiplos de 8, y tres breakpoints (desktop, ≤1024, ≤640).
+- **Paleta:** exclusivamente la de `assets-externos/Color Palette.png`; los tintes intermedios se derivan con `color-mix` de esos mismos colores.
+- **Fotografía:** radios de 24/32 px, velo de marca (multiply violeta/azul), revelado con máscara y parallax interno.
 
-En pantallas de 1200px o menos se desactivan los pins y las animaciones se reproducen al entrar. Con `prefers-reduced-motion` todo queda estático y visible.
+## Catalina (agente flotante)
 
-## Pendientes
+`src/js/catalina.js` + `partials/catalina.html`
 
-- El formulario solo valida en el cliente: aún no hay backend ni integración de calendario.
-- "Simular ahorro de mi empresa" no tiene destino (simulador por definir).
-- Los links "Conocer…" de los pilares y los del footer de Recursos son placeholders.
-- Las cifras del puente (7M+ usuarios, 8 países, 25+ especialidades, 24/7) vienen del sitio de Medismart Personas. Hay que validarlas con marketing.
+- Vive en **perchas** (`data-cata-perch`): en la home aparece sentada sobre el escenario del hero y, al hacer scroll, vuela con un arco hasta su dock (abajo a la derecha). Al llegar a "Innovación y tecnología" vuelve a su lugar en la familia de agentes, y en `/agentes-ia` aparece al centro de la fila de la familia.
+- Cada sección le deja una frase (`data-cata-say`) que ella comenta en una burbuja cuando entra en escena; `data-cata-ask` precarga una pregunta.
+- Gestos: parpadeo, "habla" al comentar, sus cubos se separan al pasar el mouse y se "abrazan" al volver.
+- **Click → panel lateral derecho** (bottom sheet en móvil) para preguntarle sobre Medismart. Las respuestas salen de una base de conocimiento local (`src/js/catalina-kb.js`) por palabras clave, sin backend.
+- Vectores extraídos de `agentes/v2/index.html` a `public/assets/agentes/*.svg`.
+
+## Animación (GSAP 3.15)
+
+Intro por página (titular por palabras, escenario que sube, conversación del hero), SplitText con máscara por línea, frase que se ilumina palabra por palabra con el scroll, contadores, marquee de logos, tarjetas de pilares apiladas (sticky + escala), revelado fotográfico, botón magnético y transiciones del panel. Con `prefers-reduced-motion` todo queda estático y visible.
+
+## Pendientes / a validar
+
+- **Fotografías:** se cargan desde Unsplash (hotlink) para el POC. Hay que reemplazarlas por fotografía propia o licenciada antes de publicar.
+- **Contenido a validar con marketing:** cifras (7M+, 8 países, 25+ especialidades, 99,9% uptime), los casos de éxito (industrias, métricas y citas son **ilustrativos**), noticias de "Actualidad", artículos de WikiDoc y la descripción de SmartCheck.
+- La calculadora usa un supuesto referencial (22 días hábiles, −25% de ausentismo de corta duración), indicado en la misma UI.
+- Catalina no está conectada a un LLM; `catalina-kb.js` está pensado para reemplazarse por un endpoint con RAG.
+- Los formularios validan en el cliente y no envían datos. Los links legales y los artículos son placeholders.
+- Los assets del POC anterior (`public/assets/pilar*`, `ia/`, `ui/`, `brand/medismart-logo.svg`) ya no se usan; se pueden eliminar.
