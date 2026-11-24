@@ -143,8 +143,9 @@
   padding: var(--s-2) var(--s-2) var(--s-2) var(--s-3);
   border-bottom: 1px solid color-mix(in oklab, var(--navy) 8%, transparent);
 }
-.cpanel__av { width: var(--s-7); height: var(--s-7); border-radius: var(--r-2); background: var(--white); box-shadow: var(--sh-1); display: grid; place-items: center; overflow: hidden; flex: none; }
-.cpanel__av img { width: var(--s-8); height: var(--s-8); max-width: none; }
+/* Avatares de Catalina: siempre completos y sin caja; su vidrio ya es la insignia */
+.cpanel__av { width: var(--s-7); height: var(--s-7); flex: none; }
+.cpanel__av img { width: 100%; height: 100%; }
 .cpanel__who { flex: 1; min-width: 0; }
 .cpanel__name { font-size: var(--fs-h5); line-height: var(--lh-h5); font-weight: var(--w-title); letter-spacing: var(--ls-tight); }
 .cpanel__status { display: flex; align-items: center; gap: var(--s-1); margin-top: 0.25rem; font-size: var(--fs-xs); line-height: var(--lh-xs); color: color-mix(in oklab, var(--navy) 56%, var(--paper)); }
@@ -160,8 +161,8 @@
 .cpanel__intro .t-sm { color: color-mix(in oklab, var(--navy) 64%, var(--paper)); }
 
 .msg { display: flex; gap: var(--s-1); align-items: flex-end; max-width: 100%; }
-.msg__av { width: var(--s-4); height: var(--s-4); flex: none; border-radius: 50%; background: var(--white); box-shadow: var(--sh-1); display: grid; place-items: center; overflow: hidden; }
-.msg__av img { width: var(--s-5); height: var(--s-5); max-width: none; }
+.msg__av { width: var(--s-4); height: var(--s-4); flex: none; }
+.msg__av img { width: 100%; height: 100%; }
 .msg__b {
   padding: var(--s-1) var(--s-2);
   border-radius: var(--r-2) var(--r-2) var(--r-2) 0.25rem;
