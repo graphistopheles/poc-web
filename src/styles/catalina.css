@@ -67,7 +67,7 @@
   opacity: 0; visibility: hidden;
   transform-origin: 100% 100%;
 }
-.cata__bubble-name { font-size: var(--fs-xs); line-height: var(--lh-xs); font-weight: var(--w-title); color: var(--violet); padding-right: var(--s-4); }
+.cata__bubble-name { font-size: var(--fs-xs); line-height: var(--lh-xs); font-weight: var(--w-title); color: var(--violet); padding-right: var(--s-5); }
 .cata__bubble-name span { color: var(--tx-3); font-weight: var(--w-semi); }
 .theme-dark .cata__bubble-name span { color: var(--tx-3); }
 .cata__bubble-text { margin-top: var(--s-1); font-size: var(--fs-sm); line-height: var(--lh-sm); font-weight: var(--w-semi); color: var(--navy); text-wrap: pretty; }
@@ -84,9 +84,12 @@
 .cata__bubble-cta:hover { background: var(--violet); color: var(--white); }
 .cata__bubble-cta svg { width: var(--s-2); height: var(--s-2); }
 .cata__bubble-x {
-  position: absolute; right: var(--s-1); top: var(--s-1);
+  position: absolute; right: 0.25rem; top: 0.25rem;
+  z-index: 1;
   display: grid; place-items: center;
-  width: var(--s-4); height: var(--s-4); border-radius: 50%;
+  width: var(--h-sm); height: var(--h-sm); border-radius: 50%;   /* 40: zona táctil cómoda */
+  cursor: pointer;
+  touch-action: manipulation;
   color: var(--tx-3);
   transition: background-color var(--t-fast), color var(--t-fast);
 }

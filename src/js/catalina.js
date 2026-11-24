@@ -105,9 +105,11 @@ export function initCatalina({ gsap, ScrollTrigger, reduce }) {
     const tr = reduce ? 0 : Math.sin(st.t * 1.1) * 3 + gsap.utils.clamp(-18, 18, vel * -12);
     st.r += (tr - st.r) * 0.12;
 
-    st.x = tx; st.y = ty + fy; st.s = ts / BASE;
+    // El contenedor (y la burbuja) quedan quietos; solo el personaje flota.
+    // Así la ✕ de la burbuja no se mueve bajo el cursor.
+    st.x = tx; st.y = ty; st.s = ts / BASE;
     wrap.style.transform = `translate3d(${st.x.toFixed(1)}px, ${st.y.toFixed(1)}px, 0)`;
-    btn.style.transform = `scale(${st.s.toFixed(4)}) rotate(${st.r.toFixed(2)}deg)`;
+    btn.style.transform = `translateY(${fy.toFixed(1)}px) scale(${st.s.toFixed(4)}) rotate(${st.r.toFixed(2)}deg)`;
     if (shadow) shadow.style.opacity = String(0.7 - Math.sin(st.t * 1.6) * 0.2);
 
     const docked = st.w < 0.02;
@@ -184,8 +186,18 @@ export function initCatalina({ gsap, ScrollTrigger, reduce }) {
   });
 
   /* ---------- Burbuja contextual ---------- */
+  // Respeto del cierre: 1.ª vez silencia 60 s; 2.ª vez, el resto de la sesión.
+  const MUTE_KEY = 'cata-muted';
+  const store = {
+    get: () => { try { return sessionStorage.getItem(MUTE_KEY) === '1'; } catch { return false; } },
+    set: () => { try { sessionStorage.setItem(MUTE_KEY, '1'); } catch { /* sin storage: solo en memoria */ } },
+  };
+  st.muted = store.get();
+  st.dismissCount = 0;
+  st.dismissedTexts = new Set();
+
   function say(text, ask = '') {
-    if (!text || st.open || Date.now() < st.dismissedUntil) return;
+    if (!text || st.open || st.muted || Date.now() < st.dismissedUntil || st.dismissedTexts.has(text)) return;
     if (!st.docked) { st.pendingSay = { text, ask }; return; }
     if (text === st.lastSay && bubble.classList.contains('is-on')) return;
     st.lastSay = text;
@@ -193,24 +205,42 @@ export function initCatalina({ gsap, ScrollTrigger, reduce }) {
     bubbleText.textContent = text;
     bubbleCta.dataset.cataAsk = ask || '';
     bubble.classList.add('is-on');
-    gsap.killTweensOf(bubble);
-    if (reduce) gsap.set(bubble, { autoAlpha: 1 });
+    gsap.killTweensOf([bubble, bubbleText]);
+    if (reduce) gsap.set(bubble, { autoAlpha: 1, scale: 1, y: 0 });
     else {
       gsap.fromTo(bubble, { autoAlpha: 0, scale: 0.8, y: 16 }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.7, ease: 'back.out(1.7)' });
-      gsap.from(bubbleText, { opacity: 0, y: 8, duration: 0.6, delay: 0.15, ease: 'power3.out' });
+      gsap.fromTo(bubbleText, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.6, delay: 0.15, ease: 'power3.out' });
     }
     talk();
-    st.hideTimer = setTimeout(() => hideBubble(), 8000);
+    scheduleHide();
   }
+  // Se oculta sola a los 8 s, pero nunca mientras el usuario la está leyendo
+  function scheduleHide(ms = 8000) {
+    clearTimeout(st.hideTimer);
+    st.hideTimer = setTimeout(() => hideBubble(), ms);
+  }
+  bubble.addEventListener('pointerenter', () => clearTimeout(st.hideTimer));
+  bubble.addEventListener('pointerleave', () => bubble.classList.contains('is-on') && scheduleHide(4000));
+
   function hideBubble(instant = false) {
     clearTimeout(st.hideTimer);
+    st.pendingSay = null;
     if (!bubble.classList.contains('is-on')) return;
     bubble.classList.remove('is-on');
-    gsap.to(bubble, { autoAlpha: 0, scale: 0.9, y: 8, duration: instant ? 0.2 : 0.4, ease: 'power2.in' });
+    gsap.killTweensOf([bubble, bubbleText]);
+    gsap.to(bubble, { autoAlpha: 0, scale: 0.9, y: 8, duration: instant ? 0.15 : 0.3, ease: 'power2.in' });
   }
-  bubble.querySelector('[data-cata-dismiss]').addEventListener('click', () => {
-    hideBubble();
-    st.dismissedUntil = Date.now() + 20000;
+  function dismiss() {
+    st.dismissedTexts.add(st.lastSay);
+    hideBubble(true);
+    st.dismissCount += 1;
+    if (st.dismissCount >= 2) { st.muted = true; store.set(); }
+    else st.dismissedUntil = Date.now() + 60000;
+  }
+  const xBtn = bubble.querySelector('[data-cata-dismiss]');
+  xBtn.addEventListener('click', (e) => { e.stopPropagation(); dismiss(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !st.open && bubble.classList.contains('is-on')) dismiss();
   });
 
   document.querySelectorAll('[data-cata-say]').forEach((sec) => {
