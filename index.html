@@ -3,376 +3,299 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Medismart Empresas | Salud y bienestar para tu equipo</title>
-  <meta name="description" content="Ecosistema de salud digital 360° para empresas: telemedicina 24/7, salud mental, soluciones especializadas, bienestar animal y farmacias." />
-  <meta name="theme-color" content="#070a1e" />
-  <link rel="preload" href="/assets/brand/medismart-logo.svg" as="image" />
+  <title>Medismart Empresas · Salud digital 360° para tu equipo</title>
+  <meta name="description" content="Telemedicina 24/7, salud mental, seguimiento de crónicos y una familia de asistentes con IA en un solo ecosistema para tu empresa. Implementación en 2 a 4 semanas." />
+  <meta name="theme-color" content="#030c43" />
+  <link rel="icon" href="/assets/brand/iso.svg" type="image/svg+xml" />
 </head>
-<body class="is-loading">
-  <!-- ============ PRELOADER ============ -->
-  <div class="preloader" aria-hidden="true">
-    <div class="preloader__inner">
-      <img class="preloader__logo" src="/assets/brand/medismart-logo.svg" width="243" height="48" alt="" />
-      <div class="preloader__count"><span class="js-count">00</span><small>%</small></div>
-      <div class="preloader__bar"><span></span></div>
-      <p class="preloader__label">Preparando tu ecosistema de salud</p>
-    </div>
-  </div>
+<body data-page="home">
+  <!-- @include header -->
 
-  <!-- Capa de color de fondo que transiciona entre capítulos -->
-  <div class="bg-stage" aria-hidden="true"></div>
+  <main id="main">
+    <!-- =========================================================
+         1 · BIENVENIDA + CATALINA
+         ========================================================= -->
+    <section class="hero theme-dark grain" data-theme="dark" data-cata-say="Hola, soy Catalina. Te acompaño en este recorrido: pregúntame lo que quieras sobre Medismart.">
+      <div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+      <div class="dots" aria-hidden="true"></div>
 
-  <!-- ============ HEADER ============ -->
-  <header class="nb" data-node="10:366">
-    <div class="nb__inner">
-      <a class="nb__brand" href="#inicio" aria-label="Medismart Empresas, inicio">
-        <img src="/assets/brand/medismart-logo.svg" width="243" height="48" alt="Medismart" />
-      </a>
-      <nav class="nb__nav" aria-label="Principal">
-        <ul>
-          <li><a class="nb__link" href="#confianza">Sobre nosotros</a></li>
-          <li><a class="nb__link" href="#ecosistema">Servicios</a></li>
-          <li><a class="nb__link" href="#innovacion">WikiDoc</a></li>
-          <li><a class="nb__link" href="#contacto">Contacto</a></li>
-        </ul>
-        <a class="btn btn--primary btn--sm js-to-form" href="#demo-form">Agendar Demo</a>
-      </nav>
-      <button class="nb__burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
-    </div>
-    <div class="nb__progress" aria-hidden="true"><span></span></div>
-  </header>
-
-  <!-- Navegación de capítulos (aparece durante el recorrido por los pilares) -->
-  <nav class="chapters" aria-label="Recorrido por el ecosistema">
-    <p class="chapters__title">Recorrido</p>
-    <ol>
-      <li><a href="#pilar-1" data-chapter="1"><span class="chapters__n">01</span><span class="chapters__l">Telemedicina</span></a></li>
-      <li><a href="#pilar-2" data-chapter="2"><span class="chapters__n">02</span><span class="chapters__l">Especializadas</span></a></li>
-      <li><a href="#pilar-3" data-chapter="3"><span class="chapters__n">03</span><span class="chapters__l">Bienestar animal</span></a></li>
-      <li><a href="#pilar-4" data-chapter="4"><span class="chapters__n">04</span><span class="chapters__l">Farmacias</span></a></li>
-      <li><a href="#innovacion" data-chapter="5"><span class="chapters__n">05</span><span class="chapters__l">IA</span></a></li>
-    </ol>
-  </nav>
-
-  <div id="smooth-wrapper">
-    <div id="smooth-content">
-      <main>
-        <!-- ============ HERO ============ -->
-        <section id="inicio" class="sec hero" data-theme="dark" data-node="10:525">
-          <div class="glow glow--hero js-glow" aria-hidden="true"></div>
-          <div class="wrap hero__grid">
-            <div class="hero__copy">
-              <h1 class="hero__title js-split">Salud y bienestar para tu equipo.</h1>
-              <p class="lead hero__lead">Con Medismart tus colaboradores tienen acceso a un ecosistema de salud digital 360° que integra telemedicina 24/7, planes de salud mental y seguimiento de patologías crónicas. Una solución integral que impulsa el bienestar de las personas y el desarrollo de tu empresa.</p>
-              <ul class="hero__checks" aria-label="Garantías del servicio">
-                <li><img src="/assets/ui/check.svg" width="16" height="16" alt="" />Implementación lista en 2 a 4 semanas.</li>
-                <li><img src="/assets/ui/check.svg" width="16" height="16" alt="" />Integración vía API con sistemas de RR.HH.</li>
-                <li><img src="/assets/ui/check.svg" width="16" height="16" alt="" />Cobertura Fonasa e Isapres.</li>
-              </ul>
-              <div class="hero__ctas">
-                <a class="btn btn--ghost" href="#simulador" title="Simulador pendiente de implementar">Simular ahorro de mi empresa <img class="btn__arrow" src="/assets/ui/arrow-hero.svg" width="18" height="18" alt="" /></a>
-              </div>
-            </div>
-
-            <form id="demo-form" class="demo-form" novalidate>
-              <div class="demo-form__fields">
-                <div class="field">
-                  <label for="d-nombre">Nombre y Apellido</label>
-                  <input id="d-nombre" name="nombre" type="text" autocomplete="name" required />
-                </div>
-                <div class="field">
-                  <label for="d-email">Email Corporativo (@tuempresa.com)</label>
-                  <input id="d-email" name="email" type="email" autocomplete="email" placeholder="nombre@tuempresa.com" required />
-                </div>
-                <div class="field">
-                  <label for="d-empresa">Nombre de tu Empresa</label>
-                  <input id="d-empresa" name="empresa" type="text" autocomplete="organization" required />
-                </div>
-                <div class="field">
-                  <label for="d-dotacion">Número aproximado de colaboradores</label>
-                  <select id="d-dotacion" name="dotacion" required>
-                    <option value="" selected disabled>Selecciona un rango</option>
-                    <option>1 – 50</option>
-                    <option>51 – 200</option>
-                    <option>201 – 500</option>
-                    <option>501 – 1.000</option>
-                    <option>Más de 1.000</option>
-                  </select>
-                </div>
-                <label class="check">
-                  <input type="checkbox" name="privacidad" required />
-                  <span>Acepto la política de privacidad y tratamiento de datos de contacto.</span>
-                </label>
-                <p class="demo-form__error" role="alert" aria-live="polite"></p>
-                <button class="btn btn--primary btn--block" type="submit">Agendar Demostración de 30 Minutos <img class="btn__arrow" src="/assets/ui/arrow.svg" width="18" height="18" alt="" /></button>
-                <p class="demo-form__micro">Sin compromisos comerciales. Recibirás confirmación inmediata en tu calendario de trabajo.</p>
-              </div>
-              <div class="demo-form__done" hidden>
-                <div class="demo-form__done-icon"><img src="/assets/ui/check.svg" width="16" height="16" alt="" /></div>
-                <p class="demo-form__done-title">¡Solicitud recibida!</p>
-                <p class="demo-form__micro">Te enviaremos la invitación a tu calendario en los próximos minutos.</p>
-              </div>
-            </form>
-          </div>
-          <a class="scroll-cue" href="#confianza" aria-label="Seguir explorando">
-            <span class="scroll-cue__mouse"><span></span></span>
-            <span class="scroll-cue__label">Sigue bajando y descubre el ecosistema</span>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <a class="chip chip--violet hero__chip" href="/agentes-ia.html" data-hero-in>
+            <i data-lucide="sparkles"></i> Nuevo · Catalina y su familia de agentes IA <i data-lucide="arrow-right"></i>
           </a>
-        </section>
-
-        <!-- ============ CONFIANZA ============ -->
-        <section id="confianza" class="sec trust" data-theme="light" data-node="23:1061">
-          <div class="glow glow--trust" aria-hidden="true"></div>
-          <div class="wrap trust__wrap">
-            <h2 class="trust__title js-split">Organizaciones que confían en <span class="grad">nosotros</span></h2>
-            <ul class="trust__logos">
-              <li><img src="/assets/logos/cardif.svg" width="360" height="82" alt="Cardif BNP Paribas Group" /></li>
-              <li><img src="/assets/logos/colmena.svg" width="360" height="68" alt="Colmena" /></li>
-              <li><img src="/assets/logos/zurich.svg" width="347.647" height="83.8114" alt="Zurich" /></li>
-              <li><img src="/assets/logos/sura.svg" width="298.628" height="104.012" alt="Sura" /></li>
-            </ul>
+          <h1 class="t-display hero__title" data-split>Cuando tu equipo está bien, tu empresa <span class="grad-text">avanza.</span></h1>
+          <p class="t-lead hero__lead" data-hero-in>Telemedicina 24/7, salud mental, seguimiento de crónicos y asistentes con IA en un solo ecosistema. Lo implementamos en semanas; tu gente lo siente desde el primer día.</p>
+          <div class="hero__ctas" data-hero-in>
+            <a class="btn btn--light btn--lg" href="/contacto.html#demo">Agenda una demo <i data-lucide="arrow-right" class="i-arrow"></i></a>
+            <button class="btn btn--ghost btn--lg btn--catalina" type="button" data-cata-open data-cata-ask="¿Qué incluye Medismart Empresas?">
+              <span class="btn__av"><img src="/assets/agentes/catalina.svg" width="40" height="40" alt="" /></span>
+              Conversa con Catalina
+            </button>
           </div>
-        </section>
+          <ul class="hero__checks" data-hero-in>
+            <li><i data-lucide="check"></i>Implementación en 2 a 4 semanas</li>
+            <li><i data-lucide="check"></i>Integración vía API con RR.HH.</li>
+            <li><i data-lucide="check"></i>Cobertura Fonasa e Isapres</li>
+          </ul>
+        </div>
 
-        <!-- ============ PUENTE NARRATIVO ============ -->
-        <section id="ecosistema" class="sec bridge" data-theme="dark">
-          <div class="wrap bridge__wrap">
-            <p class="eyebrow">Te mostramos cómo lo hacemos</p>
-            <p class="bridge__statement js-scrub-words">Un solo ecosistema. Cuatro pilares para cuidar a las personas que mueven tu empresa, desde la primera consulta hasta el impacto en tu organización.</p>
-            <ul class="stats">
-              <li><span class="stats__n"><span class="js-countup" data-to="7">0</span><em>M+</em></span><span class="stats__l">usuarios en Latinoamérica</span></li>
-              <li><span class="stats__n"><span class="js-countup" data-to="8">0</span></span><span class="stats__l">países</span></li>
-              <li><span class="stats__n"><span class="js-countup" data-to="25">0</span><em>+</em></span><span class="stats__l">especialidades médicas</span></li>
-              <li><span class="stats__n">24/7</span><span class="stats__l">atención por videoconsulta</span></li>
-            </ul>
+        <div class="hero__stage" data-hero-stage>
+          <div class="photo photo--lg hero__photo">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=2000&q=80" width="1280" height="640" alt="Equipo de trabajo celebrando en la oficina" fetchpriority="high" data-hero-img />
           </div>
-        </section>
 
-        <!-- ============ PILAR 1 ============ -->
-        <section id="pilar-1" class="sec pillar pillar--flow" data-theme="dark" data-chapter="1" data-node="19:965">
-          <div class="glow glow--left" aria-hidden="true"></div>
-          <div class="wrap pillar__grid">
-            <div class="pillar__copy">
-              <div class="pillar__head">
-                <span class="pillar__num"><span class="pillar__num-roll"><span>0</span><span>1</span></span>.</span>
-                <i class="pillar__icon" data-lucide="stethoscope"></i>
-              </div>
-              <h2 class="pillar__title">Telemedicina y Prevención</h2>
-              <p class="pillar__desc">Atención médica 24/7, salud mental, pacientes crónicos y exámenes.</p>
-              <a class="badge" href="#pilar-1">Conocer Telemedicina</a>
-            </div>
-            <div class="pillar__art">
-              <div class="flow" data-node="25:1234">
-                <div class="flow__svg js-inline-svg" data-src="/assets/pilar1/flow.svg"></div>
-                <ol class="flow__labels">
-                  <li style="--x:8.29%; --align:left">Ingreso</li>
-                  <li style="--x:24.11%; --r:63.21%">Agendamiento</li>
-                  <li style="--x:43.93%; --r:43.75%">Videollamada</li>
-                  <li style="--x:63.39%; --r:24.11%">Informe Médico</li>
-                  <li style="--x:80.71%; --r:1.96%">Impacto en la organización</li>
-                </ol>
-              </div>
+          <div class="ui-card hero__card hero__card--call" data-hero-card>
+            <span class="ui-card__ico"><i data-lucide="video"></i></span>
+            <span><span class="ui-card__t">Videoconsulta en curso</span><span class="ui-card__m">Medicina general · 04:12</span></span>
+            <span class="hero__rec" aria-hidden="true"></span>
+          </div>
+
+          <div class="ui-card hero__card hero__card--kpi" data-hero-card>
+            <div class="hero__kpi">
+              <span class="ui-card__m">Bienestar del equipo</span>
+              <span class="hero__kpi-n"><b data-count="86">86</b><small>/100</small></span>
+              <svg class="hero__spark" viewBox="0 0 160 40" aria-hidden="true"><defs><linearGradient id="spk" x1="0" x2="1"><stop offset="0" stop-color="#7556D7"/><stop offset="1" stop-color="#529DE8"/></linearGradient></defs><path d="M0 32 C16 30 24 24 40 26 S64 14 80 18 S104 8 120 10 S144 4 160 2" fill="none" stroke="url(#spk)" stroke-width="3" stroke-linecap="round" data-draw/></svg>
+              <span class="chip chip--violet"><i data-lucide="activity"></i>+12 pts en 6 meses</span>
             </div>
           </div>
-        </section>
 
-        <!-- ============ PILAR 2 ============ -->
-        <section id="pilar-2" class="sec pillar" data-theme="light" data-chapter="2" data-node="25:1309">
-          <div class="glow glow--right" aria-hidden="true"></div>
-          <div class="wrap pillar__grid">
-            <div class="pillar__copy">
-              <div class="pillar__head">
-                <span class="pillar__num"><span class="pillar__num-roll"><span>1</span><span>2</span></span>.</span>
-                <img class="pillar__icon pillar__icon--img" src="/assets/pilar2/file-search-icon.svg" width="45" height="58.2685" alt="" />
-              </div>
-              <h2 class="pillar__title">Soluciones Especializadas</h2>
-              <p class="pillar__desc">Teleperitaje y otras soluciones para organizaciones y prestadores.</p>
-              <a class="badge" href="#pilar-2">Conocer Soluciones Especializadas</a>
-            </div>
-            <div class="pillar__art">
-              <div class="art art--p2" data-node="33:557">
-                <img class="l l-circles" src="/assets/pilar2/circles.svg" width="411.5" height="411.5" alt="" />
-                <img class="l l-sparkles" src="/assets/pilar2/sparkles.svg" width="439.5" height="262.5" alt="" />
-                <div class="l l-doc">
-                  <img src="/assets/pilar2/document.svg" width="218.5" height="233.5" alt="" />
-                  <span class="l-scan" aria-hidden="true"></span>
-                </div>
-                <img class="l l-shield" src="/assets/pilar2/shield.svg" width="45.5" height="57.5" alt="" />
-                <div class="l l-card-top">
-                  <img src="/assets/pilar2/card-top.svg" width="360" height="48" alt="" />
-                  <span class="t t--a">Caso LM-20481</span>
-                  <span class="t t--b">En seguimiento</span>
-                </div>
-                <div class="l l-card-bottom">
-                  <img src="/assets/pilar2/card-bottom.svg" width="360" height="48" alt="" />
-                  <span class="t t--c">Resolución</span>
-                  <span class="t t--d">Objetar</span>
-                </div>
-                <p class="l l-caption">Monitoreo inteligente de licencias médicas</p>
-              </div>
-            </div>
+          <div class="hero__chat" data-hero-chat>
+            <p class="bubble">¿Me ayudas a agendar un control?</p>
+            <p class="bubble bubble--brand">¡Listo! Mañana a las 10:00 con medicina general. Te aviso 30 minutos antes.</p>
           </div>
-        </section>
 
-        <!-- ============ PILAR 3 ============ -->
-        <section id="pilar-3" class="sec pillar" data-theme="dark" data-chapter="3" data-node="31:4">
-          <div class="glow glow--left" aria-hidden="true"></div>
-          <div class="wrap pillar__grid">
-            <div class="pillar__copy">
-              <div class="pillar__head">
-                <span class="pillar__num"><span class="pillar__num-roll"><span>2</span><span>3</span></span>.</span>
-                <i class="pillar__icon" data-lucide="paw-print"></i>
-              </div>
-              <h2 class="pillar__title">Salud y Bienestar Animal</h2>
-              <p class="pillar__desc">Servicios y programas de Mundo Mascotas</p>
-              <a class="badge" href="#pilar-3">Conocer Bienestar Animal</a>
-            </div>
-            <div class="pillar__art">
-              <div class="art art--p3" data-node="32:110">
-                <img class="l l-blob" data-depth="1" src="/assets/pilar3/blob.svg" width="402" height="434" alt="" />
-                <img class="l l-arc" data-depth="2" src="/assets/pilar3/arc.svg" width="376.5" height="211.5" alt="" />
-                <div class="l l-panel-top" data-depth="3">
-                  <img src="/assets/pilar3/panel-top.svg" width="331.5" height="166.5" alt="" />
-                </div>
-                <img class="l l-cal" src="/assets/pilar3/calendar-icon.svg" width="13.2" height="15.2" alt="" />
-                <p class="l l-t-title">Control veterinario</p>
-                <p class="l l-t-meta">Vie 15 abril · 10:00 am · Tobby Uribe</p>
-                <p class="l l-t-date"><span class="js-date-a">15</span> / <span class="js-date-b">04</span></p>
-                <div class="l l-panel-bottom" data-depth="3">
-                  <img src="/assets/pilar3/panel-bottom.svg" width="331.5" height="186.5" alt="" />
-                </div>
-                <p class="l l-t-health">Salud de Tobby</p>
-                <ul class="l l-axis"><li>160</li><li>120</li><li>100</li><li>80</li><li>60</li></ul>
-                <img class="l l-graph-fill" src="/assets/pilar3/graph-fill.svg" width="245" height="86" alt="" />
-                <div class="l l-graph-line js-inline-svg" data-src="/assets/pilar3/graph-line.svg"></div>
-                <img class="l l-pet" data-depth="5" src="/assets/pilar3/pet-badge.svg" width="77.5" height="77.5" alt="" />
-                <div class="l l-paws" data-depth="6"><img src="/assets/pilar3/paws.svg" width="76.5596" height="75.36" alt="" /></div>
-                <div class="l l-pill-a" data-depth="7"><img src="/assets/pilar3/pill-a.svg" width="65.5" height="27.5003" alt="" /></div>
-                <div class="l l-pill-b" data-depth="8"><img src="/assets/pilar3/pill-b.svg" width="65.5" height="27.5003" alt="" /></div>
-              </div>
-            </div>
-          </div>
-        </section>
+          <!-- Punto de anclaje: Catalina vive aquí al cargar -->
+          <div class="hero__perch" data-cata-perch="hero" data-perch-size="176" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
 
-        <!-- ============ PILAR 4 ============ -->
-        <section id="pilar-4" class="sec pillar" data-theme="light" data-chapter="4" data-node="33:721">
-          <div class="glow glow--right" aria-hidden="true"></div>
-          <div class="wrap pillar__grid">
-            <div class="pillar__copy pillar__copy--wide">
-              <div class="pillar__head">
-                <span class="pillar__num"><span class="pillar__num-roll"><span>3</span><span>4</span></span>.</span>
-                <i class="pillar__icon" data-lucide="hospital"></i>
-              </div>
-              <h2 class="pillar__title">Farmacias y Servicios Complementarios</h2>
-              <p class="pillar__desc">Acceso a medicamentos, beneficios y otras soluciones</p>
-              <a class="badge" href="#pilar-4">Conocer Farmacias y Servicios</a>
-            </div>
-            <div class="pillar__art">
-              <div class="art art--p4" data-node="46:1128">
-                <div class="p4__mask">
-                  <img class="p4__img" src="/assets/pilar4/farmacia.png" width="1024" height="1024" alt="Ilustración de una app de salud conectada a la entrega de medicamentos" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    <!-- =========================================================
+         2 · ORGANIZACIONES QUE CONFÍAN EN NOSOTROS
+         ========================================================= -->
+    <section class="trust" data-theme="light" data-cata-say="Aseguradoras y empresas líderes ya confían en nosotros para cuidar a su gente.">
+      <div class="container trust__inner">
+        <p class="trust__label" data-reveal>Organizaciones que confían en nosotros</p>
+        <div class="marquee trust__marquee" data-marquee>
+          <ul class="marquee__track">
+            <li><img src="/assets/logos/cardif.svg" width="176" height="40" alt="BNP Paribas Cardif" /></li>
+            <li><img src="/assets/logos/colmena.svg" width="212" height="40" alt="Colmena" /></li>
+            <li><img src="/assets/logos/zurich.svg" width="166" height="40" alt="Zurich" /></li>
+            <li><img src="/assets/logos/sura.svg" width="115" height="40" alt="Sura" /></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        <!-- ============ INNOVACIÓN ============ -->
-        <section id="innovacion" class="sec ai" data-theme="dark" data-chapter="5" data-node="33:922">
-          <div class="glow glow--left" aria-hidden="true"></div>
-          <div class="wrap ai__wrap">
-            <h2 class="ai__title js-split">Innovación y Tecnología</h2>
-            <ul class="ai__cards">
-              <li class="ai-card" data-node="33:1017">
-                <div class="ai-card__bg" aria-hidden="true"></div>
-                <img class="ai-card__img ai-card__img--sara" src="/assets/ia/sara.png" width="618" height="618" alt="" />
-                <div class="ai-card__txt">
-                  <p class="ai-card__name js-scramble">SARA</p>
-                  <p class="ai-card__role">Asistente IA Saas</p>
-                </div>
-              </li>
-              <li class="ai-card" data-node="46:1112">
-                <div class="ai-card__bg ai-card__bg--b" aria-hidden="true"></div>
-                <img class="ai-card__img" src="/assets/ia/aida.png" width="618" height="618" alt="" />
-                <div class="ai-card__txt">
-                  <p class="ai-card__name js-scramble">AIDA</p>
-                  <p class="ai-card__role">Asistente IA Medismart</p>
-                </div>
-              </li>
-              <li class="ai-card" data-node="49:1135">
-                <div class="ai-card__bg ai-card__bg--b" aria-hidden="true"></div>
-                <img class="ai-card__img" src="/assets/ia/nadia.png" width="618" height="618" alt="" />
-                <div class="ai-card__txt">
-                  <p class="ai-card__name js-scramble">NADIA</p>
-                  <p class="ai-card__role">Asistente IA de Teleperitaje</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
+    <!-- =========================================================
+         3 · CIFRAS MEDISMART
+         ========================================================= -->
+    <section class="sec figures" data-theme="light" data-cata-say="Estos números son personas reales que hoy tienen un médico a un toque.">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Cifras Medismart</p>
+        <p class="figures__statement t-h1" data-scrub-words>Desde la primera consulta hasta el impacto en tu organización, ya acompañamos a millones de personas en Latinoamérica.</p>
 
-        <!-- ============ CIERRE ============ -->
-        <section id="agendar-demo" class="sec cierre" data-theme="dark" data-node="40:1093">
-          <div class="glow glow--cierre" aria-hidden="true"></div>
-          <div class="wrap cierre__wrap">
-            <h2 class="cierre__title js-split">Agenda una Demo de 30 min.</h2>
-            <p class="lead cierre__lead">En esta sesión de 30 minutos, podrás conocer la plataforma en funcionamiento, explorar el dashboard de RR. HH. y descubrir métricas relevantes sobre tu industria.</p>
-            <a class="btn btn--primary btn--wide js-magnetic js-to-form" href="#demo-form"><span>Agendar Demostración de 30 Minutos</span> <img class="btn__arrow" src="/assets/ui/arrow.svg" width="18" height="18" alt="" /></a>
-          </div>
-        </section>
-      </main>
+        <ul class="figures__grid" data-reveal-stagger>
+          <li class="figures__item">
+            <span class="figures__n"><b data-countup="7">0</b><em>M+</em></span>
+            <span class="figures__l">personas con acceso a nuestro ecosistema</span>
+          </li>
+          <li class="figures__item">
+            <span class="figures__n"><b data-countup="8">0</b></span>
+            <span class="figures__l">países con presencia en la región</span>
+          </li>
+          <li class="figures__item">
+            <span class="figures__n"><b data-countup="25">0</b><em>+</em></span>
+            <span class="figures__l">especialidades médicas disponibles</span>
+          </li>
+          <li class="figures__item">
+            <span class="figures__n"><b>24</b><em>/7</em></span>
+            <span class="figures__l">atención por videoconsulta, todo el año</span>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-      <!-- ============ FOOTER ============ -->
-      <footer id="contacto" class="ft" data-node="30:48">
-        <div class="wrap ft__wrap">
-          <div class="ft__cols">
-            <div class="ft__id">
-              <a class="ft__brand" href="#inicio" aria-label="Medismart Empresas, inicio">
-                <img src="/assets/brand/medismart-logo.svg" width="151.58" height="30" alt="Medismart" />
-                <span class="ft__tag">EMPRESAS</span>
-              </a>
-              <p class="ft__p">Salud, bienestar y continuidad operacional al alcance de las organizaciones líderes de Latinoamérica.</p>
-              <address>
-                <a href="mailto:contacto.empresas@medismart.live">contacto.empresas@medismart.live</a>
-                <a href="tel:+56948042543">+56 9 4804 2543</a>
-                <span><strong>Horario de Atención:</strong> Lunes a Viernes de 8:00 a 20:00 hrs.</span>
-              </address>
-            </div>
-            <div class="ft__col">
-              <h2>Soluciones para Empresas</h2>
-              <ul>
-                <li><a href="#pilar-1">Salud Mental Laboral</a></li>
-                <li><a href="#pilar-1">Control de Enfermedades Crónicas</a></li>
-                <li><a href="#pilar-1">Telemedicina Inmediata 24/7</a></li>
-                <li><a href="#pilar-1">Chequeos y Laboratorio Ocupacional</a></li>
-                <li><a href="#innovacion">Dashboard y Reportería de RR.HH.</a></li>
+    <!-- =========================================================
+         4 · NUESTRO ECOSISTEMA DE SALUD DIGITAL
+         ========================================================= -->
+    <section class="sec eco" id="ecosistema" data-theme="light" data-cata-say="Cuatro pilares, una sola experiencia. ¿Te cuento cuál le sirve más a tu equipo?" data-cata-ask="¿Cuál pilar le sirve más a mi empresa?">
+      <div class="container">
+        <div class="sec-head sec-head--split">
+          <p class="eyebrow" data-reveal>Nuestro ecosistema de salud digital</p>
+          <h2 class="t-h1" data-split>Cuatro pilares. Una sola experiencia para tu gente.</h2>
+          <p class="t-lead" data-reveal>Cada pilar resuelve un momento distinto en la vida de tus colaboradores. Juntos, forman una red que previene, acompaña y resuelve.</p>
+        </div>
+
+        <ol class="eco__stack" data-stack>
+          <li class="eco__card panel" data-stack-card>
+            <div class="eco__copy">
+              <div class="eco__top"><span class="eco__num">01</span><span class="ico"><i data-lucide="stethoscope"></i></span></div>
+              <h3 class="t-h2">Telemedicina y prevención</h3>
+              <p class="t-body">Un médico a un toque, a cualquier hora. Atención inmediata, salud mental y seguimiento continuo para que nadie postergue su salud.</p>
+              <ul class="eco__list">
+                <li><i data-lucide="check"></i>Medicina general 24/7 por videollamada</li>
+                <li><i data-lucide="check"></i>Psicología y programas de salud mental</li>
+                <li><i data-lucide="check"></i>Acompañamiento a pacientes crónicos</li>
+                <li><i data-lucide="check"></i>Exámenes y chequeos preventivos</li>
               </ul>
+              <a class="link-arrow" href="/servicios.html#telemedicina"><span>Conocer Telemedicina</span><i data-lucide="arrow-right"></i></a>
             </div>
-            <div class="ft__col">
-              <h2>Recursos &amp; Cumplimiento</h2>
-              <ul>
-                <li><a href="#">Calculadora de ROI en Ausentismo</a></li>
-                <li><a href="#">Dossier de Ciberseguridad &amp; SLAs</a></li>
-                <li><a href="#">Acreditación Superintendencia (RNPI)</a></li>
-                <li><a href="#">Protocolo SUSESO / CEAL-SM</a></li>
-                <li><a href="#">Política de Privacidad y Términos B2B</a></li>
+            <div class="eco__media">
+              <div class="photo"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" width="600" height="640" alt="Médico usando su celular para una consulta remota" loading="lazy" /></div>
+              <div class="ui-card eco__ui"><span class="ui-card__ico"><i data-lucide="video"></i></span><span><span class="ui-card__t">Conectando con tu médico</span><span class="ui-card__m">Tiempo de espera · 00:45</span></span></div>
+            </div>
+          </li>
+
+          <li class="eco__card panel" data-stack-card>
+            <div class="eco__copy">
+              <div class="eco__top"><span class="eco__num">02</span><span class="ico"><i data-lucide="file-search"></i></span></div>
+              <h3 class="t-h2">Soluciones especializadas</h3>
+              <p class="t-body">Teleperitaje y herramientas digitales para organizaciones y prestadores que necesitan precisión, trazabilidad y velocidad.</p>
+              <ul class="eco__list">
+                <li><i data-lucide="check"></i>Teleperitaje médico a distancia</li>
+                <li><i data-lucide="check"></i>Monitoreo inteligente de licencias médicas</li>
+                <li><i data-lucide="check"></i>Software para centros médicos</li>
+                <li><i data-lucide="check"></i>Reportería para equipos de RR.HH.</li>
               </ul>
+              <a class="link-arrow" href="/servicios.html#especializadas"><span>Conocer Soluciones especializadas</span><i data-lucide="arrow-right"></i></a>
             </div>
-            <div class="ft__escape">
-              <p>¿Buscas atención médica individual o familiar?</p>
-              <a href="https://medismart.live" target="_blank" rel="noopener">Ir al portal para Pacientes Particulares (Medismart Personas) <img src="/assets/ui/arrow-footer.svg" width="16" height="16" alt="" /></a>
+            <div class="eco__media">
+              <div class="photo"><img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1200&q=80" width="600" height="640" alt="Profesional de salud revisando información clínica en pantalla" loading="lazy" /></div>
+              <div class="ui-card eco__ui"><span class="ui-card__ico"><i data-lucide="scan-line"></i></span><span><span class="ui-card__t">Caso LM-20481</span><span class="ui-card__m">En seguimiento · Informe listo</span></span></div>
             </div>
+          </li>
+
+          <li class="eco__card panel" data-stack-card>
+            <div class="eco__copy">
+              <div class="eco__top"><span class="eco__num">03</span><span class="ico"><i data-lucide="paw-print"></i></span></div>
+              <h3 class="t-h2">Salud y bienestar animal</h3>
+              <p class="t-body">Porque las mascotas también son familia. Con Mundo Mascotas, tu equipo cuida a quienes lo esperan en casa.</p>
+              <ul class="eco__list">
+                <li><i data-lucide="check"></i>Orientación veterinaria remota</li>
+                <li><i data-lucide="check"></i>Controles, vacunas y recordatorios</li>
+                <li><i data-lucide="check"></i>Beneficios en red de convenios</li>
+              </ul>
+              <a class="link-arrow" href="/servicios.html#mascotas"><span>Conocer Bienestar animal</span><i data-lucide="arrow-right"></i></a>
+            </div>
+            <div class="eco__media">
+              <div class="photo"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1200&q=80" width="600" height="640" alt="Perro sonriente sobre fondo azul" loading="lazy" /></div>
+              <div class="ui-card eco__ui"><span class="ui-card__ico"><i data-lucide="calendar-check"></i></span><span><span class="ui-card__t">Control veterinario</span><span class="ui-card__m">Vie 15 abr · 10:00 · Tobby</span></span></div>
+            </div>
+          </li>
+
+          <li class="eco__card panel" data-stack-card>
+            <div class="eco__copy">
+              <div class="eco__top"><span class="eco__num">04</span><span class="ico"><i data-lucide="pill"></i></span></div>
+              <h3 class="t-h2">Farmacias y servicios complementarios</h3>
+              <p class="t-body">Medicamentos y beneficios sin vueltas. Del diagnóstico a la receta y de la receta a la puerta de la casa.</p>
+              <ul class="eco__list">
+                <li><i data-lucide="check"></i>Descuentos en farmacias en convenio</li>
+                <li><i data-lucide="check"></i>Recetas electrónicas y despacho</li>
+                <li><i data-lucide="check"></i>Beneficios y servicios complementarios</li>
+              </ul>
+              <a class="link-arrow" href="/servicios.html#farmacias"><span>Conocer Farmacias y servicios</span><i data-lucide="arrow-right"></i></a>
+            </div>
+            <div class="eco__media">
+              <div class="photo"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=80" width="600" height="640" alt="Medicamentos sobre fondo naranjo" loading="lazy" /></div>
+              <div class="ui-card eco__ui"><span class="ui-card__ico"><i data-lucide="pill"></i></span><span><span class="ui-card__t">Tu receta está lista</span><span class="ui-card__m">Despacho hoy · 18:00 a 20:00</span></span></div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5 · INNOVACIÓN Y TECNOLOGÍA · AGENTES IA
+         ========================================================= -->
+    <section class="sec sec--lg family theme-dark grain" id="agentes" data-theme="dark" data-cata-say="Esta es mi familia. Cada uno tiene un oficio distinto, y todos trabajamos para tu equipo.">
+      <div class="aurora aurora--soft" aria-hidden="true"><span class="a1"></span><span class="a3"></span></div>
+      <div class="container family__inner">
+        <div class="sec-head sec-head--center">
+          <p class="eyebrow" data-reveal>Innovación y tecnología</p>
+          <h2 class="t-h1" data-split>Conoce a Catalina y su familia de asistentes IA.</h2>
+          <p class="t-lead" data-reveal>Cada agente tiene un oficio. Juntos agendan, recuerdan, explican y acompañan, para que tus equipos de salud y de personas se enfoquen en lo importante.</p>
+        </div>
+
+        <ul class="family__grid" data-family>
+          <li class="agent agent--lead">
+            <div class="agent__stage"><div class="agent__perch" data-cata-perch="family" data-perch-size="152" aria-hidden="true"></div><img class="agent__img agent__img--ghost" src="/assets/agentes/catalina.svg" width="152" height="152" alt="" /></div>
+            <p class="agent__role">Concierge del paciente</p>
+            <h3 class="agent__name">Catalina</h3>
+            <p class="agent__quote">“Yo junto todo en un solo lugar.”</p>
+          </li>
+          <li class="agent"><div class="agent__stage"><img class="agent__img" src="/assets/agentes/teo.svg" width="136" height="136" alt="Teo, agente IA" loading="lazy" /></div><p class="agent__role">Teleperitaje</p><h3 class="agent__name">Teo</h3><p class="agent__quote">“Caso completo. Todo listo.”</p></li>
+          <li class="agent"><div class="agent__stage"><img class="agent__img" src="/assets/agentes/sara.svg" width="136" height="136" alt="Sara, agente IA" loading="lazy" /></div><p class="agent__role">SaaS de centros médicos</p><h3 class="agent__name">Sara</h3><p class="agent__quote">“Agenda en orden.”</p></li>
+          <li class="agent"><div class="agent__stage"><img class="agent__img" src="/assets/agentes/alma.svg" width="136" height="136" alt="Alma, agente IA" loading="lazy" /></div><p class="agent__role">Salud mental</p><h3 class="agent__name">Alma</h3><p class="agent__quote">“Respira. Sin apuro.”</p></li>
+          <li class="agent"><div class="agent__stage"><img class="agent__img" src="/assets/agentes/noelia.svg" width="136" height="136" alt="Noelia, agente IA" loading="lazy" /></div><p class="agent__role">Paciente crónico</p><h3 class="agent__name">Noelia</h3><p class="agent__quote">“¡Hora de tu control!”</p></li>
+          <li class="agent"><div class="agent__stage"><img class="agent__img" src="/assets/agentes/dalia.svg" width="136" height="136" alt="Dalia, agente IA" loading="lazy" /></div><p class="agent__role">Cargas y enrolamiento</p><h3 class="agent__name">Dalia</h3><p class="agent__quote">“¡Sí! Yo te ayudo.”</p></li>
+          <li class="agent"><div class="agent__stage"><img class="agent__img" src="/assets/agentes/lia.svg" width="136" height="136" alt="Lia, agente IA" loading="lazy" /></div><p class="agent__role">Citas por WhatsApp</p><h3 class="agent__name">Lia</h3><p class="agent__quote">“¿Confirmamos tu hora?”</p></li>
+          <li class="agent"><div class="agent__stage"><img class="agent__img" src="/assets/agentes/clara.svg" width="136" height="136" alt="Clara, agente IA" loading="lazy" /></div><p class="agent__role">Lectura de exámenes</p><h3 class="agent__name">Clara</h3><p class="agent__quote">“Tus exámenes, claros.”</p></li>
+        </ul>
+
+        <div class="smart panel" data-reveal>
+          <div class="smart__copy">
+            <span class="chip chip--violet"><i data-lucide="gauge"></i>SmartCheck</span>
+            <h3 class="t-h3">Un chequeo preventivo que cabe en el bolsillo.</h3>
+            <p class="t-body">SmartCheck evalúa factores de riesgo en minutos desde el celular y convierte los resultados en un plan de acción para cada colaborador, con alertas tempranas para tu equipo de salud.</p>
           </div>
-          <div class="ft__legal">
-            <p>Prestaciones de telemedicina conforme a la Ley N° 21.541. Profesionales inscritos en el Registro Nacional de Prestadores Individuales de la Superintendencia de Salud de Chile. Registro CENS N° 2024-089.</p>
-            <p class="ft__sos"><strong>EN CASO DE EMERGENCIA O RIESGO VITAL INMEDIATO, LLAMA AL 131 (SAMU) O DIRÍGETE AL SERVICIO DE URGENCIA MÁS CERCANO.</strong> Medismart es una plataforma ambulatoria complementaria y no reemplaza los servicios de reanimación hospitalaria.</p>
-            <p class="ft__c">© 2026 Medismart.live. Todos los derechos reservados.</p>
+          <div class="smart__cta">
+            <a class="btn btn--light" href="/agentes-ia.html">Explorar agentes IA <i data-lucide="arrow-right" class="i-arrow"></i></a>
           </div>
         </div>
-      </footer>
-    </div>
-  </div>
+      </div>
+    </section>
 
+    <!-- =========================================================
+         6 · LAS PERSONAS DETRÁS DE MEDISMART
+         ========================================================= -->
+    <section class="sec people" data-theme="light" data-cata-say="Detrás de cada respuesta mía hay un equipo humano de primer nivel.">
+      <div class="container">
+        <div class="sec-head sec-head--split">
+          <p class="eyebrow" data-reveal>Las personas detrás de Medismart</p>
+          <h2 class="t-h1" data-split>Tecnología con rostro humano.</h2>
+          <div class="stack-3" data-reveal>
+            <p class="t-lead">Médicos, psicólogas, enfermeras, ingenieros y diseñadores con un mismo propósito: que cuidarse sea simple.</p>
+            <a class="link-arrow" href="/sobre-nosotros.html#equipo"><span>Conoce a nuestro equipo</span><i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="people__mosaic">
+          <figure class="people__tile people__tile--a"><div class="photo" data-parallax><img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=1200&q=80" width="600" height="720" alt="Médica del equipo Medismart" loading="lazy" /></div><figcaption class="chip">Equipo médico</figcaption></figure>
+          <figure class="people__tile people__tile--b"><div class="photo" data-parallax><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1200&q=80" width="600" height="400" alt="Dos profesionales conversando frente a un computador" loading="lazy" /></div><figcaption class="chip">Salud mental</figcaption></figure>
+          <figure class="people__tile people__tile--c"><div class="photo" data-parallax><img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80" width="600" height="400" alt="Enfermero sonriendo" loading="lazy" /></div><figcaption class="chip">Enfermería</figcaption></figure>
+          <figure class="people__tile people__tile--d"><div class="photo" data-parallax><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" width="600" height="720" alt="Equipo de tecnología trabajando junto" loading="lazy" /></div><figcaption class="chip">Tecnología y producto</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7 · CIERRE · AGENDA UNA DEMO
+         ========================================================= -->
+    <section class="sec sec--lg cta theme-dark grain" data-theme="dark" data-cata-say="¿Lo agendamos? Te tomará menos de un minuto." data-cata-ask="Quiero agendar una demo">
+      <div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+      <div class="container container--narrow cta__inner">
+        <p class="eyebrow" data-reveal>Agenda una demo</p>
+        <h2 class="t-display" data-split>30 minutos para ver cómo cuidar mejor a tu equipo.</h2>
+        <p class="t-lead" data-reveal>Conoce la plataforma funcionando, explora el dashboard de RR.HH. y descubre métricas de bienestar de tu industria. Sin compromiso.</p>
+        <div class="cta__actions" data-reveal>
+          <a class="btn btn--light btn--lg" href="/contacto.html#demo" data-magnetic>Agenda una demo <i data-lucide="arrow-right" class="i-arrow"></i></a>
+          <button class="btn btn--ghost btn--lg btn--catalina" type="button" data-cata-open data-cata-ask="Quiero agendar una demo">
+            <span class="btn__av"><img src="/assets/agentes/catalina.svg" width="40" height="40" alt="" /></span>Pregúntale a Catalina
+          </button>
+        </div>
+        <ul class="cta__facts" data-reveal-stagger>
+          <li><i data-lucide="clock"></i>30 minutos</li>
+          <li><i data-lucide="video"></i>100% online</li>
+          <li><i data-lucide="calendar-check"></i>Confirmación inmediata</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include footer -->
+  <!-- @include catalina -->
   <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>

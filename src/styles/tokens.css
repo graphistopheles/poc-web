@@ -1,0 +1,157 @@
+/* =========================================================================
+   MEDISMART · TOKENS
+   Grilla base de 8px · 1rem = 16px · Plus Jakarta Sans (Brandbook '27)
+   Todos los espaciados, radios, alturas y line-heights son múltiplos de 8px
+   (0.5rem). Única excepción: hairlines de 1px.
+   ========================================================================= */
+:root {
+  /* ---------- Paleta oficial (assets-externos/Color Palette.png) ---------- */
+  --violet: #7556d7;
+  --violet-deep: #261c46;
+  --sky: #529de8;
+  --slate: #1f3b58;
+  --navy: #030c43;
+  --royal: #0821c2;
+  --paper: #f8f8f8;
+  --mist: #d2d2d2;
+  --ink: #00010a;
+  --white: #ffffff;
+
+  /* Derivados (mezclas exclusivas de la paleta) */
+  --grad-brand: linear-gradient(90deg, var(--violet) 0%, var(--sky) 100%);
+  --grad-brand-d: linear-gradient(135deg, var(--violet) 0%, var(--sky) 100%);
+  --lavender: color-mix(in oklab, var(--paper) 90%, var(--violet));
+  --lavender-2: color-mix(in oklab, var(--paper) 82%, var(--violet));
+  --fog: color-mix(in oklab, var(--paper) 94%, var(--navy));
+  --navy-2: color-mix(in oklab, var(--navy) 86%, var(--violet));
+  --navy-3: color-mix(in oklab, var(--navy) 72%, var(--violet));
+
+  /* Texto */
+  --tx: var(--navy);
+  --tx-2: color-mix(in oklab, var(--navy) 68%, var(--paper));
+  --tx-3: color-mix(in oklab, var(--navy) 48%, var(--paper));
+  --tx-inv: var(--paper);
+  --tx-inv-2: color-mix(in oklab, var(--paper) 68%, var(--navy));
+  --tx-inv-3: color-mix(in oklab, var(--paper) 48%, var(--navy));
+
+  /* Líneas */
+  --line: color-mix(in oklab, var(--navy) 10%, transparent);
+  --line-2: color-mix(in oklab, var(--navy) 16%, transparent);
+  --line-inv: color-mix(in oklab, var(--paper) 12%, transparent);
+  --line-inv-2: color-mix(in oklab, var(--paper) 20%, transparent);
+
+  /* ---------- Espaciado (u = 8px) ---------- */
+  --u: 0.5rem;
+  --s-1: 0.5rem;   /*   8 */
+  --s-2: 1rem;     /*  16 */
+  --s-3: 1.5rem;   /*  24 */
+  --s-4: 2rem;     /*  32 */
+  --s-5: 2.5rem;   /*  40 */
+  --s-6: 3rem;     /*  48 */
+  --s-7: 3.5rem;   /*  56 */
+  --s-8: 4rem;     /*  64 */
+  --s-10: 5rem;    /*  80 */
+  --s-12: 6rem;    /*  96 */
+  --s-14: 7rem;    /* 112 */
+  --s-16: 8rem;    /* 128 */
+  --s-20: 10rem;   /* 160 */
+  --s-24: 12rem;   /* 192 */
+
+  /* Ritmo de secciones */
+  --sec-y: var(--s-16);
+  --sec-y-lg: var(--s-20);
+
+  /* Contenedor */
+  --container: 80rem;          /* 1280 */
+  --container-narrow: 56rem;   /*  896 */
+  --gutter: var(--s-4);        /*   32 */
+  --gap: var(--s-3);           /*   24 */
+
+  /* ---------- Radios ---------- */
+  --r-1: 0.5rem;   /*  8 */
+  --r-2: 1rem;     /* 16 */
+  --r-3: 1.5rem;   /* 24 */
+  --r-4: 2rem;     /* 32 */
+  --r-5: 2.5rem;   /* 40 */
+  --r-pill: 62.5rem;
+
+  /* ---------- Alturas de control ---------- */
+  --h-sm: 2.5rem;  /* 40 */
+  --h-md: 3rem;    /* 48 */
+  --h-lg: 3.5rem;  /* 56 */
+
+  /* ---------- Tipografía ---------- */
+  --font: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --w-body: 500;   /* Medium · cuerpos de texto */
+  --w-semi: 600;
+  --w-title: 700;  /* Bold · títulos */
+  --w-x: 800;
+
+  /* Escala tipográfica: tamaño / line-height (siempre múltiplo de 8px) */
+  --fs-display: 4.5rem;  --lh-display: 5rem;    /* 72 / 80 */
+  --fs-h1: 3.5rem;       --lh-h1: 4rem;         /* 56 / 64 */
+  --fs-h2: 2.5rem;       --lh-h2: 3rem;         /* 40 / 48 */
+  --fs-h3: 2rem;         --lh-h3: 2.5rem;       /* 32 / 40 */
+  --fs-h4: 1.5rem;       --lh-h4: 2rem;         /* 24 / 32 */
+  --fs-h5: 1.25rem;      --lh-h5: 1.5rem;       /* 20 / 24 */
+  --fs-lead: 1.25rem;    --lh-lead: 2rem;       /* 20 / 32 */
+  --fs-body: 1rem;       --lh-body: 1.5rem;     /* 16 / 24 */
+  --fs-sm: 0.875rem;     --lh-sm: 1.5rem;       /* 14 / 24 */
+  --fs-xs: 0.75rem;      --lh-xs: 1rem;         /* 12 / 16 */
+  --fs-stat: 5rem;       --lh-stat: 5rem;       /* 80 / 80 */
+
+  --ls-display: -0.04em;
+  --ls-title: -0.03em;
+  --ls-tight: -0.015em;
+  --ls-eyebrow: 0.24em;
+
+  /* ---------- Sombras ---------- */
+  --sh-1: 0 0.5rem 1.5rem -0.5rem color-mix(in oklab, var(--navy) 18%, transparent);
+  --sh-2: 0 1.5rem 3rem -1rem color-mix(in oklab, var(--navy) 24%, transparent);
+  --sh-3: 0 2.5rem 5rem -1.5rem color-mix(in oklab, var(--violet-deep) 40%, transparent);
+  --sh-glow: 0 0 0 1px color-mix(in oklab, var(--violet) 40%, transparent), 0 1rem 3rem -0.5rem color-mix(in oklab, var(--violet) 48%, transparent);
+
+  /* ---------- Movimiento ---------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 160ms;
+  --t-med: 320ms;
+  --t-slow: 640ms;
+
+  /* Capas */
+  --z-header: 50;
+  --z-catalina: 60;
+  --z-panel: 70;
+  --z-menu: 80;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 64rem) {
+  :root {
+    --fs-display: 3.5rem;  --lh-display: 4rem;    /* 56 / 64 */
+    --fs-h1: 3rem;         --lh-h1: 3.5rem;       /* 48 / 56 */
+    --fs-h2: 2.25rem;      --lh-h2: 2.5rem;       /* 36 / 40 */
+    --fs-h3: 1.75rem;      --lh-h3: 2rem;         /* 28 / 32 */
+    --fs-stat: 4rem;       --lh-stat: 4rem;       /* 64 / 64 */
+    --sec-y: var(--s-12);
+    --sec-y-lg: var(--s-16);
+    --gutter: var(--s-3);
+  }
+}
+
+/* ---------- Móvil ---------- */
+@media (max-width: 40rem) {
+  :root {
+    --fs-display: 2.5rem;  --lh-display: 3rem;    /* 40 / 48 */
+    --fs-h1: 2.25rem;      --lh-h1: 2.5rem;       /* 36 / 40 */
+    --fs-h2: 2rem;         --lh-h2: 2.5rem;       /* 32 / 40 */
+    --fs-h3: 1.5rem;       --lh-h3: 2rem;         /* 24 / 32 */
+    --fs-h4: 1.25rem;      --lh-h4: 1.5rem;       /* 20 / 24 */
+    --fs-lead: 1.125rem;   --lh-lead: 1.5rem;     /* 18 / 24 */
+    --fs-stat: 3.5rem;     --lh-stat: 4rem;       /* 56 / 64 */
+    --sec-y: var(--s-10);
+    --sec-y-lg: var(--s-12);
+    --gutter: var(--s-2);
+    --gap: var(--s-2);
+  }
+}

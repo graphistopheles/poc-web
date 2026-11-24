@@ -1,0 +1,50 @@
+<!-- ============ CATALINA · agente flotante ============ -->
+<div class="cata" data-cata>
+  <div class="cata__bubble" data-cata-bubble role="status" aria-live="polite">
+    <p class="cata__bubble-name">Catalina <span>· Asistente IA</span></p>
+    <p class="cata__bubble-text" data-cata-text>Hola, soy Catalina. Te acompaño en este recorrido.</p>
+    <button class="cata__bubble-cta" type="button" data-cata-open data-cata-ask="">Pregúntame <i data-lucide="arrow-right"></i></button>
+    <button class="cata__bubble-x" type="button" data-cata-dismiss aria-label="Ocultar mensaje"><i data-lucide="x"></i></button>
+  </div>
+  <button class="cata__btn" type="button" data-cata-open aria-label="Conversar con Catalina, asistente IA de Medismart" aria-controls="cata-panel" aria-expanded="false">
+    <span class="cata__halo" aria-hidden="true"></span>
+    <span class="cata__body" data-cata-body>
+      <!-- @include catalina-svg -->
+    </span>
+    <span class="cata__ping" aria-hidden="true"></span>
+  </button>
+</div>
+
+<!-- ============ CATALINA · panel lateral ============ -->
+<div class="cpanel-scrim" data-cata-close hidden></div>
+<aside class="cpanel" id="cata-panel" aria-label="Conversación con Catalina" aria-modal="true" role="dialog" hidden>
+  <header class="cpanel__head">
+    <div class="cpanel__av" aria-hidden="true"><img src="/assets/agentes/catalina.svg" width="56" height="56" alt="" /></div>
+    <div class="cpanel__who">
+      <p class="cpanel__name">Catalina</p>
+      <p class="cpanel__status"><span class="chip chip--live">En línea</span><span>Asistente IA de Medismart</span></p>
+    </div>
+    <button class="cpanel__x" type="button" data-cata-close aria-label="Cerrar conversación"><i data-lucide="x"></i></button>
+  </header>
+
+  <div class="cpanel__body" data-cata-log aria-live="polite">
+    <div class="cpanel__intro">
+      <p class="cpanel__hello">Hola, soy <span class="grad-text">Catalina</span>.</p>
+      <p class="t-sm">Junto todo en un solo lugar: servicios, agentes IA, implementación y seguridad. Pregúntame lo que necesites saber sobre Medismart Empresas.</p>
+    </div>
+  </div>
+
+  <div class="cpanel__suggest" data-cata-suggest>
+    <button type="button" class="cpanel__sug">¿Qué incluye Medismart Empresas?</button>
+    <button type="button" class="cpanel__sug">¿Cuánto tarda la implementación?</button>
+    <button type="button" class="cpanel__sug">¿Cómo protegen los datos?</button>
+    <button type="button" class="cpanel__sug">Conocer a los agentes IA</button>
+  </div>
+
+  <form class="cpanel__form" data-cata-form autocomplete="off">
+    <label class="sr-only" for="cata-input">Escribe tu pregunta para Catalina</label>
+    <input id="cata-input" class="cpanel__input" type="text" placeholder="Escribe tu pregunta…" maxlength="240" />
+    <button class="cpanel__send" type="submit" aria-label="Enviar pregunta"><i data-lucide="arrow-up-right"></i></button>
+  </form>
+  <p class="cpanel__note">Catalina responde con información general de Medismart. No entrega diagnósticos. Ante una emergencia, llama al 131.</p>
+</aside>

@@ -1,0 +1,83 @@
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="hd" data-hd>
+  <div class="hd__bar container">
+    <a class="hd__brand" href="/" aria-label="Medismart Empresas, inicio">
+      <img class="hd__logo hd__logo--inv" src="/assets/brand/logo-b.svg" width="161" height="32" alt="Medismart" />
+      <img class="hd__logo hd__logo--pos" src="/assets/brand/logo.svg" width="161" height="32" alt="" aria-hidden="true" />
+    </a>
+
+    <nav class="hd__nav" aria-label="Principal">
+      <ul class="hd__menu">
+        <li class="hd__item" data-drop>
+          <button class="hd__link" type="button" aria-expanded="false" aria-controls="drop-nosotros" data-nav="sobre-nosotros">
+            Sobre nosotros <i data-lucide="chevron-down" class="hd__chev"></i>
+          </button>
+          <div class="hd__drop hd__drop--wide" id="drop-nosotros">
+            <ul class="hd__drop-grid">
+              <li><a href="/sobre-nosotros.html#quienes-somos"><i data-lucide="heart-handshake"></i><span><b>¿Quiénes somos?</b><small>Nuestra historia y propósito</small></span></a></li>
+              <li><a href="/sobre-nosotros.html#equipo"><i data-lucide="users"></i><span><b>Nuestro equipo</b><small>Las personas detrás de Medismart</small></span></a></li>
+              <li><a href="/sobre-nosotros.html#impacto"><i data-lucide="calculator"></i><span><b>Nuestro impacto</b><small>Cifras y calculadora de ausentismo</small></span></a></li>
+              <li><a href="/sobre-nosotros.html#casos"><i data-lucide="quote"></i><span><b>Casos de éxito</b><small>Empresas que ya cuidan a su gente</small></span></a></li>
+              <li><a href="/sobre-nosotros.html#ciberseguridad"><i data-lucide="shield-check"></i><span><b>Ciberseguridad</b><small>Tus datos, protegidos por diseño</small></span></a></li>
+              <li><a href="/sobre-nosotros.html#actualidad"><i data-lucide="newspaper"></i><span><b>Actualidad Medismart</b><small>Noticias y lanzamientos</small></span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="hd__item" data-drop>
+          <button class="hd__link" type="button" aria-expanded="false" aria-controls="drop-servicios" data-nav="servicios">
+            Servicios <i data-lucide="chevron-down" class="hd__chev"></i>
+          </button>
+          <div class="hd__drop" id="drop-servicios">
+            <ul class="hd__drop-list">
+              <li><a href="/servicios.html"><i data-lucide="heart-pulse"></i><span><b>Soluciones de salud</b><small>Cuatro pilares para el bienestar de tu equipo</small></span></a></li>
+              <li><a href="/agentes-ia.html" class="hd__drop-feat">
+                <img src="/assets/agentes/catalina.svg" width="40" height="40" alt="" />
+                <span><b>Agentes IA</b><small>Conoce a Catalina y su familia</small></span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="hd__item"><a class="hd__link" href="/wikidoc.html" data-nav="wikidoc">WikiDoc</a></li>
+        <li class="hd__item"><a class="hd__link" href="/contacto.html" data-nav="contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="hd__actions">
+      <div class="hd__country" data-drop>
+        <button class="hd__country-btn" type="button" aria-expanded="false" aria-controls="drop-pais" aria-label="País: Chile">
+          <svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#fff"/><rect y="8" width="24" height="8" fill="#d52b1e"/><rect width="8" height="8" fill="#0039a6"/><path fill="#fff" d="m4 1.9.7 2.1h2.2L5.1 5.3l.7 2.1L4 6.1 2.2 7.4l.7-2.1L1.1 4h2.2z"/></svg>
+          <span>Chile</span><i data-lucide="chevron-down" class="hd__chev"></i>
+        </button>
+        <div class="hd__drop hd__drop--right" id="drop-pais">
+          <ul class="hd__drop-list hd__drop-list--sm">
+            <li><a href="/" aria-current="true"><svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#fff"/><rect y="8" width="24" height="8" fill="#d52b1e"/><rect width="8" height="8" fill="#0039a6"/><path fill="#fff" d="m4 1.9.7 2.1h2.2L5.1 5.3l.7 2.1L4 6.1 2.2 7.4l.7-2.1L1.1 4h2.2z"/></svg><span><b>Chile</b><small>Medismart Empresas</small></span></a></li>
+            <li><a href="https://medismart.live" target="_blank" rel="noopener"><i data-lucide="globe"></i><span><b>Otros países</b><small>Medismart Latinoamérica</small></span></a></li>
+          </ul>
+        </div>
+      </div>
+      <a class="btn btn--primary btn--sm hd__cta" href="/contacto.html#demo">Agenda una demo</a>
+      <button class="hd__burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- Menú móvil -->
+<div class="mnav" id="mnav" hidden>
+  <nav class="mnav__inner container" aria-label="Menú móvil">
+    <p class="eyebrow eyebrow--plain">Sobre nosotros</p>
+    <ul class="mnav__list mnav__list--sub">
+      <li><a href="/sobre-nosotros.html#quienes-somos">¿Quiénes somos?</a></li>
+      <li><a href="/sobre-nosotros.html#equipo">Nuestro equipo</a></li>
+      <li><a href="/sobre-nosotros.html#impacto">Nuestro impacto</a></li>
+      <li><a href="/sobre-nosotros.html#casos">Casos de éxito</a></li>
+      <li><a href="/sobre-nosotros.html#ciberseguridad">Ciberseguridad</a></li>
+      <li><a href="/sobre-nosotros.html#actualidad">Actualidad</a></li>
+    </ul>
+    <ul class="mnav__list">
+      <li><a href="/servicios.html">Soluciones de salud</a></li>
+      <li><a href="/agentes-ia.html">Agentes IA</a></li>
+      <li><a href="/wikidoc.html">WikiDoc</a></li>
+      <li><a href="/contacto.html">Contacto</a></li>
+    </ul>
+    <a class="btn btn--light btn--lg btn--block" href="/contacto.html#demo">Agenda una demo <i data-lucide="arrow-right" class="i-arrow"></i></a>
+  </nav>
+</div>
