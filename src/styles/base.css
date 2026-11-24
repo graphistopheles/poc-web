@@ -5,7 +5,13 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  scroll-padding-top: var(--s-12);
+  /* Las secciones ya traen ≥80px de padding superior, que cubren el header (80).
+     En páginas con submenú (que termina en 136px) se suman 32px: el eyebrow
+     queda en 32 + 128 = 160, siempre 24px bajo el submenú. */
+  scroll-padding-top: 0;
+}
+html:has([data-subnav]) {
+  scroll-padding-top: var(--s-4);
 }
 body {
   margin: 0;

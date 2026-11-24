@@ -56,6 +56,7 @@ export function initHeader() {
   // Tema según la sección bajo el header (y = 32px)
   const sections = [...document.querySelectorAll('[data-theme]')];
   function syncTheme() {
+    hd.classList.toggle('is-scrolled', window.scrollY > 24);
     if (hd.classList.contains('is-menu')) return;
     const probe = 32;
     const s = sections.find((el) => { const r = el.getBoundingClientRect(); return r.top <= probe && r.bottom > probe; });

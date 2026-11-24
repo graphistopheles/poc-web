@@ -219,7 +219,7 @@
 @media (max-width: 40rem) { .steps { grid-template-columns: 1fr; } }
 
 /* ---------- Servicios: bloque de pilar ---------- */
-.pillar { scroll-margin-top: var(--s-12); }
+.pillar { scroll-margin-top: 0; }
 .pillar + .pillar { padding-top: 0; }
 .pillar__head { display: flex; align-items: center; gap: var(--s-2); }
 .pillar__num { font-size: var(--fs-sm); line-height: var(--lh-sm); font-weight: var(--w-title); letter-spacing: var(--ls-eyebrow); color: var(--violet); }
