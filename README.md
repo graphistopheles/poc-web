@@ -34,7 +34,8 @@ Header (con selector de país) y footer (enlaces clave, legal, certificaciones, 
 
 `src/js/catalina.js` + `partials/catalina.html`
 
-- Vive en **perchas** (`data-cata-perch`): en la home aparece sentada sobre el escenario del hero y, al hacer scroll, vuela con un arco hasta su dock (abajo a la derecha). Al llegar a "Innovación y tecnología" vuelve a su lugar en la familia de agentes, y en `/agentes-ia` aparece al centro de la fila de la familia.
+- Vive en **perchas** (`data-cata-perch`): en la home aparece sentada sobre el escenario del hero y, al hacer scroll, despega desde ahí. Al llegar a "Innovación y tecnología" vuelve a su lugar en la familia de agentes, y en `/agentes-ia` aparece al centro de la fila de la familia.
+- **Deriva libre (como Pilo de Impilo):** fuera de una percha viaja en línea recta a ~80 px/s (48 en móvil) y rebota en los bordes del viewport sin invadir el header, con bamboleo de ±4°/1,6 s, inclinación según su rumbo y un leve aplastamiento al chocar. Se frena al pasar el mouse, mientras habla y con el panel abierto. La burbuja se abre hacia el lado con más espacio. Con `prefers-reduced-motion` se queda quieta abajo a la derecha.
 - Cada sección le deja una frase (`data-cata-say`) que ella comenta en una burbuja cuando entra en escena; `data-cata-ask` precarga una pregunta.
 - Gestos: parpadeo, "habla" al comentar, sus cubos se separan al pasar el mouse y se "abrazan" al volver.
 - **Click → panel lateral derecho** (bottom sheet en móvil) para preguntarle sobre Medismart. Las respuestas salen de una base de conocimiento local (`src/js/catalina-kb.js`) por palabras clave, sin backend.

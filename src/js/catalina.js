@@ -45,11 +45,73 @@ export function initCatalina({ gsap, ScrollTrigger, reduce }) {
     dismissedUntil: 0,
   };
 
+  /* ---------- Deriva libre (inspirada en Pilo de Impilo) ----------
+     Fuera de una percha, Catalina viaja en línea recta a velocidad constante
+     y rebota en los bordes del viewport. Se frena con suavidad al pasar el
+     mouse, mientras habla o con el panel abierto, para que siempre sea fácil
+     hacer click en ella o en la ✕ de su burbuja. */
+  const free = { x: 0, y: 0, vx: 0, vy: 0, k: 1, ready: false };
+  const ROAM = !reduce;
+  const isMobile = () => innerWidth < 640;
+  const freeSize = () => (isMobile() ? 72 : 96);
+  const speed = () => (isMobile() ? 48 : 80); // px/s (Pilo ≈ 110; algo más calmo)
+  function bounds(size) {
+    const m = isMobile() ? 16 : 24;
+    const top = isMobile() ? 88 : 104; // bajo la barra del header (80) + aire
+    return { minX: m + size / 2, maxX: innerWidth - m - size / 2, minY: top + size / 2, maxY: innerHeight - m - size / 2 };
+  }
+  function setHeading(deg) {
+    // evita trayectorias casi horizontales o verticales (aburridas)
+    const a = ((deg % 360) + 360) % 360;
+    const q = Math.floor(a / 90) * 90;
+    const clamped = q + gsap.utils.clamp(20, 70, a - q);
+    const rad = (clamped * Math.PI) / 180;
+    free.vx = Math.cos(rad) * speed();
+    free.vy = Math.sin(rad) * speed();
+  }
   function dock() {
-    const mobile = innerWidth < 640;
-    const size = mobile ? 72 : 96;
-    const m = mobile ? 16 : 32;
-    return { x: innerWidth - m - size / 2, y: innerHeight - m - size / 2, size };
+    const size = freeSize();
+    const b = bounds(size);
+    if (!free.ready) { // primer punto: esquina inferior derecha, rumbo arriba-izquierda
+      free.x = b.maxX; free.y = b.maxY; setHeading(gsap.utils.random(205, 245)); free.ready = true;
+    }
+    return { x: free.x, y: free.y, size };
+  }
+  // Rebote: se aplasta contra el borde y recupera la forma con elasticidad
+  function bounceFx(axis) {
+    if (reduce) return;
+    const sx = axis === 'x' ? 0.86 : 1.1, sy = axis === 'x' ? 1.1 : 0.86;
+    gsap.fromTo(body, { scaleX: sx, scaleY: sy }, { scaleX: 1, scaleY: 1, duration: 0.9, ease: 'elastic.out(1, 0.35)', transformOrigin: '50% 50%', overwrite: 'auto' });
+  }
+  function stepFree(dt, perchW) {
+    const size = freeSize();
+    const b = bounds(size);
+    if (!free.ready) dock();
+    // Mientras está posada, su punto libre la acompaña: al soltarse, parte desde ahí
+    if (perchW > 0.6 && st.perch) {
+      const r = st.perch.el.getBoundingClientRect();
+      free.x = gsap.utils.clamp(b.minX, b.maxX, r.left + r.width / 2);
+      free.y = gsap.utils.clamp(b.minY, b.maxY, r.top + r.height / 2);
+      return;
+    }
+    if (!ROAM) { free.x = b.maxX; free.y = b.maxY; return; }
+    const hold = st.hover || st.open || bubble.classList.contains('is-on');
+    const kT = hold ? 0 : 1;
+    free.k += (kT - free.k) * (1 - Math.pow(hold ? 0.0004 : 0.05, dt)); // frena en ~0,25 s, arranca en ~1 s
+    const sp = Math.hypot(free.vx, free.vy) || 1;
+    if (Math.abs(sp - speed()) > 1) { free.vx *= speed() / sp; free.vy *= speed() / sp; } // cambio de breakpoint
+    free.x += free.vx * free.k * dt;
+    free.y += free.vy * free.k * dt;
+    const jitter = () => gsap.utils.random(-10, 10);
+    let hit = null;
+    if (free.x < b.minX) { free.x = b.minX; free.vx = Math.abs(free.vx); hit = 'x'; }
+    else if (free.x > b.maxX) { free.x = b.maxX; free.vx = -Math.abs(free.vx); hit = 'x'; }
+    if (free.y < b.minY) { free.y = b.minY; free.vy = Math.abs(free.vy); hit = 'y'; }
+    else if (free.y > b.maxY) { free.y = b.maxY; free.vy = -Math.abs(free.vy); hit = 'y'; }
+    if (hit) {
+      setHeading((Math.atan2(free.vy, free.vx) * 180) / Math.PI + jitter());
+      if (free.k > 0.5 && st.docked) bounceFx(hit);
+    }
   }
 
   // Peso de cada percha según su posición en el viewport
@@ -71,6 +133,7 @@ export function initCatalina({ gsap, ScrollTrigger, reduce }) {
 
   function frame(time, dt) {
     st.t += dt / 1000;
+    stepFree(Math.min(dt, 64) / 1000, st.w);
     const d = dock();
 
     // percha dominante
@@ -97,12 +160,15 @@ export function initCatalina({ gsap, ScrollTrigger, reduce }) {
       ty -= Math.sin(Math.PI * st.w) * Math.min(160, Math.abs(px - d.x) * 0.18);
     }
 
-    // flotación viva: más amplia en el dock, sutil en una percha
-    const amp = 6 + (1 - e) * 4;
-    const fy = reduce ? 0 : Math.sin(st.t * 1.6) * amp;
+    // Bamboleo tipo Pilo: ±4px y ±4° en ciclos de 1,6 s (ω = 2π / 1,6)
+    const W = 3.93;
+    const amp = 4 - e;
+    const fy = reduce ? 0 : Math.sin(st.t * W) * amp;
     const vel = (st.w - prevW) / Math.max(dt, 1) * 1000;
     prevW = st.w;
-    const tr = reduce ? 0 : Math.sin(st.t * 1.1) * 3 + gsap.utils.clamp(-18, 18, vel * -12);
+    // se inclina hacia donde viaja (hasta 6°) y al despegar de una percha
+    const lean = (free.vx / speed()) * 6 * free.k * (1 - e);
+    const tr = reduce ? 0 : Math.sin(st.t * W) * 4 + lean + gsap.utils.clamp(-18, 18, vel * -12);
     st.r += (tr - st.r) * 0.12;
 
     // El contenedor (y la burbuja) quedan quietos; solo el personaje flota.
@@ -110,7 +176,7 @@ export function initCatalina({ gsap, ScrollTrigger, reduce }) {
     st.x = tx; st.y = ty; st.s = ts / BASE;
     wrap.style.transform = `translate3d(${st.x.toFixed(1)}px, ${st.y.toFixed(1)}px, 0)`;
     btn.style.transform = `translateY(${fy.toFixed(1)}px) scale(${st.s.toFixed(4)}) rotate(${st.r.toFixed(2)}deg)`;
-    if (shadow) shadow.style.opacity = String(0.7 - Math.sin(st.t * 1.6) * 0.2);
+    if (shadow) shadow.style.opacity = String(0.7 - Math.sin(st.t * W) * 0.2);
 
     const docked = st.w < 0.02;
     if (docked !== st.docked) {
@@ -168,6 +234,7 @@ export function initCatalina({ gsap, ScrollTrigger, reduce }) {
 
   let hoverTl;
   btn.addEventListener('pointerenter', () => {
+    st.hover = true;
     if (reduce || !cubes.TL) return;
     hoverTl?.kill();
     const d = 28;
@@ -179,6 +246,7 @@ export function initCatalina({ gsap, ScrollTrigger, reduce }) {
     gsap.to(smile, { scaleX: 1.15, scaleY: 1.2, duration: 0.4, ease: 'back.out(3)' });
   });
   btn.addEventListener('pointerleave', () => {
+    st.hover = false;
     if (!cubes.TL) return;
     hoverTl?.kill();
     gsap.to(Object.values(cubes), { x: 0, y: 0, duration: 0.9, ease: 'elastic.out(1, 0.45)' });
@@ -204,6 +272,7 @@ export function initCatalina({ gsap, ScrollTrigger, reduce }) {
     clearTimeout(st.hideTimer);
     bubbleText.textContent = text;
     bubbleCta.dataset.cataAsk = ask || '';
+    placeBubble();
     bubble.classList.add('is-on');
     gsap.killTweensOf([bubble, bubbleText]);
     if (reduce) gsap.set(bubble, { autoAlpha: 1, scale: 1, y: 0 });
@@ -219,9 +288,23 @@ export function initCatalina({ gsap, ScrollTrigger, reduce }) {
     clearTimeout(st.hideTimer);
     st.hideTimer = setTimeout(() => hideBubble(), ms);
   }
-  bubble.addEventListener('pointerenter', () => clearTimeout(st.hideTimer));
-  bubble.addEventListener('pointerleave', () => bubble.classList.contains('is-on') && scheduleHide(4000));
+  bubble.addEventListener('pointerenter', () => { st.hover = true; clearTimeout(st.hideTimer); });
+  bubble.addEventListener('pointerleave', () => { st.hover = false; if (bubble.classList.contains('is-on')) scheduleHide(4000); });
 
+  // La burbuja se abre hacia el lado con más espacio y nunca sale del viewport
+  function placeBubble() {
+    const right = st.x < innerWidth / 2;
+    const below = st.y < innerHeight * 0.4;
+    wrap.classList.toggle('bubble-right', right);
+    wrap.classList.toggle('bubble-below', below);
+    bubble.style.marginLeft = '0px';
+    const w = bubble.offsetWidth;
+    const off = (isMobile() ? 40 : 56);
+    const left = right ? st.x + off : st.x - off - w;
+    const m = 24; // 16 de margen + 8 de holgura: Catalina aún avanza unos px mientras frena
+    const shift = gsap.utils.clamp(m, innerWidth - m - w, left) - left;
+    bubble.style.marginLeft = shift + 'px';
+  }
   function hideBubble(instant = false) {
     clearTimeout(st.hideTimer);
     st.pendingSay = null;

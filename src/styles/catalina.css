@@ -67,6 +67,22 @@
   opacity: 0; visibility: hidden;
   transform-origin: 100% 100%;
 }
+/* Catalina deriva por la pantalla: la burbuja se abre hacia el lado con aire.
+   La esquina "pico" (4px) siempre apunta a Catalina. 56 = radio 48 + 8. */
+.cata.bubble-right .cata__bubble {
+  right: auto; left: var(--s-7);
+  border-radius: var(--r-3) var(--r-3) var(--r-3) 0.25rem;
+  transform-origin: 0 100%;
+}
+.cata.bubble-below .cata__bubble {
+  bottom: auto; top: var(--s-3);
+  border-radius: var(--r-3) 0.25rem var(--r-3) var(--r-3);
+  transform-origin: 100% 0;
+}
+.cata.bubble-right.bubble-below .cata__bubble {
+  border-radius: 0.25rem var(--r-3) var(--r-3) var(--r-3);
+  transform-origin: 0 0;
+}
 .cata__bubble-name { font-size: var(--fs-xs); line-height: var(--lh-xs); font-weight: var(--w-title); color: var(--violet); padding-right: var(--s-5); }
 .cata__bubble-name span { color: var(--tx-3); font-weight: var(--w-semi); }
 .theme-dark .cata__bubble-name span { color: var(--tx-3); }
@@ -209,7 +225,8 @@
 .cpanel__note { padding: var(--s-1) var(--s-3) var(--s-2); font-size: var(--fs-xs); line-height: var(--lh-xs); color: color-mix(in oklab, var(--navy) 48%, var(--paper)); text-align: center; }
 
 @media (max-width: 40rem) {
-  .cata__bubble { width: 15rem; right: var(--s-6); }
+  .cata__bubble { width: 15rem; right: var(--s-5); }       /* 40 = radio 36 + 4 */
+  .cata.bubble-right .cata__bubble { left: var(--s-5); }
   .cpanel { top: auto; left: var(--s-1); right: var(--s-1); width: auto; height: calc(100dvh - var(--s-4)); transform: translateY(calc(100% + var(--s-2))); }
 }
 @media (prefers-reduced-motion: reduce) {
